@@ -6,7 +6,7 @@ const RAW = `https://raw.githubusercontent.com/${REPO}/main/`;
 
 /* ---------- consensus constants (must match saltgrain/consensus.py) ---------- */
 const COIN = 100000000n;
-const HALVING_INTERVAL = 210;
+const HALVING_INTERVAL = 210000;
 const RETARGET_INTERVAL = 16;
 const TARGET_SPACING = 600;
 const TARGET_TIMESPAN = RETARGET_INTERVAL * TARGET_SPACING;

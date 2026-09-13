@@ -20,9 +20,9 @@ TICKER = "SALT"
 BASE_UNIT = "mote"
 COIN = 100_000_000  # motes per SALT
 
-INITIAL_SUBSIDY = 50_000 * COIN  # x 210 blocks x 2 halves => 21,000,000 SALT cap
-HALVING_INTERVAL = 210  # blocks; Bitcoin uses 210_000
-MAX_HALVINGS = 64
+INITIAL_SUBSIDY = 50 * COIN
+HALVING_INTERVAL = 210_000  # blocks; the whole point is that many more can be mined
+MAX_HALVINGS = 64  # 210,000 x 64 blocks x 50 SALT x 2 => 21,000,000 SALT cap
 
 RETARGET_INTERVAL = 16  # blocks; Bitcoin uses 2016
 TARGET_SPACING = 600  # seconds between blocks we aim for, same as Bitcoin
