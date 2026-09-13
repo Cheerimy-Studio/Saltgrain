@@ -7,6 +7,10 @@
     "address": "salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew",
     "pubkey": "02a670fa8d7c4419ce0524146be9da3c535894366b4255a4a9489d21d2166469d7"
   },
+  "sxxso": {
+    "address": "salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq",
+    "pubkey": "035f8a0dfa82839581e7d56d5de6d2decb74c7e83d2fdfb8d45bb0fbc676b8a704"
+  },
   "szfzmzx": {
     "address": "salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd",
     "pubkey": "027abfa03e3c2b2b88e002cabc766929caa8704ab781e8466b4ecf55270ca4e409"
