@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=515"><img src="assets/ledger-light.svg?v=515" width="100%" alt="Saltgrain ledger, height 515"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=516"><img src="assets/ledger-light.svg?v=516" width="100%" alt="Saltgrain ledger, height 516"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `515` |
-| **链尖** | `0587901a70e04711d13d36179891836310302d5949c6883b61c4f218964332c8` |
+| **高度** | `516` |
+| **链尖** | `8916de76bf652f05d5e6be35fcca199955dbb1073375bfce0849a45c98cc59ea` |
 | **难度** | `139,828,912,426,872,061,952.0`  (bits `0x16021c5c`) |
-| **累计工作量** | `1,368,464,922,317,918,177,311,477,284` 次预期尝试 |
-| **已发行** | `25800.00000000 SALT`，分布在 `516` 个未花费输出上 |
+| **累计工作量** | `1,515,086,163,994,837,982,012,828,029` 次预期尝试 |
+| **已发行** | `25850.00000000 SALT`，分布在 `517` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `12` 块 |
-| **距离下次减半** | `209484` 块 |
-| **交易数** | `516` |
+| **距离下次难度调整** | `11` 块 |
+| **距离下次减半** | `209483` 块 |
+| **交易数** | `517` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `516` | `8916de76bf652f05d5e6…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:10 UTC |
 | `515` | `0587901a70e04711d13d…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:09 UTC |
 | `514` | `374238c3815aba428c6d…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:08 UTC |
 | `513` | `5502d0cfa3b51a025983…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:07 UTC |
@@ -41,15 +42,14 @@
 | `509` | `564d4b8525155e79f532…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:03 UTC |
 | `508` | `f9af1fb1850a2bd07879…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:02 UTC |
 | `507` | `d02138978c358b3c6dcb…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:01 UTC |
-| `506` | `1116dac89ea52c5fc7e0…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:00 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `61.2%` |
-| [@yannicksong0106](https://github.com/yannicksong0106) | `125` | `24.2%` |
-| [@sxxso](https://github.com/sxxso) | `39` | `7.6%` |
+| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `61.1%` |
+| [@yannicksong0106](https://github.com/yannicksong0106) | `126` | `24.4%` |
+| [@sxxso](https://github.com/sxxso) | `39` | `7.5%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `7.0%` |
 
 ### 持有者
@@ -59,12 +59,12 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
-| _未认领_ | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `6250.00000000 SALT` |
+| _未认领_ | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `6300.00000000 SALT` |
 | _未认领_ | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `1950.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 515 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 516 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
