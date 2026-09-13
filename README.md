@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=543"><img src="assets/ledger-light.svg?v=543" width="100%" alt="Saltgrain ledger, height 543"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=544"><img src="assets/ledger-light.svg?v=544" width="100%" alt="Saltgrain ledger, height 544"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `543` |
-| **链尖** | `3e3d867367f1e0d7e16f3b1dcb214980d2f869ea168c7e83948b938118e1f76d` |
-| **难度** | `559,315,649,707,488,247,808.0`  (bits `0x16008717`) |
-| **累计工作量** | `12,511,679,289,763,823,334,614,133,904` 次预期尝试 |
-| **已发行** | `27200.00000000 SALT`，分布在 `544` 个未花费输出上 |
+| **高度** | `544` |
+| **链尖** | `f602602a5b1b68798786ca95c1a20388a3e08d20c12b61040a219b52e066f252` |
+| **难度** | `2,237,262,598,829,952,991,232.0`  (bits `0x1521c5c0`) |
+| **累计工作量** | `14,857,619,156,594,540,209,835,745,827` 次预期尝试 |
+| **已发行** | `27250.00000000 SALT`，分布在 `545` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `16` 块 |
-| **距离下次减半** | `209456` 块 |
-| **交易数** | `544` |
+| **距离下次难度调整** | `15` 块 |
+| **距离下次减半** | `209455` 块 |
+| **交易数** | `545` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `544` | `f602602a5b1b68798786…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:35 UTC |
 | `543` | `3e3d867367f1e0d7e16f…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:34 UTC |
 | `542` | `f11445d766e067b1cdfd…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:34 UTC |
 | `541` | `8f5c2ef4258552e7d909…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:33 UTC |
@@ -41,14 +42,13 @@
 | `537` | `ed79111852ae7625b114…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:30 UTC |
 | `536` | `0beeb8f0b312a91f5c85…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:29 UTC |
 | `535` | `d638b1433d336b6fef26…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:28 UTC |
-| `534` | `c7d7430af9a26d479922…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:27 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `58.1%` |
-| [@yannicksong0106](https://github.com/yannicksong0106) | `153` | `28.1%` |
+| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `58.0%` |
+| [@yannicksong0106](https://github.com/yannicksong0106) | `154` | `28.3%` |
 | [@sxxso](https://github.com/sxxso) | `39` | `7.2%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `6.6%` |
 
@@ -59,12 +59,12 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
-| _未认领_ | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `7650.00000000 SALT` |
+| _未认领_ | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `7700.00000000 SALT` |
 | _未认领_ | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `1950.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 543 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 544 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
