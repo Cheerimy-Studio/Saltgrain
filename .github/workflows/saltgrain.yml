@@ -10,13 +10,20 @@ on:
   issue_comment:
     types: [created]
 
-# Per issue, not chain-wide. GitHub keeps at most one run queued per group and
-# cancels the rest, so a chain-wide group would silently drop submissions that
-# arrive together. Serialisation happens at the git layer instead: the apply
-# step revalidates against the current tip on every attempt, which is the only
-# check that is correct anyway -- a block valid against an older tip is stale.
+# One group per comment, not per issue. A per-issue group looks right and is
+# not: GitHub keeps at most one run queued per group and cancels the rest, so
+# with several miners submitting within seconds of each other most submissions
+# were dropped without ever being validated -- and a dropped run can also leave
+# the group held for minutes, blocking everything behind it. Giving every
+# submission its own group means every one of them gets a verdict.
+#
+# Serialisation happens at the git layer instead: the apply step revalidates
+# against the current tip on every attempt, which is the only check that is
+# correct anyway -- a block valid against an older tip is stale. Races are the
+# normal case here, not an error: one submission wins the height, the others
+# are told they are stale and re-mine.
 concurrency:
-  group: saltgrain-issue-${{ github.event.issue.number }}
+  group: saltgrain-issue-${{ github.event.issue.number }}-${{ github.event.comment.id }}
   cancel-in-progress: false
 
 permissions:
