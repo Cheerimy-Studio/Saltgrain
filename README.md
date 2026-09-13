@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=556"><img src="assets/ledger-light.svg?v=556" width="100%" alt="Saltgrain ledger, height 556"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=557"><img src="assets/ledger-light.svg?v=557" width="100%" alt="Saltgrain ledger, height 557"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `556` |
-| **链尖** | `c1ec320228fb138efb3b843a40b9d9e4b6c1adf0b06f447ba842c84a8343a549` |
+| **高度** | `557` |
+| **链尖** | `3b0768136f5607538ff7554fb08bbb0b9665c4f2bca7a57c6ae40e12bb0a9f8c` |
 | **难度** | `2,237,262,598,829,952,991,232.0`  (bits `0x1521c5c0`) |
-| **累计工作量** | `43,008,897,558,563,142,712,495,088,903` 次预期尝试 |
-| **已发行** | `27850.00000000 SALT`，分布在 `557` 个未花费输出上 |
+| **累计工作量** | `45,354,837,425,393,859,587,716,700,826` 次预期尝试 |
+| **已发行** | `27900.00000000 SALT`，分布在 `558` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `3` 块 |
-| **距离下次减半** | `209443` 块 |
-| **交易数** | `557` |
+| **距离下次难度调整** | `2` 块 |
+| **距离下次减半** | `209442` 块 |
+| **交易数** | `558` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `557` | `3b0768136f5607538ff7…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:48 UTC |
 | `556` | `c1ec320228fb138efb3b…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:47 UTC |
 | `555` | `0a79c9b633b5139cd27a…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:46 UTC |
 | `554` | `a0e7a2515395cfe2166a…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:45 UTC |
@@ -41,14 +42,13 @@
 | `550` | `961db383aca3ee9149f8…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:41 UTC |
 | `549` | `04d3554df1eea58e4931…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:40 UTC |
 | `548` | `cf4c1f5bcb482d0cdd1b…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:39 UTC |
-| `547` | `738295855e14886feac7…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:38 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `56.7%` |
-| [@yannicksong0106](https://github.com/yannicksong0106) | `166` | `29.8%` |
+| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `56.6%` |
+| [@yannicksong0106](https://github.com/yannicksong0106) | `167` | `29.9%` |
 | [@sxxso](https://github.com/sxxso) | `39` | `7.0%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `6.5%` |
 
@@ -59,12 +59,12 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
-| [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `8300.00000000 SALT` |
+| [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `8350.00000000 SALT` |
 | _未认领_ | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `1950.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 556 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 557 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
