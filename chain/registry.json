@@ -6,5 +6,9 @@
   "StevenQinDev": {
     "address": "salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew",
     "pubkey": "02a670fa8d7c4419ce0524146be9da3c535894366b4255a4a9489d21d2166469d7"
+  },
+  "yannicksong0106": {
+    "address": "salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002",
+    "pubkey": "02103356afd7942338e559d343217cdc2543ee96684cb46b8ca953bb71e728ecb0"
   }
 }
