@@ -59,8 +59,8 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 |---|---|--:|
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `800.00000000 SALT` |
 | _未认领_ | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `500.00000000 SALT` |
-| _未认领_ | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `150.00000000 SALT` |
-| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
+| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `150.00000000 SALT` |
+| _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
 <sub>以上内容由 `chain/blocks.jsonl` 在高度 29 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
