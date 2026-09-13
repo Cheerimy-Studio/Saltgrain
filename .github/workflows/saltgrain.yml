@@ -1,0 +1,98 @@
+name: Saltgrain node
+
+# Validates submissions posted as issue comments: blocks, transactions and
+# identity registrations.
+#
+# This workflow never mines. All that runs here is validation, which is a
+# handful of hashes and signature checks.
+
+on:
+  issue_comment:
+    types: [created]
+
+# Per issue, not chain-wide. GitHub keeps at most one run queued per group and
+# cancels the rest, so a chain-wide group would silently drop submissions that
+# arrive together. Serialisation happens at the git layer instead: the apply
+# step revalidates against the current tip on every attempt, which is the only
+# check that is correct anyway -- a block valid against an older tip is stale.
+concurrency:
+  group: saltgrain-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  submit:
+    # Only comments on issues labelled "salt" that actually contain a payload.
+    if: >-
+      github.event.issue.pull_request == null &&
+      contains(github.event.issue.labels.*.name, 'salt') &&
+      (contains(github.event.comment.body, 'salt-block-v1:') ||
+       contains(github.event.comment.body, 'salt-tx-v1:') ||
+       contains(github.event.comment.body, 'salt-id-v1:'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate against the current tip, apply, push
+        id: salt
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          COMMENT_AUTHOR: ${{ github.event.comment.user.login }}
+          # The star gate in submit.py reads these: GITHUB_REPOSITORY to know
+          # which repo's stargazers to list, GITHUB_TOKEN to be allowed to.
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          git config user.name  "salt-node"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          printf '%s' "$COMMENT_BODY" > /tmp/submission.txt
+
+          finish() {  # copy this attempt's reply into the real step output
+            cat /tmp/out.txt >> "$GITHUB_OUTPUT"
+            exit "$1"
+          }
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+
+            : > /tmp/out.txt
+            GITHUB_OUTPUT=/tmp/out.txt COMMENT_BODY="$(cat /tmp/submission.txt)" \
+              python3 submit.py || finish 1
+
+            if ! grep -qx 'changed=true' /tmp/out.txt; then
+              echo "rejected or already known — nothing to commit"
+              finish 0
+            fi
+
+            python3 verify.py || finish 1
+
+            git add chain/ README.md assets/ 2>/dev/null || true
+            if git diff --cached --quiet; then finish 0; fi
+            git commit -m "saltgrain: submission from @$COMMENT_AUTHOR"
+            if git push; then finish 0; fi
+            echo "push raced with another submission; revalidating against the new tip"
+          done
+          echo "gave up after five attempts"
+          finish 1
+
+      - name: Reply to the comment
+        if: always() && steps.salt.outputs.reply != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPLY: ${{ steps.salt.outputs.reply }}
+        run: |
+          printf '%s\n' "$REPLY" > /tmp/reply.md
+          gh issue comment "${{ github.event.issue.number }}" --body-file /tmp/reply.md

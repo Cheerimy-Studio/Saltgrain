@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="zh-CN" data-repo="Cheerimy-Studio/Saltgrain">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>盐粒 SALT · 区块浏览器</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🧂</text></svg>">
+<style>
+  :root{
+    color-scheme:light;
+    --bg:#f6f7f6; --panel:#ffffff; --panel2:#f2f4f3; --line:#e7eae8; --line2:#d9dedb;
+    --ink:#151b18; --dim:#5c6661; --dim2:#8d968f;
+    --brass:#9a6212; --brass-dim:#e3c98f; --teal:#0f766e; --red:#c0392b; --green:#1a7f4b;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    --shadow:0 1px 2px rgba(17,24,20,.04),0 6px 18px rgba(17,24,20,.05);
+    --radius:10px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;background:var(--bg);color:var(--ink)}
+  body{font:14px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  code,th,td,.num,.stat dd,.brand,.pill{font-family:var(--mono)}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:2px}
+  button{font:inherit;cursor:pointer}
+  ::selection{background:#fde9bd}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px 80px}
+
+  /* top bar */
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);
+    border-bottom:1px solid var(--line);backdrop-filter:saturate(180%) blur(10px)}
+  .bar{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;gap:14px;align-items:center}
+  .brand{font-weight:700;letter-spacing:.02em;color:var(--ink);font-size:15px;white-space:nowrap;
+    display:flex;align-items:center;gap:7px}
+  .brand::before{content:"";width:9px;height:9px;border-radius:50%;
+    background:linear-gradient(145deg,#fff,#d8dedb);border:1px solid var(--line2);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .brand span{color:var(--dim2);font-weight:500;letter-spacing:.12em;font-size:10.5px}
+  #search{flex:1;min-width:120px;background:var(--panel2);border:1px solid var(--line2);
+    color:var(--ink);font:13px var(--sans);padding:8px 12px;border-radius:8px;transition:border-color .15s,background .15s}
+  #search:focus{background:#fff;border-color:var(--brass-dim);outline:none}
+  #search::placeholder{color:var(--dim2)}
+  .you{background:var(--panel);border:1px solid var(--line2);color:var(--dim);
+    padding:7px 12px;border-radius:8px;white-space:nowrap;transition:border-color .15s}
+  .you:hover{border-color:var(--brass-dim)}
+  .you b{color:var(--brass);font-weight:600}
+
+  /* banner */
+  .banner{margin:16px 0 0;padding:11px 14px;border-radius:var(--radius);border:1px solid var(--line2);
+    background:var(--panel);display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:12.5px;
+    box-shadow:var(--shadow)}
+  .banner.ok{border-color:#c7e6d2;background:#f2faf5;color:#186a41}
+  .banner.warn{border-color:#f0dcae;background:#fdf9ef;color:#8a5b12}
+  .banner.bad{border-color:#f0c9c4;background:#fdf4f3;color:#a3352a}
+  .banner button{margin-left:auto;background:#fff;border:1px solid currentColor;
+    color:inherit;padding:5px 13px;border-radius:7px;font-size:12px;transition:background .15s}
+  .banner button:hover{background:rgba(0,0,0,.03)}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+  @media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:460px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--panel);padding:13px 15px;border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow)}
+  .stat dt{color:var(--dim2);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 7px;font-weight:600}
+  .stat dd{margin:0;font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink);
+    overflow:hidden;text-overflow:ellipsis}
+  .stat dd small{font-size:11px;color:var(--dim);font-weight:400;display:block;margin-top:4px;letter-spacing:0}
+
+  h2{font-size:13px;letter-spacing:.02em;color:var(--ink);margin:34px 0 12px;font-weight:700;
+    display:flex;align-items:baseline;gap:9px}
+  h2::before{content:"";width:3px;height:13px;border-radius:2px;background:var(--brass);opacity:.65;align-self:center}
+  h2 em{font-style:normal;color:var(--dim2);letter-spacing:0;font-size:11.5px;font-weight:400}
+
+  /* block strip */
+  .strip{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px}
+  .blk{flex:0 0 158px;min-width:0;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--radius);padding:12px 13px;text-align:left;
+    color:inherit;position:relative;box-shadow:var(--shadow);transition:border-color .15s,transform .15s,box-shadow .15s}
+  .blk:hover{border-color:var(--brass-dim);transform:translateY(-3px);
+    box-shadow:0 4px 10px rgba(17,24,20,.06),0 12px 26px rgba(17,24,20,.07);text-decoration:none}
+  .blk .h{color:var(--brass);font-weight:700;font-size:15px}
+  .blk .m{color:var(--teal);font-size:11.5px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .blk .msg{color:var(--dim);font-size:10.5px;margin-top:4px;height:14px;overflow:hidden;
+    text-overflow:ellipsis;white-space:nowrap}
+  .blk .f{color:var(--dim2);font-size:10px;margin-top:8px;display:flex;justify-content:space-between}
+  .blk .puz{position:absolute;top:11px;right:11px;font-size:9.5px;color:var(--dim2);
+    background:var(--panel2);border-radius:20px;padding:1px 7px}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--panel);box-shadow:var(--shadow)}
+  th{text-align:left;color:var(--dim2);font-weight:600;font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;padding:10px 13px;background:var(--panel2);white-space:nowrap;
+    border-bottom:1px solid var(--line)}
+  td{padding:10px 13px;border-top:1px solid var(--line);background:var(--panel);
+    font-variant-numeric:tabular-nums;white-space:nowrap;vertical-align:middle}
+  tbody tr:first-child td,table tr:first-child td{border-top:none}
+  td.memo{white-space:normal;min-width:180px}
+  tr:hover td{background:#fafbfa}
+  .num{text-align:right}
+  .me td{background:#fffcf3}
+  .me td:first-child{box-shadow:inset 3px 0 0 var(--brass)}
+  .me:hover td{background:#fff8e8}
+
+  .pill{display:inline-block;border:1px solid var(--line2);border-radius:20px;
+    padding:1.5px 8px;font-size:10.5px;color:var(--dim);background:var(--panel2)}
+  .pill.cb{border-color:var(--brass-dim);color:var(--brass);background:#fffaf0}
+
+  /* charts */
+  .charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;
+    box-shadow:var(--shadow)}
+  .card h3{margin:0 0 3px;font-size:11.5px;letter-spacing:.02em;color:var(--ink);font-weight:700}
+  .card p{margin:0 0 12px;font-size:11px;color:var(--dim2)}
+
+  /* detail */
+  .kv{width:100%;border-collapse:collapse;box-shadow:none;background:transparent}
+  .kv th{width:180px;background:transparent;text-transform:none;letter-spacing:0;
+    font-size:12.5px;color:var(--dim);padding:8px 0;font-weight:400;border-top:1px solid var(--line)}
+  .kv td{background:transparent;border-top:1px solid var(--line);padding:8px 0;
+    word-break:break-all;white-space:normal}
+  .kv tr:hover td{background:transparent}
+  .kv tr:first-child th,.kv tr:first-child td{border-top:none}
+  .back{display:inline-block;margin:18px 0 4px;color:var(--dim)}
+  .back:hover{color:var(--teal)}
+  .empty{color:var(--dim2);padding:18px;border:1px dashed var(--line2);border-radius:var(--radius);
+    font-size:12.5px;background:var(--panel)}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);
+    color:var(--dim2);font-size:11.5px;line-height:1.7}
+  @media (max-width:640px){
+    .bar{flex-wrap:wrap}
+    .you{order:3;width:100%;text-align:center}
+    .kv th{width:120px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="brand" href="#/">盐粒 <span>SALT EXPLORER</span></a>
+    <input id="search" placeholder="区块高度 / 哈希 / txid / salt1… 地址 / @用户名" autocomplete="off">
+    <button class="you" id="youBtn">…</button>
+  </div>
+</header>
+
+<div class="wrap" id="app"></div>
+
+<script src="app.js"></script>
+<script>
+/* ------------------------------------------------------------------ *
+ * Sample data. Used only when the live chain cannot be fetched, so the
+ * page is never blank. Clearly labelled as sample wherever it is shown.
+ * ------------------------------------------------------------------ */
+const SAMPLE = { blocks: [{"algo":1,"bits":503382016,"height":0,"merkle_root":"a3eb6995c37b66d87ec90f383e7f7e5c6d3529379f1478065d5b51d9b016ee17","miner":"Cheerimy-Studio","prev_hash":"0000000000000000000000000000000000000000000000000000000000000000","solution":"00001d036a86f700027da741b20d000112172755d900009339ee7f5200001b26b5bfa20000e7da5b21540001311c7550ed00024634f57f1200009fceb9021f00045c604a562a0001d8ee33789500003fc77d6dd800014b436f89370001fbc8a11a5e00007bc66d756c","timestamp":1789265798,"txs":[{"cb_height":0,"coinbase":"\u4e00\u7c92\u76d0\u4ec0\u4e48\u90fd\u4e0d\u662f\uff0c\u6492\u8fdb\u9505\u91cc\u624d\u6709\u5473\u9053\u3002","inputs":[],"locktime":0,"outputs":[{"address":"salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8","value":5000000000}],"version":1}]}], mempool: [], registry: {"Cheerimy-Studio":{"address":"salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8","pubkey":"029b6f1d592db57e6f5989847e7476a1982c18d739b7f1f93a74a30fad90a82692"}} };
+
+let STATE = null, MEMPOOL = [], REGISTRY = {}, BY_ADDR = {}, SAMPLED = false,
+    FULLY_VERIFIED = false, SAMPLE_REASON = "";
+const app = document.getElementById("app");
+const you = () => localStorage.getItem("salt.handle") || "";
+
+async function grab(path, attempts = 2) {
+  // A stalled request would otherwise leave the page blank forever instead of
+  // falling back to the sample chain. One retry, because raw.githubusercontent
+  // is slow from some networks.
+  for (let i = 1; ; i++) {
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 12000);
+    try {
+      const r = await fetch(RAW + path, { cache: "no-store", signal: ctl.signal });
+      if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);
+      return await r.text();
+    } catch (e) {
+      if (i >= attempts) throw e;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+}
+
+async function load() {
+  app.innerHTML = `<div class="banner"><span>正在从
+    <code>${esc(REPO)}</code> 拉取链数据…</span></div>`;
+  try {
+    const [b, m, g] = await Promise.allSettled([
+      grab("chain/blocks.jsonl"), grab("chain/mempool.jsonl"), grab("chain/registry.json")]);
+    if (b.status !== "fulfilled") throw new Error(b.reason.message);
+    const blocks = b.value.trim().split("\n").filter(Boolean).map(JSON.parse);
+    if (!blocks.length) throw new Error("链是空的");
+    MEMPOOL = m.status === "fulfilled"
+      ? m.value.trim().split("\n").filter(Boolean).map(JSON.parse) : (SAMPLE.mempool || []);
+    REGISTRY = g.status === "fulfilled" ? JSON.parse(g.value) : {};
+    STATE = replay(blocks);
+  } catch (e) {
+    SAMPLED = true;
+    SAMPLE_REASON = /abort/i.test(e.name + e.message) ? "网络没有响应" : (e.message || String(e));
+    REGISTRY = SAMPLE.registry;
+    STATE = replay(SAMPLE.blocks);
+  }
+  BY_ADDR = {};
+  for (const [h, v] of Object.entries(REGISTRY)) BY_ADDR[v.address] = h;
+  route();
+}
+
+/* ---------------- helpers ---------------- */
+const who = a => BY_ADDR[a]
+  ? `<a href="#/handle/${esc(BY_ADDR[a])}">@${esc(BY_ADDR[a])}</a>`
+  : `<a href="#/address/${esc(a)}">${esc(short(a, 10))}</a>`;
+const myAddr = () => (REGISTRY[you()] || {}).address || null;
+
+function banner() {
+  const out = [];
+  if (SAMPLED) out.push(`<div class="banner warn"><span><b>演示数据。</b>取不到 <code>${esc(REPO)}</code> 的链数据${SAMPLE_REASON
+      ? `（${esc(SAMPLE_REASON)}）` : ""}，下面是内置的演示链，同样可以完整核验。</span></div>`);
+
+  if (STATE.problems.length) {
+    const p = STATE.problems[0];
+    out.push(`<div class="banner bad"><span><b>链数据有误</b>，位置：区块 ${p.height}:
+      ${esc(p.message)}${STATE.problems.length > 1
+        ? ` &nbsp;<span class="pill">另有 ${STATE.problems.length - 1} 处</span>` : ""}</span></div>`);
+  } else if (FULLY_VERIFIED) {
+    out.push(`<div class="banner ok"><span><b>已完整核验。</b>${STATE.blocks.length} 个区块的题目、树根、签名与发行量全部通过。</span></div>`);
+  } else {
+    out.push(`<div class="banner ok"><span><b>链数据一致。</b></span>
+      <button id="verifyAll">完整核验每个区块</button></div>`);
+  }
+  return out.join("");
+}
+
+function statsRow() {
+  const t = STATE.tip, h = STATE.height;
+  const nb = nextBits(h + 1, STATE.blocks);
+  const k = kForWork(targetToWork(bitsToTarget(t.bits)), t.height);
+  const retarget = RETARGET_INTERVAL - ((h + 1) % RETARGET_INTERVAL);
+  const halving = HALVING_INTERVAL - ((h + 1) % HALVING_INTERVAL);
+  const spans = STATE.blocks.slice(-11).map(b => b.timestamp);
+  let avg = "—";
+  if (spans.length > 1) {
+    const d = (spans[spans.length - 1] - spans[0]) / (spans.length - 1);
+    avg = d >= 3600 ? `${(d / 3600).toFixed(1)}h` : `${Math.round(d / 60)}m`;
+  }
+  const S = (t, v, s) => `<div class="stat"><dt>${t}</dt><dd>${v}${s ? `<small>${s}</small>` : ""}</dd></div>`;
+  return `<div class="stats">
+    ${S("高度", h, `${STATE.txCount} 笔交易`)}
+    ${S("难度", difficultyOf(t.bits).toLocaleString(undefined, { maximumFractionDigits: 1 }), fmtBits(t.bits))}
+    ${S("每块题数", k, `子集和 n=${PN}`)}
+    ${S("已发行", fmtAmount(STATE.emitted).split(".")[0], `下一块奖励 ${fmtAmount(subsidy(h + 1))}`)}
+    ${S("平均间隔", avg, `目标 ${TARGET_SPACING / 60} 分钟`)}
+    ${S("下次难度调整", `${retarget}`, nb === t.bits ? "暂不调整" : `→ ${fmtBits(nb)}`)}
+    ${S("下次减半", `${halving}`, `→ ${fmtAmount(subsidy(h + HALVING_INTERVAL))}`)}
+    ${S("交易池", MEMPOOL.length, "笔待打包")}
+  </div>`;
+}
+
+function blockStrip() {
+  const list = STATE.blocks.slice(-14).reverse();
+  return `<h2>区块 <em>最新在前</em></h2><div class="strip">` + list.map(b => {
+    const cb = b.txs[0];
+    return `<a class="blk" href="#/block/${b.height}">
+      <span class="puz">${kForWork(targetToWork(bitsToTarget(b.bits)), b.height)}p</span>
+      <div class="h">#${b.height}</div>
+      <div class="m">@${esc(b.miner)}</div>
+      <div class="msg">${esc(cb.coinbase || "")}</div>
+      <div class="f"><span>${b.txs.length} 笔</span><span>${ago(b.timestamp)}</span></div>
+    </a>`;
+  }).join("") + `</div>`;
+}
+
+function mempoolPanel() {
+  if (!MEMPOOL.length) return `<h2>交易池</h2><div class="empty">没有待打包的交易。</div>`;
+  return `<h2>交易池 <em>${MEMPOOL.length} 笔待打包</em></h2><div class="scroll"><table>
+    <tr><th>txid</th><th>从</th><th>到</th><th class="num">数量</th><th>备注</th></tr>` +
+    MEMPOOL.map(t => {
+      const from = t.inputs?.[0] ? who(pubToAddress(t.inputs[0].pubkey)) : "—";
+      const o = t.outputs[0];
+      return `<tr><td><a href="#/tx/${txid(t)}">${esc(short(txid(t), 10))}</a></td><td>${from}</td><td>${who(o.address)}</td><td class="num">${fmtAmount(o.value)}</td><td class="memo">${esc(t.memo || "")}</td></tr>`;
+    }).join("") + `</table></div>`;
+}
+
+function youPanel() {
+  const h = you();
+  if (!h) return `<h2>你</h2><div class="empty">
+    点右上角填上你的 GitHub 用户名，你的余额、区块和转账就会高亮。信息只存在本地浏览器，不会发送。</div>`;
+  const addr = myAddr();
+  const mined = STATE.blocks.filter(b => b.miner.toLowerCase() === h.toLowerCase());
+  const bal = addr ? (STATE.balances.get(addr) ?? 0n) : null;
+  const rank = [...STATE.balances.entries()].sort((a, b) => (b[1] > a[1] ? 1 : -1))
+    .findIndex(([a]) => a === addr) + 1;
+  const rows = [
+    ["GitHub", `<a href="https://github.com/${esc(h)}">@${esc(h)}</a>`],
+    ["挖出的区块", `${mined.length}${mined.length ? ` — ${mined.slice(-6).reverse()
+      .map(b => `<a href="#/block/${b.height}">#${b.height}</a>`).join(" ")}` : ""}`],
+    ["地址", addr ? `<a href="#/address/${addr}">${esc(addr)}</a>` :
+      `<span style="color:var(--dim2)">未绑定 —— 运行 <code>python3 wallet.py identity --handle ${esc(h)}</code></span>`],
+    ["余额", bal === null ? "—" : `${fmtAmount(bal)} SALT${rank ? ` <span class="pill">持有量第 ${rank}</span>` : ""}`],
+  ];
+  return `<h2>你</h2><div class="card"><table class="kv">` +
+    rows.map(([k2, v]) => `<tr><th>${k2}</th><td>${v}</td></tr>`).join("") + `</table></div>`;
+}
+
+/* --------- charts: difficulty and block intervals --------- */
+function spark(values, { w = 460, h = 90, color = "var(--brass)", fill = true, label = v => v } = {}) {
+  if (values.length < 2) return `<p style="color:var(--dim2)">区块还不够多。</p>`;
+  const min = Math.min(...values), max = Math.max(...values);
+  const flat = max === min;
+  const span = max - min || 1;
+  const pad = { l: 44, r: 8, t: 8, b: 18 };
+  const iw = w - pad.l - pad.r, ih = h - pad.t - pad.b;
+  const pts = values.map((v, i) => [
+    pad.l + (values.length === 1 ? 0 : i * iw / (values.length - 1)),
+    flat ? pad.t + ih / 2 : pad.t + ih - ((v - min) / span) * ih]);
+  const line = pts.map((p, i) => `${i ? "L" : "M"}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join("");
+  const area = `${line}L${pts[pts.length - 1][0].toFixed(1)},${pad.t + ih}L${pad.l},${pad.t + ih}Z`;
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" role="img">
+    <line x1="${pad.l}" y1="${pad.t}" x2="${w - pad.r}" y2="${pad.t}" stroke="var(--line)"/>
+    <line x1="${pad.l}" y1="${pad.t + ih}" x2="${w - pad.r}" y2="${pad.t + ih}" stroke="var(--line)"/>
+    ${fill && !flat ? `<path d="${area}" fill="${color}" opacity=".14"/>` : ""}
+    <path d="${line}" fill="none" stroke="${color}" stroke-width="1.6"/>
+    <circle cx="${pts[pts.length - 1][0].toFixed(1)}" cy="${pts[pts.length - 1][1].toFixed(1)}" r="2.8" fill="${color}"/>
+    ${flat
+      ? `<text x="4" y="${pad.t + ih / 2 + 3}" fill="var(--dim2)" font-size="9"
+           font-family="var(--mono)">${esc(label(min))}</text>
+         <text x="${pad.l + 6}" y="${pad.t + 11}" fill="var(--dim2)" font-size="9"
+           font-family="var(--mono)">至今没有变化</text>`
+      : `<text x="4" y="${pad.t + 4}" fill="var(--dim2)" font-size="9"
+           font-family="var(--mono)">${esc(label(max))}</text>
+         <text x="4" y="${pad.t + ih}" fill="var(--dim2)" font-size="9"
+           font-family="var(--mono)">${esc(label(min))}</text>`}
+  </svg>`;
+}
+
+function chartsPanel() {
+  const diff = STATE.blocks.map(b => difficultyOf(b.bits));
+  const iv = STATE.blocks.slice(1).map((b, i) =>
+    Math.max(0, (b.timestamp - STATE.blocks[i].timestamp) / 60));
+  const supply = STATE.blocks.map((_, h) => Number(fmtAmount(
+    STATE.blocks.slice(0, h + 1).reduce((a, _b, i) => a + subsidy(i), 0n)).split(".")[0]));
+  return `<h2>整条链</h2><div class="charts">
+    <div class="card"><h3>难度</h3><p>按高度 —— 每 ${RETARGET_INTERVAL} 个区块调整一次</p>
+      ${spark(diff, { label: v => v.toLocaleString(undefined, { maximumFractionDigits: 0 }) })}</div>
+    <div class="card"><h3>出块间隔</h3><p>两个区块之间的分钟数 —— 目标 ${TARGET_SPACING / 60}</p>
+      ${spark(iv, { color: "var(--teal)", label: v => `${v.toFixed(0)}m` })}</div>
+    <div class="card"><h3>发行量</h3><p>SALT 累计发行 —— 每 ${HALVING_INTERVAL} 个区块减半</p>
+      ${spark(supply, { color: "var(--green)", label: v => v.toLocaleString() })}</div>
+  </div>`;
+}
+
+function minersPanel() {
+  const total = [...STATE.miners.values()].reduce((a, b) => a + b, 0);
+  const me = you().toLowerCase();
+  return `<h2>矿工</h2><div class="scroll"><table>
+    <tr><th>矿工</th><th class="num">区块数</th><th class="num">占比</th></tr>` +
+    [...STATE.miners.entries()].sort((a, b) => b[1] - a[1]).map(([h, c]) =>
+      `<tr class="${h.toLowerCase() === me ? "me" : ""}"><td><a href="#/handle/${esc(h)}">@${esc(h)}</a></td><td class="num">${c}</td><td class="num">${(100 * c / total).toFixed(1)}%</td></tr>`).join("") +
+    `</table></div>`;
+}
+
+function balancesPanel() {
+  const mine = myAddr();
+  const rows = [...STATE.balances.entries()].sort((a, b) => (b[1] > a[1] ? 1 : -1));
+  return `<h2>持有者 <em>${rows.length} 个地址</em></h2><div class="scroll"><table>
+    <tr><th>持有者</th><th>地址</th><th class="num">余额</th></tr>` +
+    rows.map(([a, v]) => `<tr class="${a === mine ? "me" : ""}">
+      <td>${BY_ADDR[a] ? `<a href="#/handle/${esc(BY_ADDR[a])}">@${esc(BY_ADDR[a])}</a>`
+        : '<span style="color:var(--dim2)">未认领</span>'}</td><td><a href="#/address/${esc(a)}">${esc(a)}</a></td><td class="num">${fmtAmount(v)}</td></tr>`).join("") + `</table></div>`;
+}
+
+/* ---------------- views ---------------- */
+function home() {
+  app.innerHTML = banner() + statsRow() + blockStrip() + mempoolPanel() +
+    youPanel() + chartsPanel() + minersPanel() + balancesPanel() + foot();
+  const vb = document.getElementById("verifyAll");
+  if (vb) vb.onclick = verifyAll;
+}
+
+function foot() {
+  return `<footer>所有数字均由你的浏览器从
+    <a href="https://github.com/${esc(REPO)}/blob/main/chain/blocks.jsonl">chain/blocks.jsonl</a> 现场重算，规则见
+    <a href="https://github.com/${esc(REPO)}/blob/main/SPEC.md">SPEC.md</a>。
+    ${SAMPLED ? "" : `累计工作量 ${STATE.chainwork.toLocaleString()} 次预期尝试。`}</footer>`;
+}
+
+function blockView(h) {
+  const b = STATE.blocks[h];
+  if (!b) return notFound(`高度 ${h} 上没有区块。`);
+  const cb = b.txs[0];
+  const k = kForWork(targetToWork(bitsToTarget(b.bits)), b.height);
+  const sols = (() => { try { return decodeSolutions(b.solution); } catch { return []; } })();
+  const rows = [
+    ["哈希", `<code>${blockHash(b)}</code>`],
+    ["上一块", h ? `<a href="#/block/${h - 1}"><code>${b.prev_hash}</code></a>` : "<code>创世块</code>"],
+    ["矿工", `<a href="#/handle/${esc(b.miner)}">@${esc(b.miner)}</a>`],
+    ["时间", `${new Date(b.timestamp * 1000).toISOString().replace("T", " ").slice(0, 19)} UTC <span class="pill">${ago(b.timestamp)}</span>`],
+    ["难度", `${difficultyOf(b.bits).toLocaleString(undefined, { maximumFractionDigits: 1 })} <span class="pill">${fmtBits(b.bits)}</span>`],
+    ["工作量", `${k} 道子集和题，n=${PN}`],
+    ["哈希树根", `<code>${b.merkle_root}</code>`],
+    ["奖励", `${fmtAmount(cb.outputs.reduce((a, o) => a + BigInt(o.value), 0n))} SALT`],
+    ["区块留言", cb.coinbase ? `<code>${esc(cb.coinbase)}</code>` : "—"],
+    ["解", `<code style="color:var(--dim)">${esc(short(b.solution || "", 40))}</code>
+      <span class="pill">${sols.length * SOL_BYTES} bytes</span>`],
+  ];
+  const txs = b.txs.map((t, i) => {
+    const id = txid(t);
+    const out = t.outputs.reduce((a, o) => a + BigInt(o.value), 0n);
+    return `<tr><td><a href="#/tx/${id}">${esc(short(id, 12))}</a></td><td>${i === 0 ? '<span class="pill cb">区块奖励</span>' : who(pubToAddress(t.inputs[0].pubkey))}</td><td>${who(t.outputs[0].address)}</td><td class="num">${fmtAmount(out)}</td><td class="memo">${esc(i === 0 ? (t.coinbase || "") : (t.memo || ""))}</td></tr>`;
+  }).join("");
+
+  app.innerHTML = `<a class="back" href="#/">← 返回</a>
+    <h2>区块 ${h} <em>${b.txs.length} 笔交易</em></h2>
+    <div class="card"><table class="kv">${rows.map(([a, v]) =>
+      `<tr><th>${a}</th><td>${v}</td></tr>`).join("")}</table></div>
+    <h2>交易</h2><div class="scroll"><table>
+      <tr><th>txid</th><th>从</th><th>到</th><th class="num">数量</th><th>备注</th></tr>
+      ${txs}</table></div>
+    <div style="margin-top:14px;display:flex;gap:10px">
+      ${h ? `<a class="pill" href="#/block/${h - 1}">← 更早</a>` : ""}
+      ${h < STATE.height ? `<a class="pill" href="#/block/${h + 1}">更新 →</a>` : ""}
+    </div>` + foot();
+}
+
+function txView(id) {
+  const hit = STATE.txIndex.get(id);
+  const pending = MEMPOOL.find(t => txid(t) === id);
+  if (!hit && !pending) return notFound("找不到这笔交易。");
+  const t = hit ? hit.tx : pending;
+  const cb = isCoinbase(t);
+  const out = t.outputs.reduce((a, o) => a + BigInt(o.value), 0n);
+  const rows = [
+    ["交易号", `<code>${id}</code>`],
+    ["状态", hit ? `已确认，在 <a href="#/block/${hit.height}">区块 ${hit.height}</a>
+      <span class="pill">${STATE.height - hit.height + 1} 个确认</span>`
+      : '<span class="pill">在交易池里</span>'],
+    ["类型", cb ? '<span class="pill cb">区块奖励</span>' : "转账"],
+    ["转出合计", `${fmtAmount(out)} SALT`],
+  ];
+  if (!cb) rows.push(["备注", t.memo ? `<code>${esc(t.memo)}</code>` : "—"]);
+  if (cb) rows.push(["留言", t.coinbase ? `<code>${esc(t.coinbase)}</code>` : "—"]);
+
+  const ins = cb ? `<tr><td colspan="3"><span class="pill cb">新发行 —— 没有输入</span></td></tr>`
+    : t.inputs.map(i => `<tr><td>${who(pubToAddress(i.pubkey))}</td><td><a href="#/tx/${i.txid}">${esc(short(i.txid, 12))}</a>:${i.vout}</td><td><code style="color:var(--dim2)">${esc(short(i.sig, 10))}</code></td></tr>`).join("");
+
+  app.innerHTML = `<a class="back" href="#/">← 返回</a><h2>交易</h2>
+    <div class="card"><table class="kv">${rows.map(([a, v]) =>
+      `<tr><th>${a}</th><td>${v}</td></tr>`).join("")}</table></div>
+    <h2>输入</h2><div class="scroll"><table>
+      <tr><th>从</th><th>花费</th><th>签名</th></tr>${ins}</table></div>
+    <h2>输出</h2><div class="scroll"><table>
+      <tr><th>#</th><th>到</th><th class="num">数量</th></tr>
+      ${t.outputs.map((o, i) => `<tr><td>${i}</td><td>${who(o.address)}</td><td class="num">${fmtAmount(o.value)}</td></tr>`).join("")}</table></div>` + foot();
+}
+
+function addressView(addr) {
+  const bal = STATE.balances.get(addr) ?? 0n;
+  const handle = BY_ADDR[addr];
+  const utxos = [...STATE.utxos.entries()].filter(([, u]) => u.address === addr);
+  const history = [];
+  for (const b of STATE.blocks) {
+    for (const t of b.txs) {
+      const id = txid(t);
+      const recv = t.outputs.some(o => o.address === addr);
+      const sent = !isCoinbase(t) && t.inputs.some(i => pubToAddress(i.pubkey) === addr);
+      if (recv || sent) history.push({ b, t, id, recv, sent });
+    }
+  }
+  app.innerHTML = `<a class="back" href="#/">← 返回</a><h2>地址</h2>
+    <div class="card"><table class="kv">
+      <tr><th>地址</th><td><code>${esc(addr)}</code></td></tr><tr><th>持有者</th><td>${handle ? `<a href="#/handle/${esc(handle)}">@${esc(handle)}</a>`
+        : '<span style="color:var(--dim2)">未认领 —— 还没有人绑定这个地址</span>'}</td></tr><tr><th>余额</th><td>${fmtAmount(bal)} SALT，来自 ${utxos.length} 个输出</td></tr>
+    </table></div>
+    <h2>记录 <em>${history.length} 笔交易</em></h2>
+    ${history.length ? `<div class="scroll"><table>
+      <tr><th>区块</th><th>txid</th><th>方向</th><th class="num">数量</th><th>备注</th></tr>` +
+      history.reverse().map(({ b, t, id, recv, sent }) => {
+        const amt = recv ? t.outputs.filter(o => o.address === addr)
+          .reduce((a, o) => a + BigInt(o.value), 0n) : 0n;
+        return `<tr><td><a href="#/block/${b.height}">${b.height}</a></td><td><a href="#/tx/${id}">${esc(short(id, 10))}</a></td><td>${sent && recv ? "转出 + 找零" : sent ? "转出" : isCoinbase(t) ? "挖出" : "收到"}</td><td class="num">${recv ? fmtAmount(amt) : "—"}</td><td class="memo">${esc(t.memo || t.coinbase || "")}</td></tr>`;
+      }).join("") + `</table></div>` : `<div class="empty">没有交易。</div>`}` + foot();
+}
+
+function handleView(h) {
+  const reg = REGISTRY[h] || Object.entries(REGISTRY)
+    .find(([n]) => n.toLowerCase() === h.toLowerCase())?.[1];
+  const mined = STATE.blocks.filter(b => b.miner.toLowerCase() === h.toLowerCase());
+  const addr = reg?.address;
+  const bal = addr ? (STATE.balances.get(addr) ?? 0n) : null;
+  const reward = mined.reduce((a, b) =>
+    a + b.txs[0].outputs.reduce((x, o) => x + BigInt(o.value), 0n), 0n);
+  app.innerHTML = `<a class="back" href="#/">← 返回</a><h2>@${esc(h)}</h2>
+    <div class="card"><table class="kv">
+      <tr><th>GitHub</th><td><a href="https://github.com/${esc(h)}">github.com/${esc(h)}</a></td></tr><tr><th>挖出区块</th><td>${mined.length}</td></tr><tr><th>累计奖励</th><td>${fmtAmount(reward)} SALT</td></tr><tr><th>地址</th><td>${addr ? `<a href="#/address/${addr}"><code>${esc(addr)}</code></a>`
+        : '<span style="color:var(--dim2)">还没有绑定地址</span>'}</td></tr><tr><th>余额</th><td>${bal === null ? "—" : fmtAmount(bal) + " SALT"}</td></tr>
+    </table></div>
+    <h2>挖出的区块</h2>
+    ${mined.length ? `<div class="scroll"><table>
+      <tr><th>高度</th><th>哈希</th><th>留言</th><th class="num">交易</th><th class="num">奖励</th><th>时间</th></tr>` +
+      mined.slice().reverse().map(b => `<tr><td><a href="#/block/${b.height}">${b.height}</a></td><td>${esc(short(blockHash(b), 12))}</td><td class="memo">${esc(b.txs[0].coinbase || "")}</td><td class="num">${b.txs.length}</td><td class="num">${fmtAmount(b.txs[0].outputs.reduce((a, o) => a + BigInt(o.value), 0n))}</td><td>${ago(b.timestamp)}</td></tr>`).join("") + `</table></div>`
+      : `<div class="empty">@${esc(h)} 还没有挖出过区块。</div>`}` + foot();
+}
+
+const notFound = m => { app.innerHTML =
+  `<a class="back" href="#/">← 返回</a><div class="empty" style="margin-top:20px">${esc(m)}</div>` + foot(); };
+
+/* ---------------- full verification ---------------- */
+async function verifyAll() {
+  const btn = document.getElementById("verifyAll");
+  if (btn) { btn.disabled = true; btn.textContent = "核验中…"; }
+  await new Promise(r => setTimeout(r, 20));
+  const t0 = performance.now();
+  const res = replay(STATE.blocks, { fullPow: true });
+  STATE = { ...res, txIndex: res.txIndex };
+  FULLY_VERIFIED = !res.problems.length;
+  const ms = Math.round(performance.now() - t0);
+  route();
+  if (FULLY_VERIFIED) {
+    const b = document.querySelector(".banner.ok span");
+    if (b) b.innerHTML += ` <span class="pill">${ms} ms</span>`;
+  }
+}
+
+/* ---------------- routing + search ---------------- */
+function route() {
+  if (!STATE) return;
+  const p = (location.hash || "#/").slice(2).split("/");
+  window.scrollTo(0, 0);
+  if (p[0] === "block") return blockView(parseInt(p[1], 10));
+  if (p[0] === "tx") return txView(p[1]);
+  if (p[0] === "address") return addressView(p[1]);
+  if (p[0] === "handle") return handleView(decodeURIComponent(p[1] || ""));
+  home();
+}
+
+function doSearch(q) {
+  q = q.trim().replace(/^@/, "");
+  if (!q) return;
+  if (/^\d+$/.test(q)) return location.hash = `#/block/${q}`;
+  if (/^(salt|rofl)1[a-z0-9]+$/i.test(q)) return location.hash = `#/address/${q.toLowerCase()}`;
+  if (/^[0-9a-f]{64}$/i.test(q)) {
+    const lower = q.toLowerCase();
+    const bi = STATE.blocks.findIndex(b => blockHash(b) === lower);
+    if (bi >= 0) return location.hash = `#/block/${bi}`;
+    return location.hash = `#/tx/${lower}`;
+  }
+  return location.hash = `#/handle/${encodeURIComponent(q)}`;
+}
+
+document.getElementById("search").addEventListener("keydown", e => {
+  if (e.key === "Enter") doSearch(e.target.value);
+});
+const youBtn = document.getElementById("youBtn");
+function paintYou() {
+  const h = you();
+  youBtn.innerHTML = h ? `你: <b>@${esc(h)}</b>` : "设置我的用户名";
+}
+youBtn.onclick = () => {
+  const cur = you();
+  const v = prompt("你的 GitHub 用户名 —— 只存在这个浏览器里，不会发送到任何地方。", cur);
+  if (v === null) return;
+  const clean = v.trim().replace(/^@/, "");
+  if (clean) localStorage.setItem("salt.handle", clean);
+  else localStorage.removeItem("salt.handle");
+  paintYou(); route();
+};
+try { paintYou(); } catch { youBtn.textContent = "设置我的用户名"; }
+window.addEventListener("hashchange", route);
+load();
+</script>
+</body>
+</html>

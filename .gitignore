@@ -1,0 +1,5 @@
+salt-wallet.json
+rofl-wallet.json
+__pycache__/
+*.pyc
+.venv/

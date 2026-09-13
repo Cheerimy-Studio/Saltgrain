@@ -1,0 +1,23 @@
+name: Verify chain
+
+# Anyone can fork this repo, open a pull request, and this will replay the
+# entire chain from genesis to check the change is consistent.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Consensus tests
+        run: python3 tests/test_chain.py
+      - name: Replay the chain from genesis
+        run: python3 verify.py

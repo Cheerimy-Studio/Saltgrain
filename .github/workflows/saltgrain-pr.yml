@@ -1,0 +1,172 @@
+name: Saltgrain node (pull requests)
+
+# Accepts submissions -- blocks, transactions and identity registrations --
+# sent as pull requests, so contributors get the PR on their profile.
+#
+# A pull request that does not add a file under chain/pending/ is not a
+# submission. This workflow ignores those completely: no comment, no close,
+# no interference with ordinary code review.
+#
+# SECURITY NOTE, and the reason this file is shaped the way it is:
+# `pull_request_target` runs with a write token from the BASE repository. If
+# it checked out the fork's branch and ran anything from it -- a build step,
+# a dependency install, a test -- a stranger would be executing code with
+# write access to this repo. That is the single most common way GitHub
+# Actions get compromised.
+#
+# So this workflow never checks out the fork. It checks out main, reads the
+# one submitted file through the API as inert text, validates it, and appends
+# the result to main itself. The pull request is never merged.
+#
+# CONCURRENCY: the group is per pull request, not chain-wide. A chain-wide
+# group looks safer but is not: GitHub keeps at most one run queued per group
+# and cancels the rest, so with submissions arriving in parallel most of them
+# would silently never run. Serialisation happens at the git layer instead --
+# the apply step below revalidates against the current tip on every attempt,
+# which is the only check that is actually correct anyway, since a block that
+# was valid against an older tip is stale and must be rejected.
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: saltgrain-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  submission:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out main, never the fork
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Is this a submission?
+        id: triage
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh api "repos/$REPO/pulls/$PR/files" --paginate \
+            --jq '.[] | "\(.status) \(.filename)"' > /tmp/files.txt
+          echo "changed files:"; cat /tmp/files.txt
+          total=$(grep -c . /tmp/files.txt || true)
+          pending=$(grep -c '^added chain/pending/' /tmp/files.txt || true)
+
+          if [ "$pending" -eq 0 ]; then
+            echo "Nothing added under chain/pending/ — this is an ordinary pull"
+            echo "request, not a submission. Leaving it alone."
+            echo "handle=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "handle=true" >> "$GITHUB_OUTPUT"
+
+          if [ "$total" -ne 1 ]; then
+            echo "reject=A submission must add exactly one file under \`chain/pending/\` and change nothing else. This one changes $total files." >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          path=$(cut -d' ' -f2- /tmp/files.txt)
+          echo "path=$path" >> "$GITHUB_OUTPUT"
+          echo "ok=true" >> "$GITHUB_OUTPUT"
+
+      - name: Read the submitted file
+        id: read
+        if: steps.triage.outputs.ok == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
+          PATH_IN_PR: ${{ steps.triage.outputs.path }}
+        run: |
+          set -euo pipefail
+          # Fetched as inert text through the API. Nothing from the fork runs.
+          gh api "repos/$REPO/contents/$PATH_IN_PR?ref=$SHA" --jq '.content' \
+            | base64 -d > /tmp/submission.txt
+          if [ "$(stat -c%s /tmp/submission.txt)" -gt 131072 ]; then
+            echo "toobig=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate against the current tip, apply, push
+        id: salt
+        if: steps.triage.outputs.ok == 'true' && steps.read.outputs.toobig != 'true'
+        env:
+          COMMENT_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR: ${{ github.event.pull_request.number }}
+          # The star gate in submit.py reads these.
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          git config user.name  "salt-node"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          finish() {  # copy this attempt's reply into the real step output
+            cat /tmp/out.txt >> "$GITHUB_OUTPUT"
+            exit "$1"
+          }
+
+          for attempt in 1 2 3 4 5; do
+            # Start each attempt from whatever main is right now. A submission
+            # that was valid a minute ago may be stale, and should be told so.
+            git fetch origin main
+            git reset --hard origin/main
+
+            : > /tmp/out.txt
+            GITHUB_OUTPUT=/tmp/out.txt COMMENT_BODY="$(cat /tmp/submission.txt)" \
+              python3 submit.py || finish 1
+
+            if ! grep -qx 'changed=true' /tmp/out.txt; then
+              echo "rejected or already known — nothing to commit"
+              finish 0
+            fi
+
+            python3 verify.py || finish 1
+
+            git add chain/ README.md assets/ 2>/dev/null || true
+            if git diff --cached --quiet; then finish 0; fi
+            git commit -m "saltgrain: submission from @$COMMENT_AUTHOR (#$PR)"
+            if git push; then finish 0; fi
+            echo "push raced with another submission; revalidating against the new tip"
+          done
+          echo "gave up after five attempts"
+          finish 1
+
+      - name: Reply
+        if: always() && steps.triage.outputs.handle == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          REJECT: ${{ steps.triage.outputs.reject }}
+          TOOBIG: ${{ steps.read.outputs.toobig }}
+          REPLY: ${{ steps.salt.outputs.reply }}
+          APPLIED: ${{ steps.salt.outputs.changed }}
+        run: |
+          if [ -n "$REJECT" ]; then
+            printf '**Rejected.** %s\n\nLeaving this open so you can adjust it.\n' "$REJECT" > /tmp/reply.md
+          elif [ "$TOOBIG" = "true" ]; then
+            printf '**Rejected.** That submission file is too large.\n' > /tmp/reply.md
+          elif [ -n "$REPLY" ]; then
+            printf '%s\n' "$REPLY" > /tmp/reply.md
+          else
+            printf 'The node could not process this pull request.\n' > /tmp/reply.md
+          fi
+          if [ "$APPLIED" = "true" ]; then
+            printf '\nClosing rather than merging: the node applied this to `main` directly, which is why concurrent submissions never conflict. Your contribution is recorded in the commit.\n' >> /tmp/reply.md
+          fi
+          gh pr comment "$PR" --body-file /tmp/reply.md
+          if [ "$APPLIED" = "true" ]; then gh pr close "$PR" || true; fi
