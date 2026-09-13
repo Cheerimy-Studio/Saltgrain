@@ -107,7 +107,7 @@ def render_readme_section(state: ChainState) -> str:
     out.append(f"| **交易数** | `{state.tx_count}` |")
     out.append("")
 
-    out.append("### 最近的区块")
+    out.append("### 最近的盐块")
     out.append("")
     out.append("| # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |")
     out.append("|--:|---|---|---|--:|--:|---|")
@@ -125,7 +125,7 @@ def render_readme_section(state: ChainState) -> str:
     if state.miners:
         out.append("### 采盐者")
         out.append("")
-        out.append("| 采盐者 | 区块数 | 占比 |")
+        out.append("| 采盐者 | 盐块数 | 占比 |")
         out.append("|---|--:|--:|")
         total = sum(state.miners.values())
         for handle, count in sorted(state.miners.items(), key=lambda p: (-p[1], p[0]))[:12]:
@@ -159,7 +159,7 @@ def render_readme_section(state: ChainState) -> str:
     if transfers:
         out.append("### 最近的转账")
         out.append("")
-        out.append("| 区块 | 从 | 到 | 数量 | 备注 |")
+        out.append("| 盐块 | 从 | 到 | 数量 | 备注 |")
         out.append("|--:|---|---|--:|---|")
         for b, t in transfers[:8]:
             src = "&nbsp;"

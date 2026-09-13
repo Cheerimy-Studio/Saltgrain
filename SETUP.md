@@ -72,9 +72,9 @@ Settings → Actions → General → Workflow permissions → 选 **Read and wri
 
 不开这个，节点能验证但不能提交，所有提交都会卡在 push 那一步。Fork 的仓库还需要在 Actions 页面手动 Enable workflows 一次。
 
-## 6. 打开区块浏览器
+## 6. 打开盐仓
 
-Settings → Pages → Source 选 **Deploy from a branch**，分支 `main`，目录 **`/docs`**。一分钟后浏览器就在 `https://你的用户名.github.io/你的仓库名/` 上线了。
+Settings → Pages → Source 选 **Deploy from a branch**，分支 `main`，目录 **`/docs`**。一分钟后盐仓就在 `https://你的用户名.github.io/你的仓库名/` 上线了。
 
 如果仓库名和这里不一样，改 `docs/index.html` 里的一个属性：
 
@@ -103,13 +103,13 @@ python3 miner.py --miner 你的用户名 --message "第一粒盐"
 | `RETARGET_INTERVAL` | 多少块调整一次难度 |
 | `HALVING_INTERVAL` | 多少块奖励减半一次 |
 | `COINBASE_MATURITY` | 奖励要等多少块才能花 |
-| `MAX_TXS_PER_BLOCK` | 每个区块最多打包多少笔交易 |
+| `MAX_TXS_PER_BLOCK` | 每个盐块最多打包多少笔交易 |
 
 `saltgrain/pow.py` 里还有两个：
 
 | 常量 | 作用 |
 |---|---|
 | `N` | 一道题的数字个数，越大越吃内存 |
-| `K_MAX` / `K_MAX_V2` | 一个区块最多解多少道题，决定区块大小上限 |
+| `K_MAX` / `K_MAX_V2` | 一个盐块最多解多少道题，决定盐块大小上限 |
 
 **这些都要在创世之前改。** 创世之后再改，已有的链就作废了，`verify.py` 会直接告诉你。

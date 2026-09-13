@@ -190,8 +190,8 @@ def handle_block(data, author: str) -> tuple[str, bool]:
 
     if block.miner.lower() != author.lower():
         return (
-            f"**已拒绝。** 这个区块署名采盐者是 `{block.miner}`，但提交者是 @{author}。"
-            f"这个名字被写进了区块头，改动它就得把工作量全部重做。\n\n"
+            f"**已拒绝。** 这个盐块署名采盐者是 `{block.miner}`，但提交者是 @{author}。"
+            f"这个名字被写进了盐块里，改动它就得把工作量全部重做。\n\n"
             f"请用 `--miner {author}` 重新采一次。",
             False,
         )
@@ -199,8 +199,8 @@ def handle_block(data, author: str) -> tuple[str, bool]:
     if not author_has_starred(author):
         return (
             f"**已拒绝。** @{author} 还没有给本仓库点 Star（右上角 ★）。\n\n"
-            f"点完之后，把这条评论原样再发一次即可 —— 区块本身仍然有效"
-            f"（除非这期间别人先采出了下一个区块）。转账和名字绑定不受此限制。",
+            f"点完之后，把这条评论原样再发一次即可 —— 盐块本身仍然有效"
+            f"（除非这期间别人先采出了下一个盐块）。转账和名字绑定不受此限制。",
             False,
         )
 
@@ -221,7 +221,7 @@ def handle_block(data, author: str) -> tuple[str, bool]:
         return (
             f"**已拒绝。** {exc}\n\n"
             f"当前链尖是 `{state.tip_hash}`（高度 `{state.height}`），"
-            f"下一个区块需要 bits `{expected_bits:#010x}`。",
+            f"下一个盐块需要 bits `{expected_bits:#010x}`。",
             False,
         )
 
@@ -241,7 +241,7 @@ def handle_block(data, author: str) -> tuple[str, bool]:
     reward = format_amount(sum(o.value for o in block.txs[0].outputs))
     msg = block.txs[0].coinbase
     lines = [
-        f"### 区块 `{block.height}` 已接受",
+        f"### 盐块 `{block.height}` 已接受",
         "",
         f"| 项目 | 值 |",
         f"|---|---|",
@@ -267,13 +267,13 @@ def handle_block(data, author: str) -> tuple[str, bool]:
 def handle_tx(data, author: str) -> tuple[str, bool]:
     tx = Tx.from_dict(data)
     if tx.is_coinbase:
-        return "**已拒绝。** 区块奖励由采盐者创建，不能直接提交。", False
+        return "**已拒绝。** 新采出的盐由采盐者创建，不能直接提交。", False
 
     state = chainmod.load_state()
     mempool = load_mempool()
 
     if len(mempool) >= MAX_MEMPOOL:
-        return f"**已拒绝。** 交易池满了（{MAX_MEMPOOL} 笔）。先采一个区块清一清。", False
+        return f"**已拒绝。** 交易池满了（{MAX_MEMPOOL} 笔）。先采一锅清一清。", False
     if any(t.txid() == tx.txid() for t in mempool):
         return f"这笔交易已经在池子里了：`{tx.txid()[:20]}…`。", False
 
@@ -311,7 +311,7 @@ def handle_tx(data, author: str) -> tuple[str, bool]:
                 f"| 手续费 | `{format_amount(fee)} SALT` |",
                 f"| 交易池 | `{len(mempool)}` 笔待打包 |",
                 "",
-                "采出下一个区块的人会把它打包进去，手续费高的优先。",
+                "采出下一个盐块的人会把它打包进去，手续费高的优先。",
             ]
         ),
         True,
@@ -330,7 +330,7 @@ def main() -> int:
     if not kind:
         emit(
             "这条评论里没有我能识别的内容。\n\n"
-            f"区块以 `{BLOCK_PREFIX}` 开头，转账以 `{TX_PREFIX}` 开头，"
+            f"盐块以 `{BLOCK_PREFIX}` 开头，转账以 `{TX_PREFIX}` 开头，"
             f"名字绑定以 `{ID_PREFIX}` 开头，各自单独一行。"
             "生成方法见 README。",
             False,
