@@ -200,7 +200,7 @@ def handle_block(data, author: str) -> tuple[str, bool]:
         return (
             f"**已拒绝。** @{author} 还没有给本仓库点 Star（右上角 ★）。\n\n"
             f"点完之后，把这条评论原样再发一次即可 —— 盐块本身仍然有效"
-            f"（除非这期间别人先采出了下一个盐块）。转账和名字绑定不受此限制。",
+            f"（除非这期间别人先采出了下一个盐块）。寄送和名字绑定不受此限制。",
             False,
         )
 
@@ -307,7 +307,7 @@ def handle_tx(data, author: str) -> tuple[str, bool]:
                 f"| 项目 | 值 |",
                 f"|---|---|",
                 f"| txid | `{tx.txid()}` |",
-                f"| 转出 | `{format_amount(total)} SALT`，共 {len(tx.outputs)} 个输出 |",
+                f"| 寄出 | `{format_amount(total)} SALT`，共 {len(tx.outputs)} 个输出 |",
                 f"| 手续费 | `{format_amount(fee)} SALT` |",
                 f"| 交易池 | `{len(mempool)}` 笔待打包 |",
                 "",
@@ -330,7 +330,7 @@ def main() -> int:
     if not kind:
         emit(
             "这条评论里没有我能识别的内容。\n\n"
-            f"盐块以 `{BLOCK_PREFIX}` 开头，转账以 `{TX_PREFIX}` 开头，"
+            f"盐块以 `{BLOCK_PREFIX}` 开头，寄送以 `{TX_PREFIX}` 开头，"
             f"名字绑定以 `{ID_PREFIX}` 开头，各自单独一行。"
             "生成方法见 README。",
             False,

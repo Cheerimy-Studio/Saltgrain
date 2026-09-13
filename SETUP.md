@@ -58,11 +58,11 @@ gh label create salt --description "盐粒链提交" --color 8A5F10
 gh issue create --title "采盐提交处 · Mine a block" --label salt --body \
 "把 \`salt-block-v1:\` 那一行贴在这里。提交前需要先给仓库点 Star。"
 
-gh issue create --title "转账提交处 · Mempool" --label salt --body \
+gh issue create --title "寄送提交处 · Mempool" --label salt --body \
 "把 \`salt-tx-v1:\` 那一行贴在这里排队。"
 ```
 
-这两个 issue 最好落在 **#1**（采盐）和 **#2**（转账），README 顶部的链接指向它们，`chain/issues.json` 里也记着这两个编号。如果编号不是 1 和 2，改这两处即可。
+这两个 issue 最好落在 **#1**（采盐）和 **#2**（寄送），README 顶部的链接指向它们，`chain/issues.json` 里也记着这两个编号。如果编号不是 1 和 2，改这两处即可。
 
 建好后把两个 issue 置顶（Pin），方便别人找到。
 

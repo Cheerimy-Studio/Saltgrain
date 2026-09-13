@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://cheerimy-studio.github.io/Saltgrain/"><b>盐仓</b></a> ·
   <a href="../../issues/1"><b>采盐提交处</b></a> ·
-  <a href="../../issues/2"><b>转账提交处</b></a>
+  <a href="../../issues/2"><b>寄送提交处</b></a>
 </p>
 
 <p align="center"><sub>一条公开记录「盐粒」的账本。不是货币，不标价，不流通，不能兑换任何东西。</sub></p>
@@ -121,13 +121,13 @@ python3 miner.py --miner 你的GitHub用户名 --message "想留在盐粒上的�
 
 机器人会在一两分钟内回复你。成功的话它会说盐块已被接受，上面的账本自己就更新了 —— 不需要你做任何事。失败的话它会告诉你为什么。
 
-## 把盐粒交给别人
+## 把盐寄给别人
 
 ```bash
 python3 saltbox.py send --to 对方的salt1地址 --amount 1.5 --memo "给"
 ```
 
-它打印一行 `salt-tx-v1:`，贴到 **[转账提交处](../../issues/2)**。会有人把它打包进下一个盐块。手续费高的先被拿走。刚筛出来的盐要等十个盐块之后才能动，这是规矩。
+它打印一行 `salt-tx-v1:`，贴到 **[寄送提交处](../../issues/2)**。会有人把它打包进下一个盐块。手续费高的先被拿走。刚筛出来的盐要等十个盐块之后才能动，这是规矩。
 
 ## 让账本上出现你的名字
 
@@ -137,7 +137,7 @@ python3 saltbox.py send --to 对方的salt1地址 --amount 1.5 --memo "给"
 python3 saltbox.py identity --handle 你的GitHub用户名
 ```
 
-把打印出的 `salt-id-v1:` 那行贴到 **[转账提交处](../../issues/2)**。名字只影响显示，不影响谁真正拥有盐粒 —— 那是私钥说了算的事。
+把打印出的 `salt-id-v1:` 那行贴到 **[寄送提交处](../../issues/2)**。名字只影响显示，不影响谁真正拥有盐粒 —— 那是私钥说了算的事。
 
 ## 自己核验整条账本
 

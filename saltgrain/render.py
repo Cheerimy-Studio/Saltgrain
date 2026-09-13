@@ -157,7 +157,7 @@ def render_readme_section(state: ChainState) -> str:
         if len(transfers) >= 8:
             break
     if transfers:
-        out.append("### 最近的转账")
+        out.append("### 最近的寄送")
         out.append("")
         out.append("| 盐块 | 从 | 到 | 数量 | 备注 |")
         out.append("|--:|---|---|--:|---|")
