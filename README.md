@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=64"><img src="assets/ledger-light.svg?v=64" width="100%" alt="Saltgrain ledger, height 64"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=65"><img src="assets/ledger-light.svg?v=65" width="100%" alt="Saltgrain ledger, height 65"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `64` |
-| **链尖** | `693d0c6eb342b435512d2ddd8caf29dc60ad88770b9109439f5f1090712c41e2` |
+| **高度** | `65` |
+| **链尖** | `88b65fed2c65e8f252dabe622f86dfd1fc09745422630a70e45e1ba2c35458a8` |
 | **难度** | `1,940.5`  (bits `0x1d021c5c`) |
-| **累计工作量** | `12,985,800,928` 次预期尝试 |
-| **已发行** | `3250.00000000 SALT`，分布在 `65` 个未花费输出上 |
+| **累计工作量** | `15,020,579,408` 次预期尝试 |
+| **已发行** | `3300.00000000 SALT`，分布在 `66` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `15` 块 |
-| **距离下次减半** | `209935` 块 |
-| **交易数** | `65` |
+| **距离下次难度调整** | `14` 块 |
+| **距离下次减半** | `209934` 块 |
+| **交易数** | `66` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `65` | `88b65fed2c65e8f252da…` | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `不加盐的汤，也配叫汤吗。` | `1` | `50.00000000` | 2026-09-13 04:39 UTC |
 | `64` | `693d0c6eb342b435512d…` | [@StevenQinDev](https://github.com/StevenQinDev) | `千里之行，始于足下` | `1` | `50.00000000` | 2026-09-13 04:36 UTC |
 | `63` | `752278fd73705c302180…` | [@StevenQinDev](https://github.com/StevenQinDev) | `知之为知之，不知为不知，是知也` | `1` | `50.00000000` | 2026-09-13 04:36 UTC |
 | `62` | `11e67933f0bad5428b58…` | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `粒粒皆辛苦，粒粒皆相同。` | `1` | `50.00000000` | 2026-09-13 04:35 UTC |
@@ -41,15 +42,14 @@
 | `58` | `0035db8138f073a91ac4…` | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `一把盐，一锅汤，一句留言。` | `1` | `50.00000000` | 2026-09-13 04:33 UTC |
 | `57` | `fda02bfcf4486111479f…` | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `筛盐的人不看天气，只看手里的数。` | `1` | `50.00000000` | 2026-09-13 04:33 UTC |
 | `56` | `772892ae5192f16d8e21…` | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `多一粒不多，少一粒不行。` | `1` | `50.00000000` | 2026-09-13 04:32 UTC |
-| `55` | `4999e13e1cd75959fec0…` | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `今天微咸。` | `1` | `50.00000000` | 2026-09-13 04:31 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `29` | `44.6%` |
-| [@StevenQinDev](https://github.com/StevenQinDev) | `23` | `35.4%` |
-| [@sxxso](https://github.com/sxxso) | `13` | `20.0%` |
+| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `30` | `45.5%` |
+| [@StevenQinDev](https://github.com/StevenQinDev) | `23` | `34.8%` |
+| [@sxxso](https://github.com/sxxso) | `13` | `19.7%` |
 
 ### 持有者
 
@@ -57,12 +57,12 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1400.00000000 SALT` |
+| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1450.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `1150.00000000 SALT` |
 | _未认领_ | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `650.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 64 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 65 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
