@@ -33,9 +33,9 @@ BODIES = {
         "replies with the result. See the [README](../../#mine-a-block).\n"
     ),
     "mempool": (
-        "Paste the `salt-tx-v1:` line printed by `python3 wallet.py send` here "
+        "Paste the `salt-tx-v1:` line printed by `python3 saltbox.py send` here "
         "to queue a transaction, or the `salt-id-v1:` line printed by "
-        "`python3 wallet.py identity` to put your handle beside your balance.\n\n"
+        "`python3 saltbox.py identity` to put your handle beside your balance.\n\n"
         "See the [README](../../#send-coins).\n"
     ),
 }

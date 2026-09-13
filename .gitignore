@@ -1,5 +1,4 @@
-salt-wallet.json
-rofl-wallet.json
+saltbox.json
 __pycache__/
 *.pyc
 .venv/

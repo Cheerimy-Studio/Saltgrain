@@ -42,7 +42,7 @@
 
 ### 持有者
 
-_运行 `python3 wallet.py identity --handle 你的GitHub用户名` 并把它打印的那行贴到提交处，这里就会显示你的名字。_
+_运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它打印的那行贴到提交处，这里就会显示你的名字。_
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
@@ -83,20 +83,22 @@ _运行 `python3 wallet.py identity --handle 你的GitHub用户名` 并把它打
 python3 --version
 ```
 
-### 第 2 步：建一个钱包
-
-```bash
-python3 wallet.py new
-```
-
-它会打印一个 `salt1…` 开头的地址，那就是你的收盐地址。私钥会明文写在 `salt-wallet.json` 里 —— 请把它当成一张随时会丢的废纸，**绝不要用它去做任何正经事**。
-
-### 第 3 步：把仓库拿下来
+### 第 2 步：把仓库拿下来
 
 ```bash
 git clone https://github.com/Cheerimy-Studio/Saltgrain.git
 cd Saltgrain
 ```
+
+后面几步的命令都在这个目录里跑。
+
+### 第 3 步：建一个盐框
+
+```bash
+python3 saltbox.py new
+```
+
+它会打印一个 `salt1…` 开头的地址，那就是你的收盐地址。私钥会明文写在 `saltbox.json` 里 —— 请把它当成一张随时会丢的废纸，**绝不要用它去做任何正经事**。
 
 ### 第 4 步：筛一粒
 
@@ -119,7 +121,7 @@ python3 miner.py --miner 你的GitHub用户名 --message "想留在盐粒上的�
 ## 把盐粒交给别人
 
 ```bash
-python3 wallet.py send --to 对方的salt1地址 --amount 1.5 --memo "给"
+python3 saltbox.py send --to 对方的salt1地址 --amount 1.5 --memo "给"
 ```
 
 它打印一行 `salt-tx-v1:`，贴到 **[转账提交处](../../issues/2)**。会有人把它打包进下一个区块。手续费高的先被拿走。刚筛出来的盐要等十个区块之后才能动，这是规矩。
@@ -129,7 +131,7 @@ python3 wallet.py send --to 对方的salt1地址 --amount 1.5 --memo "给"
 账本里默认只有地址。想让别人看到你的名字：
 
 ```bash
-python3 wallet.py identity --handle 你的GitHub用户名
+python3 saltbox.py identity --handle 你的GitHub用户名
 ```
 
 把打印出的 `salt-id-v1:` 那行贴到 **[转账提交处](../../issues/2)**。名字只影响显示，不影响谁真正拥有盐粒 —— 那是私钥说了算的事。
@@ -157,14 +159,14 @@ python3 verify.py
 ## 提醒
 
 - **盐粒一文不值。** 永远不要花钱买它，也不要拿它当抵押、当承诺、当投资。
-- 私钥是明文保存的。**别拿它当钱包用。**
+- 私钥是明文保存的。**别拿它存任何要紧的东西。**
 - 这个仓库是唯一的记账人。你能信它，是因为整条链随时可以被任何人重算一遍，不是因为它承诺了什么。
 
 ## 目录
 
 ```
 miner.py        筛盐
-wallet.py       钱包
+saltbox.py      盐框
 verify.py       核验
 submit.py       节点：处理每一条提交
 saltgrain/      账本规则本身

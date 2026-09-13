@@ -1,14 +1,22 @@
 # 从零开一锅自己的盐
 
-如果你想要一份**属于自己**的盐粒账本（而不是在别人的链上采），照着做。一共六步，大约两分钟。顺序别乱：创世块一旦推上去就改不了了，推之前是唯一能决定这条链长什么样的机会。
+如果你想要一份**属于自己**的盐粒账本（而不是在别人的链上采），照着做。顺序别乱：创世块一旦推上去就改不了了，推之前是唯一能决定这条链长什么样的机会。
 
-## 1. 建钱包
+## 0. 把项目拿下来
 
 ```bash
-python3 wallet.py new
+git clone https://github.com/Cheerimy-Studio/Saltgrain.git 我的盐
+cd 我的盐
+rm chain/blocks.jsonl   # 那是别人的账本，你要自己开一锅
 ```
 
-会写出 `salt-wallet.json`（已在 `.gitignore` 里，但里面是明文私钥，别提交）。记下打印出的地址。
+## 1. 建盐框
+
+```bash
+python3 saltbox.py new
+```
+
+会写出 `saltbox.json`（已在 `.gitignore` 里，但里面是明文私钥，别提交）。记下打印出的地址。
 
 ## 2. 采创世块
 

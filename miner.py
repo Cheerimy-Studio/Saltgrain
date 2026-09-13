@@ -142,8 +142,8 @@ def main():
     ap = argparse.ArgumentParser(description="Mine a Saltgrain block.")
     ap.add_argument("--miner", required=True, help="your GitHub handle (goes in the header)")
     ap.add_argument("--message", default="", help=f"coinbase message, max 80 bytes")
-    ap.add_argument("--address", default=None, help="pay the reward here (default: wallet file)")
-    ap.add_argument("--wallet", default="salt-wallet.json", help="wallet file for the address")
+    ap.add_argument("--address", default=None, help="pay the reward here (default: saltbox file)")
+    ap.add_argument("--saltbox", default="saltbox.json", help="saltbox file for the address")
     ap.add_argument("--repo", default="Cheerimy-Studio/Saltgrain", help="repo to mine against")
     ap.add_argument("--local", action="store_true", help="use the local chain/ directory")
     ap.add_argument("--no-txs", action="store_true", help="mine an empty block, ignore mempool")
@@ -155,12 +155,12 @@ def main():
     address = args.address
     if not address:
         try:
-            with open(args.wallet, encoding="utf-8") as fh:
+            with open(args.saltbox, encoding="utf-8") as fh:
                 address = json.load(fh)["address"]
         except FileNotFoundError:
             raise SystemExit(
-                f"no --address given and no wallet at {args.wallet}.\n"
-                f"run:  python3 wallet.py new"
+                f"no --address given and no saltbox at {args.saltbox}.\n"
+                f"run:  python3 saltbox.py new"
             )
     if not crypto.address_is_valid(address):
         raise SystemExit(f"invalid payout address: {address}")

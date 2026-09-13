@@ -139,7 +139,7 @@ def render_readme_section(state: ChainState) -> str:
     if balances:
         out.append("### 持有者")
         out.append("")
-        out.append("_运行 `python3 wallet.py identity --handle 你的GitHub用户名` "
+        out.append("_运行 `python3 saltbox.py identity --handle 你的GitHub用户名` "
                    "并把它打印的那行贴到提交处，这里就会显示你的名字。_")
         out.append("")
         out.append("| 持有者 | 地址 | 余额 |")

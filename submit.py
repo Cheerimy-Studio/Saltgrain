@@ -143,7 +143,7 @@ def handle_identity(payload: str, author: str) -> tuple[str, bool]:
     """
     parts = payload.split(":")
     if len(parts) != 3:
-        return "**已拒绝。** 名字绑定那一行格式不对。请运行 `python3 wallet.py identity`。", False
+        return "**已拒绝。** 名字绑定那一行格式不对。请运行 `python3 saltbox.py identity`。", False
     handle, pubkey, sig = parts
 
     if handle.lower() != author.lower():

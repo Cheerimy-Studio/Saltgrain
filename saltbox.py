@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-Saltgrain wallet. Standard library only.
+Saltgrain saltbox (盐框). Standard library only.
 
-    python3 wallet.py new                       create a key pair
-    python3 wallet.py address                   show your address
-    python3 wallet.py balance                   show confirmed balance
-    python3 wallet.py send --to ADDR --amount 1.5 --fee 0.001
+    python3 saltbox.py new                       create a key pair
+    python3 saltbox.py address                   show your address
+    python3 saltbox.py balance                   show confirmed balance
+    python3 saltbox.py send --to ADDR --amount 1.5 --fee 0.001
 
 `send` prints a signed transaction; paste it as a comment on the mempool
 issue and a miner will pick it up.
 
-The private key is stored in plain text in salt-wallet.json. Saltgrain has no value and these
+The private key is stored in plain text in saltbox.json. Saltgrain has no value and these
 worth nothing and this key must never be reused anywhere that matters.
 """
 
@@ -26,20 +26,20 @@ from saltgrain import chain as chainmod
 from saltgrain import crypto
 from saltgrain.consensus import COIN, ConsensusError, Tx, TxIn, TxOut, format_amount, validate_tx
 
-WALLET = "salt-wallet.json"
+SALTBOX = "saltbox.json"
 PREFIX = "salt-tx-v1:"
 
 
-def load_wallet(path=WALLET):
+def load_saltbox(path=SALTBOX):
     if not os.path.exists(path):
-        raise SystemExit(f"no wallet at {path}. run:  python3 wallet.py new")
+        raise SystemExit(f"no saltbox at {path}. run:  python3 saltbox.py new")
     with open(path, encoding="utf-8") as fh:
         return json.load(fh)
 
 
 def cmd_new(args):
-    if os.path.exists(args.wallet) and not args.force:
-        raise SystemExit(f"{args.wallet} already exists. use --force to overwrite it.")
+    if os.path.exists(args.saltbox) and not args.force:
+        raise SystemExit(f"{args.saltbox} already exists. use --force to overwrite it.")
     priv_bytes = secrets.token_bytes(32)
     priv = crypto.privkey_from_bytes(priv_bytes)
     pub = crypto.ser_pubkey(crypto.pubkey(priv))
@@ -51,15 +51,15 @@ def cmd_new(args):
         "address": address,
         "warning": "Saltgrain toy key. Worth nothing. Never reuse this key.",
     }
-    with open(args.wallet, "w", encoding="utf-8") as fh:
+    with open(args.saltbox, "w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=2)
-    os.chmod(args.wallet, stat.S_IRUSR | stat.S_IWUSR)
-    print(f"wallet written to {args.wallet}")
+    os.chmod(args.saltbox, stat.S_IRUSR | stat.S_IWUSR)
+    print(f"saltbox written to {args.saltbox}")
     print(f"address  {address}")
 
 
 def cmd_address(args):
-    print(load_wallet(args.wallet)["address"])
+    print(load_saltbox(args.saltbox)["address"])
 
 
 def _state(args):
@@ -67,7 +67,7 @@ def _state(args):
 
 
 def cmd_balance(args):
-    w = load_wallet(args.wallet)
+    w = load_saltbox(args.saltbox)
     state = _state(args)
     mine = [
         (k, v) for k, v in state.utxos.utxos.items() if v["address"] == w["address"]
@@ -92,7 +92,7 @@ def parse_amount(s: str) -> int:
 
 
 def cmd_send(args):
-    w = load_wallet(args.wallet)
+    w = load_saltbox(args.saltbox)
     state = _state(args)
     height = state.height + 1
 
@@ -172,7 +172,7 @@ def cmd_identity(args):
     proves you hold the handle. Both directions are needed, and neither is
     consensus -- it only decides whose name appears next to a balance.
     """
-    w = load_wallet(args.wallet)
+    w = load_saltbox(args.saltbox)
     priv = crypto.privkey_from_bytes(bytes.fromhex(w["privkey"]))
     digest = crypto.sha256d(b"saltgrain-identity-v1|" + args.handle.encode())
     sig = crypto.sign(priv, digest).hex()
@@ -185,8 +185,8 @@ def cmd_identity(args):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Saltgrain wallet")
-    ap.add_argument("--wallet", default=WALLET)
+    ap = argparse.ArgumentParser(description="Saltgrain saltbox (盐框)")
+    ap.add_argument("--saltbox", default=SALTBOX)
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     p = sub.add_parser("new", help="generate a new key pair")

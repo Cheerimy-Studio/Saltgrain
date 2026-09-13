@@ -3,7 +3,7 @@
 Drop a file here in a pull request to submit a transaction.
 
 ```bash
-python3 wallet.py send --to salt1... --amount 1.5 --memo "gg"
+python3 saltbox.py send --to salt1... --amount 1.5 --memo "gg"
 ```
 
 Put the `salt-tx-v1:` line it prints into a new file named after yourself,

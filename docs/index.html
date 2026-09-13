@@ -295,7 +295,7 @@ function youPanel() {
     ["采出的区块", `${mined.length}${mined.length ? ` — ${mined.slice(-6).reverse()
       .map(b => `<a href="#/block/${b.height}">#${b.height}</a>`).join(" ")}` : ""}`],
     ["地址", addr ? `<a href="#/address/${addr}">${esc(addr)}</a>` :
-      `<span style="color:var(--dim2)">未绑定 —— 运行 <code>python3 wallet.py identity --handle ${esc(h)}</code></span>`],
+      `<span style="color:var(--dim2)">未绑定 —— 运行 <code>python3 saltbox.py identity --handle ${esc(h)}</code></span>`],
     ["余额", bal === null ? "—" : `${fmtAmount(bal)} SALT${rank ? ` <span class="pill">持有量第 ${rank}</span>` : ""}`],
   ];
   return `<h2>你</h2><div class="card"><table class="kv">` +
