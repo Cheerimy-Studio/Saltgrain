@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2"><img src="assets/ledger-light.svg?v=2" width="100%" alt="Saltgrain ledger, height 2"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=3"><img src="assets/ledger-light.svg?v=3" width="100%" alt="Saltgrain ledger, height 3"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `2` |
-| **链尖** | `04fcbb892da1ec192f8912584f369ace595f0c79cc562f2f39fafc43bc885963` |
+| **高度** | `3` |
+| **链尖** | `3e3379156705ba4cc12d805e90d4999f1337a0e7fc4e6fb82bd51d5148fcad5a` |
 | **难度** | `16.0`  (bits `0x1e010000`) |
-| **累计工作量** | `50,331,645` 次预期尝试 |
-| **已发行** | `150.00000000 SALT`，分布在 `3` 个未花费输出上 |
+| **累计工作量** | `67,108,860` 次预期尝试 |
+| **已发行** | `200.00000000 SALT`，分布在 `4` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `13` 块 |
-| **距离下次减半** | `209997` 块 |
-| **交易数** | `3` |
+| **距离下次难度调整** | `12` 块 |
+| **距离下次减半** | `209996` 块 |
+| **交易数** | `4` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `3` | `3e3379156705ba4cc12d…` | [@sxxso](https://github.com/sxxso) | `踏雪至山巅` | `1` | `50.00000000` | 2026-09-13 03:19 UTC |
 | `2` | `04fcbb892da1ec192f89…` | [@sxxso](https://github.com/sxxso) | `都是同龄人我原本没想降维打击` | `1` | `50.00000000` | 2026-09-13 03:13 UTC |
 | `1` | `58d845975e2727cded7d…` | [@sxxso](https://github.com/sxxso) | `天狼星，天为首` | `1` | `50.00000000` | 2026-09-13 03:06 UTC |
 | `0` | `1255782956ab272ada42…` | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `一粒盐什么都不是，撒进锅里才有味道。` | `1` | `50.00000000` | 2026-09-13 02:33 UTC |
@@ -40,8 +41,8 @@
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@sxxso](https://github.com/sxxso) | `2` | `66.7%` |
-| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `1` | `33.3%` |
+| [@sxxso](https://github.com/sxxso) | `3` | `75.0%` |
+| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `1` | `25.0%` |
 
 ### 持有者
 
@@ -49,10 +50,10 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| _未认领_ | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `100.00000000 SALT` |
+| _未认领_ | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `150.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 2 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 3 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
