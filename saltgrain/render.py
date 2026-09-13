@@ -188,6 +188,55 @@ def render_readme_section(state: ChainState) -> str:
     return "\n".join(out)
 
 
+STATE_FILE = os.path.join("chain", "state.json")
+
+
+def write_state(state: ChainState, path: str = STATE_FILE) -> None:
+    """
+    写一份小快照，给浏览器用。
+
+    整条链已经 4MB 往上、每块还要长十几 KB，让访客为了看一眼最新高度就下
+    整份账本，慢网络下必然超时。这份快照只留页面要显示的东西（不带每题的解，
+    那才是体积大头），几十 KB 就能拿到最新状态；要看完整核验再去拉账本。
+    """
+    registry = load_registry()
+    by_address = {v["address"]: h for h, v in registry.items()}
+    tip = state.tip
+    recent = []
+    for b in state.blocks[-RECENT:]:
+        recent.append({
+            "height": b.height,
+            "hash": b.block_hash(),
+            "miner": b.miner,
+            "timestamp": b.timestamp,
+            "bits": b.bits,
+            "reward": sum(o.value for o in b.txs[0].outputs),
+            "message": b.txs[0].coinbase,
+            "tx_count": len(b.txs),
+        })
+    balances = sorted(state.utxos.balances().items(), key=lambda p: -p[1])[:50]
+    miners = sorted(state.miners.items(), key=lambda p: (-p[1], p[0]))[:50]
+    payload = {
+        "height": state.height,
+        "tip": state.tip_hash,
+        "difficulty": difficulty(tip.bits) if tip else 0.0,
+        "bits": tip.bits if tip else 0,
+        "puzzles": tip.puzzles() if tip else 0,
+        "supply": emitted_supply(state.height),
+        "chainwork": state.chainwork,
+        "tx_count": state.tx_count,
+        "utxo_count": len(state.utxos.utxos),
+        "recent": recent,
+        "miners": [{"handle": h, "blocks": c} for h, c in miners],
+        "balances": [
+            {"address": a, "value": v, "handle": by_address.get(a)} for a, v in balances
+        ],
+    }
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(payload, fh, separators=(",", ":"), sort_keys=True)
+
+
 def update_readme(state: ChainState, path: str = "README.md") -> None:
     with open(path, encoding="utf-8") as fh:
         content = fh.read()
@@ -197,6 +246,7 @@ def update_readme(state: ChainState, path: str = "README.md") -> None:
     tail = content.split(END, 1)[1]
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(head + render_readme_section(state) + tail)
+    write_state(state)
 
 
 # SVG ledger tape

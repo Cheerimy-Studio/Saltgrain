@@ -195,17 +195,34 @@ async function load() {
   app.innerHTML = `<div class="banner"><span>正在从
     <code>${esc(REPO)}</code> 拉取链数据…<br>
     <sub style="color:var(--dim2)">账本已超过 4MB，慢网络下需要十几秒</sub></span></div>`;
+
+  // 小快照只有几 KB，先拿到就能立刻显示最新状态；整份账本再慢慢下。
+  let base = RAW;
   try {
-    let base = RAW;
-    try {
-      base = `https://raw.githubusercontent.com/${REPO}/${await latestSha()}/`;
-    } catch (e) { /* 拿不到 commit 就退回 main */ }
+    base = `https://raw.githubusercontent.com/${REPO}/${await latestSha()}/`;
+  } catch (e) { /* 拿不到 commit 就退回 main */ }
+  let snap = null;
+  try {
+    const raw = await grab("chain/state.json", base, 2, 20000);
+    snap = JSON.parse(raw);
+    const top = snap.recent && snap.recent.length ? snap.recent[snap.recent.length - 1] : null;
+    app.innerHTML = `<div class="banner ok"><span><b>最新状态</b>　高度
+      <b>${snap.height}</b>　供应 ${fmtAmount(BigInt(snap.supply))} SALT　难度
+      ${Number(snap.difficulty).toLocaleString(undefined, {maximumFractionDigits: 1})}
+      ${top ? `　最近一块 <b>#${top.height}</b> @${esc(top.miner)}「${esc(top.message || "")}」` : ""}
+      <br><sub style="color:var(--dim2)">正在后台核验整条链…</sub></span></div>`;
+  } catch (e) { /* 拿不到快照就照旧走整份账本 */ }
+
+  try {
     const [b, m, g] = await Promise.allSettled([
       grab("chain/blocks.jsonl", base), grab("chain/mempool.jsonl", base),
       grab("chain/registry.json", base)]);
     if (b.status !== "fulfilled") throw new Error(b.reason.message);
     const blocks = b.value.trim().split("\n").filter(Boolean).map(JSON.parse);
     if (!blocks.length) throw new Error("链是空的");
+    if (snap && blocks.length - 1 < snap.height) {
+      setTimeout(() => alert(`账本取到的是缓存版本（高度 ${blocks.length - 1}），最新已经是 ${snap.height}。刷新一下即可。`), 50);
+    }
     MEMPOOL = m.status === "fulfilled"
       ? m.value.trim().split("\n").filter(Boolean).map(JSON.parse) : (SAMPLE.mempool || []);
     REGISTRY = g.status === "fulfilled" ? JSON.parse(g.value) : {};
