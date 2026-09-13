@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=753"><img src="assets/ledger-light.svg?v=753" width="100%" alt="Saltgrain ledger, height 753"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=754"><img src="assets/ledger-light.svg?v=754" width="100%" alt="Saltgrain ledger, height 754"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `753` |
-| **链尖** | `c5fa7ad3e64feaa9e51ce4b536f5afe0b52950e50c7192898b45ecceeb943cac` |
+| **高度** | `754` |
+| **链尖** | `62fa6dea9586096a19f507b7121b18b9a70846d3ba4a814b15748e34b8ad1ebb` |
 | **难度** | `146,303,095,478,580,665,430,644,359,168.0`  (bits `0x1208aa20`) |
-| **累计工作量** | `1,125,088,849,400,477,339,592,508,170,671,889,836` 次预期尝试 |
-| **已发行** | `37700.00000000 SALT`，分布在 `754` 个未花费输出上 |
+| **累计工作量** | `1,278,498,764,045,025,533,884,252,146,972,489,762` 次预期尝试 |
+| **已发行** | `37750.00000000 SALT`，分布在 `755` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `14` 块 |
-| **距离下次减半** | `209246` 块 |
-| **交易数** | `754` |
+| **距离下次难度调整** | `13` 块 |
+| **距离下次减半** | `209245` 块 |
+| **交易数** | `755` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `754` | `62fa6dea9586096a19f5…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-13 14:47 UTC |
 | `753` | `c5fa7ad3e64feaa9e51c…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-13 14:46 UTC |
 | `752` | `607f04837ab87b95ea33…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-13 14:45 UTC |
 | `751` | `5edb601f65d3140e8780…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-13 14:44 UTC |
@@ -41,7 +42,6 @@
 | `747` | `d46c74d6274dc46fef3b…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-13 14:42 UTC |
 | `746` | `8e4071bc0079d7b9a04b…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-13 14:41 UTC |
 | `745` | `00fb0436b01a711afc07…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-13 14:41 UTC |
-| `744` | `cdb4a3ac8cadb512e4c9…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-13 14:41 UTC |
 
 ### 采盐者
 
@@ -49,7 +49,7 @@
 |---|--:|--:|
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `41.9%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `292` | `38.7%` |
-| [@sxxso](https://github.com/sxxso) | `107` | `14.2%` |
+| [@sxxso](https://github.com/sxxso) | `108` | `14.3%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `4.8%` |
 | [@Heartcoolman](https://github.com/Heartcoolman) | `2` | `0.3%` |
 | [@szfzmzx](https://github.com/szfzmzx) | `1` | `0.1%` |
@@ -62,13 +62,13 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 |---|---|--:|
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `14600.00000000 SALT` |
-| [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `5350.00000000 SALT` |
+| [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `5400.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `100.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 | [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 753 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 754 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
