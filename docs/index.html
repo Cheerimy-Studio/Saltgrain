@@ -163,15 +163,24 @@ let STATE = null, MEMPOOL = [], REGISTRY = {}, BY_ADDR = {}, SAMPLED = false,
 const app = document.getElementById("app");
 const you = () => localStorage.getItem("salt.handle") || "";
 
-async function grab(path, attempts = 2) {
-  // A stalled request would otherwise leave the page blank forever instead of
-  // falling back to the sample chain. One retry, because raw.githubusercontent
-  // is slow from some networks.
+/* raw.githubusercontent 会缓存整份文件，直接按 main 取可能拿到几分钟前的旧链；
+   先问 API 要最新 commit，再按那个 sha 取——固定 sha 的内容不可变，缓存骗不了人。 */
+async function latestSha() {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/commits?path=chain/blocks.jsonl&per_page=1`,
+                        { cache: "no-store" });
+  if (!r.ok) throw new Error(`sha: HTTP ${r.status}`);
+  const j = await r.json();
+  if (!j.length) throw new Error("sha: 空");
+  return j[0].sha;
+}
+
+async function grab(path, base, attempts = 2, timeoutMs = 60000) {
+  // 账本已经 4MB 往上，慢网络下十几秒很正常：超时就重试一次，两次都失败才退回演示数据。
   for (let i = 1; ; i++) {
     const ctl = new AbortController();
-    const timer = setTimeout(() => ctl.abort(), 12000);
+    const timer = setTimeout(() => ctl.abort(), timeoutMs);
     try {
-      const r = await fetch(RAW + path, { cache: "no-store", signal: ctl.signal });
+      const r = await fetch(base + path, { cache: "no-store", signal: ctl.signal });
       if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);
       return await r.text();
     } catch (e) {
@@ -184,10 +193,16 @@ async function grab(path, attempts = 2) {
 
 async function load() {
   app.innerHTML = `<div class="banner"><span>正在从
-    <code>${esc(REPO)}</code> 拉取链数据…</span></div>`;
+    <code>${esc(REPO)}</code> 拉取链数据…<br>
+    <sub style="color:var(--dim2)">账本已超过 4MB，慢网络下需要十几秒</sub></span></div>`;
   try {
+    let base = RAW;
+    try {
+      base = `https://raw.githubusercontent.com/${REPO}/${await latestSha()}/`;
+    } catch (e) { /* 拿不到 commit 就退回 main */ }
     const [b, m, g] = await Promise.allSettled([
-      grab("chain/blocks.jsonl"), grab("chain/mempool.jsonl"), grab("chain/registry.json")]);
+      grab("chain/blocks.jsonl", base), grab("chain/mempool.jsonl", base),
+      grab("chain/registry.json", base)]);
     if (b.status !== "fulfilled") throw new Error(b.reason.message);
     const blocks = b.value.trim().split("\n").filter(Boolean).map(JSON.parse);
     if (!blocks.length) throw new Error("链是空的");
