@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=297"><img src="assets/ledger-light.svg?v=297" width="100%" alt="Saltgrain ledger, height 297"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=298"><img src="assets/ledger-light.svg?v=298" width="100%" alt="Saltgrain ledger, height 298"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `297` |
-| **链尖** | `cca1cf3c8ca10a8dda7280676910a909abd58ebe903749b2bd12cbe11aa46f52` |
+| **高度** | `298` |
+| **链尖** | `bb52baf1987da7fc8ebbd3a55e206f704e5a79b517aba09da09c9a8b70146849` |
 | **难度** | `520,903,290,908.3`  (bits `0x1921c5c0`) |
-| **累计工作量** | `8,375,169,234,000,061,976` 次预期尝试 |
-| **已发行** | `14900.00000000 SALT`，分布在 `298` 个未花费输出上 |
+| **累计工作量** | `8,921,375,923,167,530,988` 次预期尝试 |
+| **已发行** | `14950.00000000 SALT`，分布在 `299` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `6` 块 |
-| **距离下次减半** | `209702` 块 |
-| **交易数** | `298` |
+| **距离下次难度调整** | `5` 块 |
+| **距离下次减半** | `209701` 块 |
+| **交易数** | `299` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `298` | `bb52baf1987da7fc8ebb…` | [@StevenQinDev](https://github.com/StevenQinDev) | `纸上得来终觉浅，绝知此事要躬行` | `1` | `50.00000000` | 2026-09-13 06:40 UTC |
 | `297` | `cca1cf3c8ca10a8dda72…` | [@StevenQinDev](https://github.com/StevenQinDev) | `博观而约取，厚积而薄发` | `1` | `50.00000000` | 2026-09-13 06:40 UTC |
 | `296` | `a12c3fb2b4746798a3db…` | [@StevenQinDev](https://github.com/StevenQinDev) | `取法乎上，仅得其中` | `1` | `50.00000000` | 2026-09-13 06:39 UTC |
 | `295` | `de01807f635a818448ab…` | [@StevenQinDev](https://github.com/StevenQinDev) | `山不在高，有仙则名` | `1` | `50.00000000` | 2026-09-13 06:38 UTC |
@@ -41,15 +42,14 @@
 | `291` | `e4e2f4d08ad6bdb995b2…` | [@StevenQinDev](https://github.com/StevenQinDev) | `不积跬步，无以至千里` | `1` | `50.00000000` | 2026-09-13 06:36 UTC |
 | `290` | `5c43406dd4ca48041c23…` | [@StevenQinDev](https://github.com/StevenQinDev) | `千里之行，始于足下` | `1` | `50.00000000` | 2026-09-13 06:35 UTC |
 | `289` | `8f153319626832a1a1a9…` | [@StevenQinDev](https://github.com/StevenQinDev) | `知之为知之，不知为不知，是知也` | `1` | `50.00000000` | 2026-09-13 06:34 UTC |
-| `288` | `19efa4abd2035b73d699…` | [@StevenQinDev](https://github.com/StevenQinDev) | `路漫漫其修远兮，吾将上下而求索` | `1` | `50.00000000` | 2026-09-13 06:34 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@StevenQinDev](https://github.com/StevenQinDev) | `249` | `83.6%` |
-| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `12.1%` |
-| [@sxxso](https://github.com/sxxso) | `13` | `4.4%` |
+| [@StevenQinDev](https://github.com/StevenQinDev) | `250` | `83.6%` |
+| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `12.0%` |
+| [@sxxso](https://github.com/sxxso) | `13` | `4.3%` |
 
 ### 持有者
 
@@ -57,12 +57,12 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `12450.00000000 SALT` |
+| [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `12500.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `650.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 297 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 298 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
