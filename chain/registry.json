@@ -3,6 +3,10 @@
     "address": "salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex",
     "pubkey": "03b49eb4f8fe3b34c50ebafc08ae84906c4140c46ce1e8e6f904b0c53522382e6e"
   },
+  "Heartcoolman": {
+    "address": "salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2",
+    "pubkey": "020acf509eaefadf993b5b80fc18e9b9293d5deab825f2cf578c65c39e7c06c819"
+  },
   "StevenQinDev": {
     "address": "salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew",
     "pubkey": "02a670fa8d7c4419ce0524146be9da3c535894366b4255a4a9489d21d2166469d7"
