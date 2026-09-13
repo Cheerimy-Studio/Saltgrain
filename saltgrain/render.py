@@ -8,6 +8,7 @@ other word in it is hand-written and is never touched.
 import html
 import json
 import os
+import unicodedata
 
 from .chain import ChainState, emitted_supply
 from .consensus import (
@@ -25,6 +26,22 @@ REGISTRY = os.path.join("chain", "registry.json")
 BEGIN = "<!-- SALT:BEGIN -->"
 END = "<!-- SALT:END -->"
 RECENT = 10
+
+
+def _clip(text: str, budget: int) -> str:
+    """
+    Cut `text` to a monospace budget, counting CJK as two columns, and mark
+    the cut with an ellipsis. The SVG tape gives each field a fixed width, so
+    a long handle or message has to be shortened rather than overflow.
+    """
+    kept, used = [], 0
+    for ch in text:
+        width = 2 if unicodedata.east_asian_width(ch) in ("W", "F") else 1
+        if used + width > budget - 1:  # the ellipsis needs a column too
+            return "".join(kept) + "…"
+        kept.append(ch)
+        used += width
+    return "".join(kept)
 
 
 def _when(ts: int) -> str:
@@ -76,7 +93,7 @@ def render_readme_section(state: ChainState) -> str:
         f'</picture>'
     )
     out.append("")
-    out.append("| | |")
+    out.append("| 项目 | 数值 |")
     out.append("|---|---|")
     out.append(f"| **高度** | `{height}` |")
     out.append(f"| **链尖** | `{state.tip_hash}` |")
@@ -92,7 +109,7 @@ def render_readme_section(state: ChainState) -> str:
 
     out.append("### 最近的区块")
     out.append("")
-    out.append("| # | 哈希 | 矿工 | 留言 | 交易 | 奖励 | 时间 |")
+    out.append("| # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |")
     out.append("|--:|---|---|---|--:|--:|---|")
     for b in reversed(state.blocks[-RECENT:]):
         msg = html.escape(b.txs[0].coinbase or "")
@@ -106,9 +123,9 @@ def render_readme_section(state: ChainState) -> str:
     out.append("")
 
     if state.miners:
-        out.append("### 矿工")
+        out.append("### 采盐者")
         out.append("")
-        out.append("| 矿工 | 区块数 | 占比 |")
+        out.append("| 采盐者 | 区块数 | 占比 |")
         out.append("|---|--:|--:|")
         total = sum(state.miners.values())
         for handle, count in sorted(state.miners.items(), key=lambda p: (-p[1], p[0]))[:12]:
@@ -238,9 +255,8 @@ def _svg(state: ChainState, pal: dict, slots: int) -> str:
         out.append(f'<text x="{x + 11}" y="{top + 37}" fill="{pal["ink"]}" font-size="10">'
                    f'{b.block_hash()[:16]}&#8230;</text>')
         out.append(f'<text x="{x + 11}" y="{top + 52}" fill="{pal["teal"]}" font-size="10.5">'
-                   f'@{html.escape(b.miner[:16])}</text>')
-        raw = b.txs[0].coinbase or ""
-        msg = html.escape(raw[:21]) + ("&#8230;" if len(raw) > 21 else "")
+                   f'@{html.escape(_clip(b.miner, 18))}</text>')
+        msg = html.escape(_clip(b.txs[0].coinbase or "", 23))
         out.append(f'<text x="{x + 11}" y="{top + 66}" fill="{pal["dim"]}" font-size="9">{msg}</text>')
 
     out.append("</svg>\n")

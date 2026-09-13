@@ -178,7 +178,7 @@ def handle_identity(payload: str, author: str) -> tuple[str, bool]:
     note = f"\n\n这取代了你之前的地址 `{previous}`。" if previous else ""
     return (
         f"### 名字已绑定\n\n"
-        f"| | |\n|---|---|\n"
+        f"| 项目 | 值 |\n|---|---|\n"
         f"| GitHub | @{handle} |\n| 地址 | `{address}` |\n\n"
         f"从现在起，账本里你的余额旁边会显示你的名字。{note}",
         True,
@@ -190,18 +190,17 @@ def handle_block(data, author: str) -> tuple[str, bool]:
 
     if block.miner.lower() != author.lower():
         return (
-            f"**已拒绝。** 这个区块署名矿工是 `{block.miner}`，但提交者是 @{author}。"
-            f"矿工名字被写进了区块头，改动它就得把工作量全部重做。\n\n"
-            f"请用 `--miner {author}` 重新挖。",
+            f"**已拒绝。** 这个区块署名采盐者是 `{block.miner}`，但提交者是 @{author}。"
+            f"这个名字被写进了区块头，改动它就得把工作量全部重做。\n\n"
+            f"请用 `--miner {author}` 重新采一次。",
             False,
         )
 
     if not author_has_starred(author):
         return (
-            f"**已拒绝。** 挖矿前请先给本仓库点一个 Star（右上角 ★ Star）。\n\n"
-            f"@ {author} 还没有 Star 过这里。点完之后，把这条评论原样再发一次即可 —— "
-            f"区块本身仍然有效（除非这期间别人先挖出了下一个区块）。\n\n"
-            f"> 转账和名字绑定不受此限制，随时可以提交。",
+            f"**已拒绝。** @{author} 还没有给本仓库点 Star（右上角 ★）。\n\n"
+            f"点完之后，把这条评论原样再发一次即可 —— 区块本身仍然有效"
+            f"（除非这期间别人先采出了下一个区块）。转账和名字绑定不受此限制。",
             False,
         )
 
@@ -244,10 +243,10 @@ def handle_block(data, author: str) -> tuple[str, bool]:
     lines = [
         f"### 区块 `{block.height}` 已接受",
         "",
-        f"| | |",
+        f"| 项目 | 值 |",
         f"|---|---|",
         f"| 哈希 | `{block.block_hash()}` |",
-        f"| 矿工 | @{block.miner} |",
+        f"| 采盐者 | @{block.miner} |",
         f"| 解出的题数 | `{block.puzzles()}` |",
         f"| 难度 | `{difficulty(block.bits):,.1f}` |",
         f"| 奖励 | `{reward} SALT` |",
@@ -268,13 +267,13 @@ def handle_block(data, author: str) -> tuple[str, bool]:
 def handle_tx(data, author: str) -> tuple[str, bool]:
     tx = Tx.from_dict(data)
     if tx.is_coinbase:
-        return "**已拒绝。** 区块奖励由矿工创建，不能直接提交。", False
+        return "**已拒绝。** 区块奖励由采盐者创建，不能直接提交。", False
 
     state = chainmod.load_state()
     mempool = load_mempool()
 
     if len(mempool) >= MAX_MEMPOOL:
-        return f"**已拒绝。** 交易池满了（{MAX_MEMPOOL} 笔）。先挖一个区块清一清。", False
+        return f"**已拒绝。** 交易池满了（{MAX_MEMPOOL} 笔）。先采一个区块清一清。", False
     if any(t.txid() == tx.txid() for t in mempool):
         return f"这笔交易已经在池子里了：`{tx.txid()[:20]}…`。", False
 
@@ -305,14 +304,14 @@ def handle_tx(data, author: str) -> tuple[str, bool]:
             [
                 f"### 交易已排队",
                 "",
-                f"| | |",
+                f"| 项目 | 值 |",
                 f"|---|---|",
                 f"| txid | `{tx.txid()}` |",
                 f"| 转出 | `{format_amount(total)} SALT`，共 {len(tx.outputs)} 个输出 |",
                 f"| 手续费 | `{format_amount(fee)} SALT` |",
                 f"| 交易池 | `{len(mempool)}` 笔待打包 |",
                 "",
-                "挖出下一个区块的人会把它打包进去，手续费高的优先。",
+                "采出下一个区块的人会把它打包进去，手续费高的优先。",
             ]
         ),
         True,

@@ -20,7 +20,7 @@ TICKER = "SALT"
 BASE_UNIT = "mote"
 COIN = 100_000_000  # motes per SALT
 
-INITIAL_SUBSIDY = 50 * COIN
+INITIAL_SUBSIDY = 50_000 * COIN  # x 210 blocks x 2 halves => 21,000,000 SALT cap
 HALVING_INTERVAL = 210  # blocks; Bitcoin uses 210_000
 MAX_HALVINGS = 64
 

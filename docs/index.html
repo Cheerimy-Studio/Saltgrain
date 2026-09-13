@@ -156,7 +156,7 @@
  * Sample data. Used only when the live chain cannot be fetched, so the
  * page is never blank. Clearly labelled as sample wherever it is shown.
  * ------------------------------------------------------------------ */
-const SAMPLE = { blocks: [{"algo":1,"bits":503382016,"height":0,"merkle_root":"a3eb6995c37b66d87ec90f383e7f7e5c6d3529379f1478065d5b51d9b016ee17","miner":"Cheerimy-Studio","prev_hash":"0000000000000000000000000000000000000000000000000000000000000000","solution":"00001d036a86f700027da741b20d000112172755d900009339ee7f5200001b26b5bfa20000e7da5b21540001311c7550ed00024634f57f1200009fceb9021f00045c604a562a0001d8ee33789500003fc77d6dd800014b436f89370001fbc8a11a5e00007bc66d756c","timestamp":1789265798,"txs":[{"cb_height":0,"coinbase":"\u4e00\u7c92\u76d0\u4ec0\u4e48\u90fd\u4e0d\u662f\uff0c\u6492\u8fdb\u9505\u91cc\u624d\u6709\u5473\u9053\u3002","inputs":[],"locktime":0,"outputs":[{"address":"salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8","value":5000000000}],"version":1}]}], mempool: [], registry: {"Cheerimy-Studio":{"address":"salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8","pubkey":"029b6f1d592db57e6f5989847e7476a1982c18d739b7f1f93a74a30fad90a82692"}} };
+const SAMPLE = { blocks: [{"algo":1,"bits":503382016,"height":0,"merkle_root":"77842688b55b86545038dcea3cddbf396bccf663b54bad6161681b3f09ecd596","miner":"Cheerimy-Studio","prev_hash":"0000000000000000000000000000000000000000000000000000000000000000","solution":"0002f9782d5b230001466faddc2a000028bfff725000006abcbd9412000137c61cb75400014cbeef901c00002b76d4250700010d6ae7196d000075eca3f4e700005539a85b8e00000fb695192700015ef11c1e35000346179539b1000029c96ff4b40002d2b8e20d86","timestamp":1789266670,"txs":[{"cb_height":0,"coinbase":"\u4e00\u7c92\u76d0\u4ec0\u4e48\u90fd\u4e0d\u662f\uff0c\u6492\u8fdb\u9505\u91cc\u624d\u6709\u5473\u9053\u3002","inputs":[],"locktime":0,"outputs":[{"address":"salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8","value":5000000000000}],"version":1}]}], mempool: [], registry: {"Cheerimy-Studio":{"address":"salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8","pubkey":"029b6f1d592db57e6f5989847e7476a1982c18d739b7f1f93a74a30fad90a82692"}} };
 
 let STATE = null, MEMPOOL = [], REGISTRY = {}, BY_ADDR = {}, SAMPLED = false,
     FULLY_VERIFIED = false, SAMPLE_REASON = "";
@@ -292,7 +292,7 @@ function youPanel() {
     .findIndex(([a]) => a === addr) + 1;
   const rows = [
     ["GitHub", `<a href="https://github.com/${esc(h)}">@${esc(h)}</a>`],
-    ["挖出的区块", `${mined.length}${mined.length ? ` — ${mined.slice(-6).reverse()
+    ["采出的区块", `${mined.length}${mined.length ? ` — ${mined.slice(-6).reverse()
       .map(b => `<a href="#/block/${b.height}">#${b.height}</a>`).join(" ")}` : ""}`],
     ["地址", addr ? `<a href="#/address/${addr}">${esc(addr)}</a>` :
       `<span style="color:var(--dim2)">未绑定 —— 运行 <code>python3 wallet.py identity --handle ${esc(h)}</code></span>`],
@@ -352,8 +352,8 @@ function chartsPanel() {
 function minersPanel() {
   const total = [...STATE.miners.values()].reduce((a, b) => a + b, 0);
   const me = you().toLowerCase();
-  return `<h2>矿工</h2><div class="scroll"><table>
-    <tr><th>矿工</th><th class="num">区块数</th><th class="num">占比</th></tr>` +
+  return `<h2>采盐者</h2><div class="scroll"><table>
+    <tr><th>采盐者</th><th class="num">区块数</th><th class="num">占比</th></tr>` +
     [...STATE.miners.entries()].sort((a, b) => b[1] - a[1]).map(([h, c]) =>
       `<tr class="${h.toLowerCase() === me ? "me" : ""}"><td><a href="#/handle/${esc(h)}">@${esc(h)}</a></td><td class="num">${c}</td><td class="num">${(100 * c / total).toFixed(1)}%</td></tr>`).join("") +
     `</table></div>`;
@@ -393,7 +393,7 @@ function blockView(h) {
   const rows = [
     ["哈希", `<code>${blockHash(b)}</code>`],
     ["上一块", h ? `<a href="#/block/${h - 1}"><code>${b.prev_hash}</code></a>` : "<code>创世块</code>"],
-    ["矿工", `<a href="#/handle/${esc(b.miner)}">@${esc(b.miner)}</a>`],
+    ["采盐者", `<a href="#/handle/${esc(b.miner)}">@${esc(b.miner)}</a>`],
     ["时间", `${new Date(b.timestamp * 1000).toISOString().replace("T", " ").slice(0, 19)} UTC <span class="pill">${ago(b.timestamp)}</span>`],
     ["难度", `${difficultyOf(b.bits).toLocaleString(undefined, { maximumFractionDigits: 1 })} <span class="pill">${fmtBits(b.bits)}</span>`],
     ["工作量", `${k} 道子集和题，n=${PN}`],
@@ -477,7 +477,7 @@ function addressView(addr) {
       history.reverse().map(({ b, t, id, recv, sent }) => {
         const amt = recv ? t.outputs.filter(o => o.address === addr)
           .reduce((a, o) => a + BigInt(o.value), 0n) : 0n;
-        return `<tr><td><a href="#/block/${b.height}">${b.height}</a></td><td><a href="#/tx/${id}">${esc(short(id, 10))}</a></td><td>${sent && recv ? "转出 + 找零" : sent ? "转出" : isCoinbase(t) ? "挖出" : "收到"}</td><td class="num">${recv ? fmtAmount(amt) : "—"}</td><td class="memo">${esc(t.memo || t.coinbase || "")}</td></tr>`;
+        return `<tr><td><a href="#/block/${b.height}">${b.height}</a></td><td><a href="#/tx/${id}">${esc(short(id, 10))}</a></td><td>${sent && recv ? "转出 + 找零" : sent ? "转出" : isCoinbase(t) ? "采出" : "收到"}</td><td class="num">${recv ? fmtAmount(amt) : "—"}</td><td class="memo">${esc(t.memo || t.coinbase || "")}</td></tr>`;
       }).join("") + `</table></div>` : `<div class="empty">没有交易。</div>`}` + foot();
 }
 
@@ -491,14 +491,14 @@ function handleView(h) {
     a + b.txs[0].outputs.reduce((x, o) => x + BigInt(o.value), 0n), 0n);
   app.innerHTML = `<a class="back" href="#/">← 返回</a><h2>@${esc(h)}</h2>
     <div class="card"><table class="kv">
-      <tr><th>GitHub</th><td><a href="https://github.com/${esc(h)}">github.com/${esc(h)}</a></td></tr><tr><th>挖出区块</th><td>${mined.length}</td></tr><tr><th>累计奖励</th><td>${fmtAmount(reward)} SALT</td></tr><tr><th>地址</th><td>${addr ? `<a href="#/address/${addr}"><code>${esc(addr)}</code></a>`
+      <tr><th>GitHub</th><td><a href="https://github.com/${esc(h)}">github.com/${esc(h)}</a></td></tr><tr><th>采出区块</th><td>${mined.length}</td></tr><tr><th>累计奖励</th><td>${fmtAmount(reward)} SALT</td></tr><tr><th>地址</th><td>${addr ? `<a href="#/address/${addr}"><code>${esc(addr)}</code></a>`
         : '<span style="color:var(--dim2)">还没有绑定地址</span>'}</td></tr><tr><th>余额</th><td>${bal === null ? "—" : fmtAmount(bal) + " SALT"}</td></tr>
     </table></div>
-    <h2>挖出的区块</h2>
+    <h2>采出的区块</h2>
     ${mined.length ? `<div class="scroll"><table>
       <tr><th>高度</th><th>哈希</th><th>留言</th><th class="num">交易</th><th class="num">奖励</th><th>时间</th></tr>` +
       mined.slice().reverse().map(b => `<tr><td><a href="#/block/${b.height}">${b.height}</a></td><td>${esc(short(blockHash(b), 12))}</td><td class="memo">${esc(b.txs[0].coinbase || "")}</td><td class="num">${b.txs.length}</td><td class="num">${fmtAmount(b.txs[0].outputs.reduce((a, o) => a + BigInt(o.value), 0n))}</td><td>${ago(b.timestamp)}</td></tr>`).join("") + `</table></div>`
-      : `<div class="empty">@${esc(h)} 还没有挖出过区块。</div>`}` + foot();
+      : `<div class="empty">@${esc(h)} 还没有采出过区块。</div>`}` + foot();
 }
 
 const notFound = m => { app.innerHTML =

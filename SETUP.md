@@ -1,6 +1,6 @@
 # 从零开一锅自己的盐
 
-如果你想要一份**属于自己**的盐粒账本（而不是在别人的链上挖），照着做。一共六步，大约两分钟。顺序别乱：创世块一旦推上去就改不了了，推之前是唯一能决定这条链长什么样的机会。
+如果你想要一份**属于自己**的盐粒账本（而不是在别人的链上采），照着做。一共六步，大约两分钟。顺序别乱：创世块一旦推上去就改不了了，推之前是唯一能决定这条链长什么样的机会。
 
 ## 1. 建钱包
 
@@ -10,7 +10,7 @@ python3 wallet.py new
 
 会写出 `salt-wallet.json`（已在 `.gitignore` 里，但里面是明文私钥，别提交）。记下打印出的地址。
 
-## 2. 挖创世块
+## 2. 采创世块
 
 ```bash
 python3 make_genesis.py \
@@ -47,14 +47,14 @@ Fork 出来的仓库默认**关闭了 Issues**，先在 Settings 里打开，然
 ```bash
 gh label create salt --description "盐粒链提交" --color 8A5F10
 
-gh issue create --title "挖矿提交处 · Mine a block" --label salt --body \
-"把 \`salt-block-v1:\` 那一行贴在这里。先给仓库点 Star。"
+gh issue create --title "采盐提交处 · Mine a block" --label salt --body \
+"把 \`salt-block-v1:\` 那一行贴在这里。提交前需要先给仓库点 Star。"
 
 gh issue create --title "转账提交处 · Mempool" --label salt --body \
 "把 \`salt-tx-v1:\` 那一行贴在这里排队。"
 ```
 
-这两个 issue 最好落在 **#1**（挖矿）和 **#2**（转账），README 顶部的链接指向它们，`chain/issues.json` 里也记着这两个编号。如果编号不是 1 和 2，改这两处即可。
+这两个 issue 最好落在 **#1**（采盐）和 **#2**（转账），README 顶部的链接指向它们，`chain/issues.json` 里也记着这两个编号。如果编号不是 1 和 2，改这两处即可。
 
 建好后把两个 issue 置顶（Pin），方便别人找到。
 
@@ -74,13 +74,13 @@ Settings → Pages → Source 选 **Deploy from a branch**，分支 `main`，目
 <html lang="zh-CN" data-repo="你的用户名/你的仓库名">
 ```
 
-## 然后就可以挖第一粒了
+## 然后就可以采第一粒了
 
 ```bash
 python3 miner.py --miner 你的用户名 --message "第一粒盐"
 ```
 
-把输出贴到挖矿提交处，看着 README 自己更新。
+把输出贴到采盐提交处，看着 README 自己更新。
 
 ---
 
