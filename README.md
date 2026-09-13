@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=552"><img src="assets/ledger-light.svg?v=552" width="100%" alt="Saltgrain ledger, height 552"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=553"><img src="assets/ledger-light.svg?v=553" width="100%" alt="Saltgrain ledger, height 553"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `552` |
-| **链尖** | `4b1ecc555c7de82a162285459fdc59ff8bbe03ab861407cc9f39cf9c8504e114` |
+| **高度** | `553` |
+| **链尖** | `7c64ef98454b4cd1f845d506b876cce29338fc51bc896d185e318c3752f0f819` |
 | **难度** | `2,237,262,598,829,952,991,232.0`  (bits `0x1521c5c0`) |
-| **累计工作量** | `33,625,138,091,240,275,211,608,641,211` 次预期尝试 |
-| **已发行** | `27650.00000000 SALT`，分布在 `553` 个未花费输出上 |
+| **累计工作量** | `35,971,077,958,070,992,086,830,253,134` 次预期尝试 |
+| **已发行** | `27700.00000000 SALT`，分布在 `554` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `7` 块 |
-| **距离下次减半** | `209447` 块 |
-| **交易数** | `553` |
+| **距离下次难度调整** | `6` 块 |
+| **距离下次减半** | `209446` 块 |
+| **交易数** | `554` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `553` | `7c64ef98454b4cd1f845…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:44 UTC |
 | `552` | `4b1ecc555c7de82a1622…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:43 UTC |
 | `551` | `a6221b296f0770b9ffe3…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:42 UTC |
 | `550` | `961db383aca3ee9149f8…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:41 UTC |
@@ -41,15 +42,14 @@
 | `546` | `af3cb7a7e4ddc92cd4ea…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:37 UTC |
 | `545` | `a584b4abaa9b1df21e0e…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:36 UTC |
 | `544` | `f602602a5b1b68798786…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:35 UTC |
-| `543` | `3e3d867367f1e0d7e16f…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-13 10:34 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `57.1%` |
-| [@yannicksong0106](https://github.com/yannicksong0106) | `162` | `29.3%` |
-| [@sxxso](https://github.com/sxxso) | `39` | `7.1%` |
+| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `57.0%` |
+| [@yannicksong0106](https://github.com/yannicksong0106) | `163` | `29.4%` |
+| [@sxxso](https://github.com/sxxso) | `39` | `7.0%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `6.5%` |
 
 ### 持有者
@@ -59,12 +59,12 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
-| [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `8100.00000000 SALT` |
+| [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `8150.00000000 SALT` |
 | _未认领_ | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `1950.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 552 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 553 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
