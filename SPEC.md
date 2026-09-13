@@ -1,196 +1,140 @@
-# Saltgrain consensus specification
+# 盐粒共识规范
 
-Version 1.0. This document defines every rule a Saltgrain block must satisfy.
-It is normative: `saltgrain/consensus.py` is the reference implementation, and
-where the two disagree, this document is wrong and should be fixed.
+版本 1.0。本文档规定了一个盐块必须满足的全部规则。它是规范性的：`saltgrain/consensus.py` 是参考实现，两者若有出入，以代码为准，本文档需要修正。
 
-Saltgrain is a Bitcoin-derived chain with two unusual properties: its canonical
-ledger is a file in a GitHub repository, relayed by issue comments and pull
-requests; and its proof of work is subset-sum rather than hashing, so mining
-rewards a better solver rather than better silicon. Consensus is enforced by a workflow that any observer can
-re-run, and by `verify.py`, which trusts nothing but `chain/blocks.jsonl`.
+盐粒是一条从比特币派生出来的链，它有两处不同寻常的地方：它的正式账本是 GitHub 仓库里的一个文件，靠 issue 评论和 pull request 传递；它的工作量证明是子集和，而不是哈希——所以采盐奖励的是更聪明的解法，而不是更好的芯片。共识由一个任何人都能重跑的工作流执行，也由 `verify.py` 执行，后者除了 `chain/blocks.jsonl` 什么都不信。
 
-Saltgrain coins have no value, no market, and no bridge to anything. The chain
-exists to be read.
+盐粒没有价值、没有市场，也不通向任何东西。这条链的存在只是为了被阅读。
 
 ---
 
-## 1. Units
+## 1. 单位
 
-| | |
+| 项目 | 值 |
 |---|---|
-| Coin | SALT |
-| Base unit | mote |
-| 1 SALT | 100 000 000 motes |
+| 代币 | SALT |
+| 最小单位 | mote（微粒） |
+| 1 SALT | 100 000 000 mote |
 
-All amounts in blocks are integers denominated in motes. Fractional motes
-do not exist.
+盐块里的一切金额都是以 mote 计的整数。不存在半个 mote。
 
-## 2. Chain parameters
+## 2. 链参数
 
-| Parameter | Saltgrain | Bitcoin |
+| 参数 | 盐粒 | 比特币 |
 |---|---|---|
-| Initial subsidy | 50 SALT | 50 BTC |
-| Halving interval | 210 blocks | 210 000 blocks |
-| Retarget interval | 16 blocks | 2016 blocks |
-| Target block spacing | 600 s | 600 s |
-| Retarget clamp | ×4 / ÷4 | ×4 / ÷4 |
-| Coinbase maturity | 10 blocks | 100 blocks |
-| Median time span | 11 blocks | 11 blocks |
-| Max future drift | 7200 s | 7200 s |
-| Proof-of-work limit | `0x1e100000` (k = 1) | `0x1d00ffff` |
-| Genesis difficulty | `0x1e010000` (k = 15) | `0x1d00ffff` |
-| Work function | subset-sum, n = 40 | double SHA-256 |
-| Max puzzles per block | 1024 | — |
-| Max transactions per block | 16 | ~4000 |
-| Coinbase message | ≤ 80 bytes (≤ 256 at genesis) | ≤ 100 bytes |
-| Transfer memo | ≤ 120 bytes | — |
+| 初始补贴 | 50 SALT | 50 BTC |
+| 减半间隔 | 210 000 个盐块 | 210 000 个区块 |
+| 难度调整间隔 | 16 个盐块 | 2016 个区块 |
+| 目标出块间隔 | 600 秒 | 600 秒 |
+| 调整幅度上限 | ×4 / ÷4 | ×4 / ÷4 |
+| coinbase 成熟期 | 10 个盐块 | 100 个区块 |
+| 中位时间窗口 | 11 个盐块 | 11 个区块 |
+| 允许的未来漂移 | 7200 秒 | 7200 秒 |
+| 工作量下限目标 | `0x1e100000`（k = 1） | `0x1d00ffff` |
+| 创世难度 | `0x1e010000`（k = 15） | `0x1d00ffff` |
+| 工作量函数 | 子集和，n = 40 | 双重 SHA-256 |
+| 单个盐块最多解多少道题 | 1024（高度 1500 起为 3000） | — |
+| 单个盐块最多多少笔交易 | 16 | 约 4000 |
+| coinbase 留言 | ≤ 80 字节（创世 ≤ 256） | ≤ 100 字节 |
+| 寄送备注 | ≤ 120 字节 | — |
 
-One puzzle takes about 1.8 seconds in the reference solver, so the floor
-(k = 1) is a couple of seconds of work and genesis (k = 15) is about half a
-minute. Ten-minute spacing lands near k = 340, which retargeting will find
-on its own. The floor is deliberately not at zero: difficulty falls during
-quiet stretches, and without a floor a chain nobody is mining would hand out
-free blocks.
+参考求解器解一道题大约 1.8 秒，所以难度下限（k = 1）是几秒钟的活，创世块（k = 15）大约半分钟。十分钟一块大约落在 k = 340 附近，难度调整会自己找到这个位置。下限刻意不设为零：冷清的时候难度会往下掉，没有下限的话，一条没人在采的链会白送盐块。
+## 3. 哈希
 
-## 3. Hashing
+`H(x)` 表示 SHA-256。链上所有哈希都用 `H(H(x))`，写作 `H²`，与比特币一致。
 
-`H(x)` denotes SHA-256. All chain hashes use `H(H(x))`, written `H²`, as
-Bitcoin does.
+## 4. 序列化
 
-## 4. Serialisation
+盐粒序列化成一个规范的 UTF-8 字节串，而不是二进制格式。字段之间用 `|` 连接，而 `|` 在任何用户提供的字段里都是禁止出现的，所以这个编码没有歧义。
 
-Saltgrain serialises to a canonical UTF-8 byte string rather than a binary
-format. Fields are joined with `|`, which is forbidden inside any
-user-supplied field, so the encoding is unambiguous.
-
-### 4.1 Transaction core
+### 4.1 交易核心
 
 ```
 v{version}|cb:{cb_height}:{hex(message)}|out:{value}:{address}|…|lt{locktime}
 v{version}|in:{txid}:{vout}:{pubkey}|…|memo:{hex(memo)}|out:{value}:{address}|…|lt{locktime}
 ```
 
-The first form is the coinbase, the second a spend. The memo is inside the
-core, so it is committed to by both the txid and every signature: a note
-cannot be altered, stripped or added in transit.
+第一种是 coinbase，第二种是花费。备注被放在核心之内，所以它同时被 txid 和每一个签名承诺：一条备注无法在传递途中被篡改、剥离或添加。
 
-`txid = H²(core)`.
+`txid = H²(core)`。
 
-Signatures are **not** part of the core. Public keys **are**. A transaction
-therefore has exactly one txid no matter how it was signed, which removes
-Bitcoin's pre-segwit malleability by construction rather than by patch.
+签名**不**属于核心，公钥**属于**。因此一笔交易无论怎么签，都只有一个 txid——这是从构造上消除了比特币隔离见证之前的那种可延展性，而不是靠打补丁。
 
-### 4.2 Signature hash
+### 4.2 签名摘要
 
 ```
 sighash = H²(core) = txid
 ```
 
-Every input signs the same digest, committing to all inputs, all outputs,
-and every public key involved. This is equivalent to Bitcoin's `SIGHASH_ALL`
-with no other sighash modes available.
+每个输入签的是同一个摘要，它承诺了全部输入、全部输出，以及牵涉的每一个公钥。这等价于比特币的 `SIGHASH_ALL`，且没有别的 sighash 模式可选。
 
-### 4.3 Block header
+### 4.3 盐块头
 
-The header comes in two pieces. The **core** is what the puzzles are seeded
-from, and excludes the solution, since the solution is the answer to the
-puzzles the core defines:
+盐块头分两段。**核心**是题目种子的来源，它不包含解——因为解就是核心所定义的题目的答案：
 
 ```
 core   = {height}|{prev_hash}|{merkle_root}|{timestamp}|{bits:08x}|{miner}|{algo}
 header = core|{solution}
 ```
 
-`block_hash = H²(header)`, so block identity commits to the answer as well
-as the question.
+`block_hash = H²(header)`，所以盐块的身份同时承诺了问题和答案。
 
-The miner's GitHub handle is **inside the core**. Two consequences, and both
-matter: every miner is working on a different set of puzzles, so a solution
-posted publicly is useless to anyone else; and a solved block cannot be
-re-submitted under a different handle without redoing all of the work. This
-is what makes an untrusted relay channel safe.
+采盐者的 GitHub 用户名**在核心里面**。这带来两个后果，都很关键：每个采盐者面对的是一组不同的题，公开贴出的解对别人毫无用处；而一个已经解出的盐块，换一个用户名就无法重新提交，除非把全部工作量重做一遍。正是这一点让一条不被信任的中继通道变得安全。
 
-`algo` selects the work function. Only `1` (subset-sum) is defined. The
-field exists so a second work function can be added without a new header
-format.
+`algo` 选择工作量函数。目前只定义了 `1`（子集和）。这个字段存在，是为了以后能在不改盐块头格式的前提下加第二种工作量函数。
 
-## 5. Proof of work: subset-sum
+## 5. 工作量证明：子集和
 
-Bitcoin asks for a nonce whose header hashes below a target. Saltgrain asks for
-subsets of numbers that sum exactly to targets.
+比特币要求找一个 nonce，让盐块头的哈希低于某个目标值。盐粒要求找出若干个数，使它们的和恰好等于目标值。
 
-### 5.1 One puzzle
+### 5.1 一道题
 
-Puzzle `j` of a block, at per-puzzle nonce `v`:
+盐块的第 `j` 道题，在题目内 nonce 为 `v` 时：
 
 ```
 seed = H²(core ‖ "|" ‖ j ‖ "|" ‖ v)
-a_i  = H(seed ‖ i) mod 2^b            for i = 0 … n−1
+a_i  = H(seed ‖ i) mod 2^b            i = 0 … n−1
 S    = Σ a_i
 T    = S/2 + (H(seed ‖ "target") mod 2·⌊S/16⌋) − ⌊S/16⌋
 ```
 
-with `n = 40` and `b = n − 2 = 38`. Any `a_i` that comes out zero is set to 1.
+其中 `n = 40`，`b = n − 2 = 38`。若某个 `a_i` 算出来是 0，就取 1。
 
-A solution is a non-empty subset of `{0 … n−1}` whose elements sum to exactly
-`T`, submitted as an `n`-bit mask.
+一个解就是 `{0 … n−1}` 的一个非空子集，其元素之和恰好等于 `T`，提交时表示为一个 `n` 位的掩码。
 
-Two constants there are load-bearing.
+这里有两个常数是承重的。
 
-**Why `b = n − 2`.** Density — how wide the numbers are relative to how many
-there are — decides whether subset-sum is hard. Below roughly 0.94, lattice
-reduction solves instances outright. Here density is `n/b ≈ 1.05`, just
-inside the hard regime.
+**为什么 `b = n − 2`。** 密度——数的宽度相对于数的个数——决定子集和难不难。低于大约 0.94 时，格基约减可以直接解出实例。这里的密度是 `n/b ≈ 1.05`，刚好落在困难区间之内。
 
-**Why `T` sits near `S/2`.** Subset sums are not spread evenly; they pile up
-around half the total the way sums of coin flips pile up around the middle.
-A target drawn uniformly across the range lands in the tail where almost no
-subsets reach. The first implementation of this specification did exactly
-that, and zero of twelve instances had any solution. Placing `T` near the
-mean puts it where the subsets are: about 55% of instances are then solvable,
-measured over 24 puzzles.
+**为什么 `T` 取在 `S/2` 附近。** 子集和不是均匀分布的，它们像抛硬币的和一样堆在中间附近。若在整个范围内均匀取目标值，会落在几乎没有子集能够到的尾部。本规范的第一版就是这么做的，十二个实例里没有一个有解。把 `T` 放在均值附近，就落在子集真正聚集的地方：这样大约 55% 的实例有解（在 24 道题上实测）。
 
-### 5.2 The grind
+### 5.2 反复试
 
-An instance is random, so it may have no solution at all. A miner who finds
-none increments `v` and gets a fresh instance. That grind is what makes
-mining a lottery rather than a footrace, exactly as nonce grinding is in
-Bitcoin.
+实例是随机的，所以可能根本没有解。遇到无解的采盐者就把 `v` 加一，换一个新实例。这种反复试让采盐成为抽奖而不是赛跑——和比特币里反复试 nonce 是一个道理。
 
-### 5.3 Difficulty
+### 5.3 难度
 
-The best known attack is meet-in-the-middle: enumerate every subset sum of
-each half and look for a pair adding to `T`. That costs about `2^(n/2)` time
-**and memory**, and memory binds first — in Python, `n = 44` already wants
-280 MB to buy 2.4 seconds. Difficulty therefore cannot come from growing `n`.
+已知最好的攻击是中间相遇：把每一半的所有子集和都枚举出来，再找一对相加等于 `T` 的。它的代价约为 `2^(n/2)` 的时间和**内存**，而内存先撑不住——在本实现里，`n = 40` 解一道题的峰值内存就已经在一百多 MB 量级（半集和用定宽整数数组存放，词典才是大头）。所以难度不可能靠增大 `n` 来获得。
 
-It comes from repetition instead, as it does in Bitcoin. A block carries `k`
-solved puzzles:
+它靠重复来获得，和比特币一样。一个盐块携带 `k` 道已解出的题：
 
 ```
-work = 2²⁵⁶ ÷ (target + 1)          Bitcoin's chainwork formula, unchanged
+work = 2²⁵⁶ ÷ (target + 1)          比特币的 chainwork 公式，未作改动
 k    = clamp(work ÷ 2²⁰, 1, K_MAX)
 
-K_MAX = 1024   below height 1500
-K_MAX = 3000   from height 1500
+K_MAX = 1024   高度 1500 以下
+K_MAX = 3000   高度 1500 起
 ```
 
-The cap exists because a block has to fit in a GitHub comment, and 3000
-solutions at 7 bytes each is about as far as that goes. It is a consensus
-value, so raising it is a height-gated rule change, not a configuration knob.
+设上限是因为一个盐块必须能塞进一条 GitHub 评论里，而 3000 个解、每个 7 字节，差不多就是极限了。它是共识值，所以提高它属于受高度限制的规则变更，而不是一个配置开关。
 
-`bits` uses Bitcoin's compact nBits encoding: an exponent byte followed by a
-three-byte mantissa, `target = mantissa · 256^(exponent−3)`, sign bit clear.
-Because `k` is derived from the same `work` that chainwork measures,
-retargeting (§6) needs no special case.
+`bits` 使用比特币的紧凑 nBits 编码：一个指数字节加三个尾数字节，`target = mantissa · 256^(exponent−3)`，符号位为 0。因为 `k` 是由 chainwork 所度量的同一个 `work` 推导出来的，难度调整（§6）不需要任何特例。
 
-Verification is `k` puzzle derivations and `k · n` additions: 0.06 s at the
-maximum difficulty.
+校验就是推导 `k` 道题、做 `k · n` 次加法：在最高难度下约 0.1 秒。
 
-## 6. Difficulty adjustment
+## 6. 难度调整
 
-At every height that is a multiple of 16 and greater than zero:
+在每一个高度为 16 的倍数且大于零的位置：
 
 ```
 actual   = timestamp[h−1] − timestamp[h−W]
@@ -200,201 +144,124 @@ target'  = min(target', POW_LIMIT)
 target'  = max(target', CEILING(h))
 ```
 
-where `TIMESPAN = 16 · 600` seconds (2 h 40 m). At all other heights, `bits`
-must equal the previous block's `bits`, subject to the same two bounds.
+其中 `TIMESPAN = 16 · 600` 秒（2 小时 40 分）。在其它所有高度上，`bits` 必须等于上一个盐块的 `bits`，同样受这两个边界约束。
 
-`W`, the window, is 16 below height 1500 and 17 from height 1500. Sixteen
-timestamps span fifteen intervals, so the original window measured fifteen
-intervals against a sixteen-interval target and tightened difficulty by 6.67%
-at every retarget whether or not blocks were running late.
-That is Bitcoin's own off-by-one, present since 2009; a note in this section
-previously claimed Saltgrain avoided it, and it did not. From 1500 it does.
+窗口 `W` 在高度 1500 以下为 16，从高度 1500 起为 17。十六个时间戳跨越十五个区间，所以原来的窗口是拿十五个区间去比十六个区间的目标，无论盐块是否挖得慢了，每次调整都会把难度收紧 6.67%。这正是比特币从 2009 年就带着的那个差一错误；本节此前有一句话声称盐粒避开了它，事实上没有。从 1500 起才真正避开。
 
-`CEILING(h)` is 0 below height 1500 and `2²⁵⁶ ÷ (K_MAX · 2²⁰)` from 1500 —
-the target at which `k` reaches the cap. Above the cap a harder target buys
-no additional work, so difficulty and block spacing come apart entirely: the
-live chain hit `k = 1024` at height 128 and difficulty then climbed past
-10³⁸ while the real work per block never moved. Blocks below 1500 keep the
-old rules exactly, so nothing already mined becomes invalid.
+`CEILING(h)` 在高度 1500 以下为 0，从 1500 起为 `2²⁵⁶ ÷ (K_MAX · 2²⁰)`——也就是 `k` 刚好达到上限时的目标值。超过上限之后，更硬的目标买不到任何额外的工作量，难度和出块间隔就彻底脱钩了：实盘链在高度 128 达到 `k = 1024`，随后难度一路涨过 10³⁸，而每个盐块的真实工作量再没动过。高度 1500 以下的盐块完全沿用旧规则，所以已经采出的东西不会失效。
 
-## 7. Subsidy
+## 7. 补贴
 
 ```
-subsidy(height) = 50 SALT >> (height // 210)
+subsidy(height) = 50 SALT >> (height // 210 000)
 ```
 
-Zero after 64 halvings. The coinbase output total must equal
-`subsidy(height) + sum(fees)` **exactly**.
+64 次减半之后为零。coinbase 的输出总额必须**恰好**等于 `subsidy(height) + sum(fees)`。
 
-**Deviation.** Bitcoin permits a miner to claim *less* than the full reward,
-which has permanently destroyed a small amount of BTC. Saltgrain requires the
-exact amount, so total supply is a pure function of height and `verify.py`
-can assert that emitted supply equals unspent supply.
+总量上限是 21 000 000 SALT，分布在高度 0 到 13 439 999 之间。
 
-## 8. Transaction validity
+**偏离比特币之处。** 比特币允许采盐者只领取**少于**全额奖励，这已经永久销毁了少量 BTC。盐粒要求金额精确，所以总发行量是高度的纯函数，`verify.py` 可以断言发行量等于未花费量。
 
-A non-coinbase transaction is valid if and only if:
+## 8. 交易有效性
 
-1. `version` is 1.
-2. It has 1–8 outputs and at most 8 inputs.
-3. Every output value is a positive integer within range.
-4. Every output address passes bech32 validation with HRP `salt`, or the legacy `rofl`.
-5. No outpoint appears twice among its inputs.
-6. Every input references an outpoint that is currently unspent.
-7. Any coinbase output it spends is at least 10 blocks old.
-8. For each input, `address(pubkey) == address` of the output being spent.
-9. For each input, the signature verifies against that public key over the
-   sighash, with `s ≤ n/2` (low-s; high-s signatures are rejected outright).
-10. The sum of outputs does not exceed the sum of inputs.
-11. The memo is ≤ 120 bytes and contains no control characters and no `|`.
+一笔非 coinbase 交易有效，当且仅当：
 
-The difference between inputs and outputs is the fee, claimable by the miner.
+1. `version` 为 1。
+2. 输出 1–8 个，输入至多 8 个。
+3. 每个输出金额都是范围内的正整数。
+4. 每个输出地址都通过 bech32 校验，前缀（HRP）为 `salt`，或历史遗留的 `rofl`。
+5. 输入中没有任何一个 outpoint 出现两次。
+6. 每个输入引用的 outpoint 当前未花费。
+7. 它所花费的任何 coinbase 输出至少有 10 个盐块那么老。
+8. 对每个输入，`address(pubkey) == 被花费输出的 address`。
+9. 对每个输入，签名以该公钥对 sighash 验证通过，且 `s ≤ n/2`（low-s；high-s 签名直接拒绝）。
+10. 输出之和不超过输入之和。
+11. 备注 ≤ 120 字节，不含控制字符，不含 `|`。
 
-## 9. Block validity
+输入与输出之差是手续费，归采出这个盐块的人。
 
-1. Miner handle is 1–39 characters of `[A-Za-z0-9-]`.
-2. Height is exactly one greater than the tip; `prev_hash` equals the tip's
-   hash. Genesis is height 0 with a null `prev_hash`.
-3. `bits` equals the value required by §6.
-4. Timestamp is at most 7200 s in the future, and strictly greater than the
-   median of the previous 11 block timestamps.
-5. The block has 1–16 transactions; the first is the coinbase and no other
-   transaction is.
-6. No two transactions share a txid.
-7. The merkle root commits to the transaction list (§10).
-8. `algo` is 1, the solution decodes to exactly `k` entries for the block's
-   difficulty, and every one of them solves its puzzle (§5).
-9. The coinbase message contains no control characters and no `|`, and is
-   ≤ 80 bytes — except at height 0, where the cap is 256 bytes. Bitcoin
-   special-cases its genesis block too: it is hardcoded rather than validated,
-   and its coinbase output is unspendable.
-10. **BIP 34.** The coinbase commits to its own block height in `cb_height`,
-    which must equal the block height. Without this, two blocks with the same
-    miner, reward and message would produce the same coinbase txid.
-11. **BIP 30.** No transaction in the block may share a txid with an existing
-    unspent transaction.
-12. Every non-coinbase transaction satisfies §8, evaluated in order against a
-    UTXO set that already reflects earlier transactions in the same block.
-13. The coinbase pays exactly `subsidy + fees`.
+## 9. 盐块有效性
 
-Rules 10 and 11 exist for the same reason they exist in Bitcoin: duplicate
-coinbase txids silently overwrite earlier unspent outputs and destroy coins.
-This was found by the Saltgrain test suite before launch, in exactly the form
-Bitcoin hit it in 2012 (CVE-2012-1909).
+1. 采盐者用户名是 1–39 个 `[A-Za-z0-9-]` 字符。
+2. 高度恰好比链尖大一；`prev_hash` 等于链尖的哈希。创世块高度为 0，`prev_hash` 全零。
+3. `bits` 等于 §6 所要求的值。
+4. 时间戳至多比现在晚 7200 秒，且严格大于前 11 个盐块时间戳的中位数。
+5. 盐块有 1–16 笔交易；第一笔是 coinbase，其余都不是。
+6. 没有两笔交易共用同一个 txid。
+7. 哈希树根承诺了交易列表（§10）。
+8. `algo` 为 1，解按其难度正好解码出 `k` 条，且每一条都解出了对应的题（§5）。
+9. coinbase 留言不含控制字符、不含 `|`，且 ≤ 80 字节——高度 0 除外，那里上限是 256 字节。比特币也为它的创世块开了特例：它是硬编码的而非校验出来的，其 coinbase 输出不可花费。
+10. **BIP 34。** coinbase 通过 `cb_height` 承诺自己所在的高度，它必须等于盐块高度。否则两个采盐者相同、奖励相同、留言相同的盐块会产生同一个 coinbase txid。
+11. **BIP 30。** 盐块中任何交易都不得与一个现存未花费交易共用 txid。
+12. 每一笔非 coinbase 交易满足 §8，并按顺序针对一个已经反映同一盐块中更早交易的 UTXO 集求值。
+13. coinbase 恰好支付 `subsidy + fees`。
 
-## 10. Merkle root
+第 10、11 条存在的理由与比特币相同：重复的 coinbase txid 会悄悄覆盖更早的未花费输出，销毁代币。这是盐粒的测试套件在发行之前发现的，形式与比特币 2012 年撞上的那次完全一致（CVE-2012-1909）。
 
-Bitcoin's construction, including the rule that an odd node at any level is
-duplicated to pair with itself. An empty transaction list is not permitted.
+## 10. 哈希树根
 
-The duplication rule alone would allow two different transaction lists to
-produce the same root (CVE-2012-2459). Rule 9.6 — no duplicate txids in a
-block — closes this.
+采用比特币的构造，包括那条规则：任意层级上的奇数个节点都与自己配对复制。不允许交易列表为空。
 
-## 11. Addresses
+仅凭复制规则，两份不同的交易列表可以产生同一个根（CVE-2012-2459）。第 9.6 条——盐块内不得有重复 txid——堵住了它。
+
+## 11. 地址
 
 ```
 address = bech32(hrp="salt", version=0, payload=H(pubkey)[:20])
 ```
 
-Public keys are 33-byte SEC1 compressed secp256k1 points — the same curve
-and encoding Bitcoin uses.
+公钥是 33 字节的 SEC1 压缩 secp256k1 点——与比特币同一条曲线、同一种编码。
 
-**Deviation.** Bitcoin's payload is `RIPEMD160(SHA256(pubkey))`. RIPEMD160
-is absent from many modern OpenSSL builds, and Saltgrain commits to depending on
-nothing outside the Python standard library, so the payload is the first 20
-bytes of a single SHA-256 instead. The encoding and checksum are BIP 173
-unchanged.
+**偏离比特币之处。** 比特币的 payload 是 `RIPEMD160(SHA256(pubkey))`。RIPEMD160 在许多现代 OpenSSL 构建里已经缺席，而盐粒承诺不依赖 Python 标准库之外的任何东西，所以 payload 取单次 SHA-256 的前 20 字节。编码和校验和与 BIP 173 完全一致。
 
-## 12. Signatures
+## 12. 签名
 
-ECDSA over secp256k1 with RFC 6979 deterministic nonces. Signatures are
-64-byte compact `r ‖ s`, both big-endian, with `s` normalised to the lower
-half of the curve order per BIP 62. High-s signatures are invalid, not
-merely non-standard.
+secp256k1 上的 ECDSA，使用 RFC 6979 确定性 nonce。签名是 64 字节的紧凑 `r ‖ s`，都是大端，`s` 按 BIP 62 规范到曲线阶的下半区。high-s 签名是无效的，而不只是"非标准"。
 
-Deterministic nonces mean signing the same transaction twice produces
-identical bytes, so a transaction has one canonical encoding end to end.
+确定性 nonce 意味着同一笔交易签两次得到完全相同的字节，所以一笔交易从头到尾只有一种规范编码。
 
-## 13. Chain selection
+## 13. 链的选择
 
-The chain is the sequence of blocks in `chain/blocks.jsonl`. A submitted
-block must extend the current tip; blocks building on any earlier block are
-rejected as stale. Cumulative chainwork is tracked and reported but is not
-used to reorganise.
+链就是 `chain/blocks.jsonl` 里按顺序排列的盐块。提交的盐块必须接在当前链尖之后；接在任何更早盐块上的都会被当作陈旧盐块拒绝。累计工作量会被记录和展示，但不用于重组。
 
-**Deviation.** Bitcoin follows the most-work chain and reorganises when a
-heavier one appears. Saltgrain has a single serialised writer — one workflow, one
-concurrency group — so competing chains cannot form. Two miners who solve
-the same height race on submission time, and the loser is told the new tip
-and can mine again. This is a real limitation and is the honest cost of
-using a git repository as the network.
+**偏离比特币之处。** 比特币跟随工作量最大的链，并在更重的链出现时重组。盐粒只有一个串行写入者——一个工作流、一个并发组——所以竞争的链无法形成。两个采盐者解出同一高度时，比的是提交时间；输的一方会被告知新的链尖，可以重新采。这是一个真实的局限，也是把一个 git 仓库当作网络来用的诚实代价。
 
-## 14. Relay
+## 14. 中继
 
-Blocks and transactions are relayed as base64 payloads prefixed
-`salt-block-v1:` and `salt-tx-v1:`. Both are accepted as issue comments;
-transactions are additionally accepted as pull requests that add a single
-file under `chain/pending/`, so contributors get the pull request on their
-profile.
+盐块和交易以 base64 载荷中继，分别带 `salt-block-v1:` 和 `salt-tx-v1:` 前缀。两者都作为 issue 评论接受；交易另外还接受 pull request 形式——在 `chain/pending/` 下新增一个文件，这样贡献者的贡献会出现在他的个人主页上。
 
-The submitting account's login is taken from the event payload, never from
-the submission itself.
+提交者的账号名取自事件负载，永远不取自提交内容本身。
 
-A pull request is **never merged**. The node reads the submitted file through
-the API as inert text, validates it, and applies the transaction to `main`
-itself. This has two consequences: concurrent submissions cannot conflict,
-and no code from a fork is ever executed by a workflow holding a write token
-— the standard `pull_request_target` failure mode.
+pull request **永远不会被合并**。节点通过 API 把提交的文件当作惰性文本读取，验证它，然后自己把交易应用到 `main`。这带来两个后果：并发提交不会冲突；以及，持有写令牌的工作流永远不会执行来自 fork 的任何代码——也就是 `pull_request_target` 那个经典的翻车方式。
 
-A block is mined by whoever submits it, and the miner's handle is fixed inside
-the header (§4.3), so the relay channel never has to be trusted.
+盐块由提交它的人采出，而采盐者的用户名固定在盐块头里（§4.3），所以中继通道永远不需要被信任。
 
-## 15. Identity (not consensus)
+## 15. 名字绑定（非共识）
 
-A GitHub handle may be bound to an address by posting, from that account:
+一个 GitHub 用户名可以通过从该账号发布下面这行，绑定到一个地址：
 
 ```
 salt-id-v1:{handle}:{pubkey}:{sig}
 ```
 
-where `sig` is over `H²("saltgrain-identity-v1|" ‖ handle)`. The signature proves
-control of the key; posting from the account proves control of the handle.
-Neither alone is sufficient.
+其中 `sig` 是对 `H²("saltgrain-identity-v1|" ‖ handle)` 的签名。签名证明对私钥的控制，从该账号发布证明对该用户名的控制。单独任何一项都不够。
 
-Bindings live in `chain/registry.json` and decide only whose name appears
-beside a balance in the rendered ledger. They are **not** part of consensus,
-carry no authority over funds, and `verify.py` ignores the file entirely.
-Transactions are authorised by signatures and nothing else.
+绑定存放在 `chain/registry.json`，只决定渲染出的账本里余额旁边显示谁的名字。它们**不**属于共识，对资金没有任何支配权，`verify.py` 完全忽略这个文件。交易的授权只来自签名，别无其他。
 
-## 16. Threat notes
+## 16. 威胁说明
 
-- **Impersonation** is prevented by the miner handle living inside the header
-  core (§4.3), which every puzzle is seeded from.
-- **Solution theft** — copying a solved block out of a public comment thread —
-  is prevented the same way: a different handle means different puzzles.
-- **Theft** is prevented by §8.8–8.9; there is no scripting language and no
-  path to spending an output without its private key.
-- **Inflation** is prevented by §9.13 and checked globally by `verify.py`,
-  which asserts emitted supply equals unspent supply on every run.
-- **Spam** is rate-limited by proof of work. Invalid submissions are rejected
-  in milliseconds and cost the chain nothing.
-- **Untrusted fork code** is never executed: pull requests are read through
-  the API and applied by the base repository, never checked out (§14).
-- **A malicious repository owner** can rewrite `chain/blocks.jsonl` at will.
-  They cannot forge proof of work or signatures, so any rewrite is detectable
-  by anyone holding an earlier copy — but it is not preventable. A chain
-  whose ledger is one person's repository is trusting that person's restraint,
-  and pretending otherwise would be dishonest.
+- **冒名**：因为采盐者用户名在盐块头核心之内（§4.3），而每道题的种子都来自核心，所以无法冒名。
+- **窃取解**：从公开的评论线程里抄走一个已解出的盐块——同样被挡住：换个用户名就是另一组题。
+- **盗取**：由 §8.8–8.9 挡住；这里没有脚本语言，也没有任何不掌握私钥就能花掉一个输出的路径。
+- **通胀**：由 §9.13 挡住，并由 `verify.py` 全局检查——它每次运行都断言发行量等于未花费量。
+- **垃圾提交**：由工作量证明限速。无效提交在毫秒级被拒绝，对链不产生任何成本。
+- **不受信任的 fork 代码**：永远不会被执行——pull request 通过 API 读取，由基仓库自行应用，从不检出（§14）。
+- **恶意的仓库所有者**：可以随意重写 `chain/blocks.jsonl`。他无法伪造工作量证明或签名，所以任何改写都会被持有更早副本的人发现——但这无法被阻止。一条账本放在某人仓库里的链，就是在信任那个人的克制；假装不是这样才是不诚实的。
 
-## 17. Genesis
+## 17. 创世块
 
-Genesis is height 0, `prev_hash` all zeroes, mined at `0x1e010000`, with a
-coinbase message of up to 256 bytes. The message is fixed at creation and is
-part of the chain's identity; changing it invalidates every block after it.
+创世块高度为 0，`prev_hash` 全零，按 `0x1e010000` 采出，coinbase 留言最长 256 字节。留言在创建时就固定下来，是这条链身份的一部分；改动它会让其后每一个盐块失效。
 
-Saltgrain's genesis message is:
+盐粒的创世留言是：
 
-> in bitcoin, we have discovered not just sound money, but the technological
-> foundation of human liberty. a tool that makes freedom not just possible but
-> practical, not just desirable but inevitable.
+> 一粒盐什么都不是，撒进锅里才有味道。
