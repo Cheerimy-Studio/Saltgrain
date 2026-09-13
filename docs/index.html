@@ -214,9 +214,21 @@ async function load() {
   } catch (e) { /* 拿不到快照就照旧走整份账本 */ }
 
   try {
-    const [b, m, g] = await Promise.allSettled([
-      grab("chain/blocks.jsonl", base), grab("chain/mempool.jsonl", base),
-      grab("chain/registry.json", base)]);
+    // 账本按 50 块分片，先读目录再并行取——单个分片约 750KB，比整份几 MB 好拿得多
+    let blocksText = null;
+    try {
+      const idx = JSON.parse(await grab("chain/index.json", base, 2, 20000));
+      if (idx.shards && idx.shards.length) {
+        const parts = await Promise.all(idx.shards.map(s => grab(`chain/blocks/${s}`, base, 2, 60000)));
+        blocksText = parts.join("\n");
+      }
+    } catch (e) { /* 没有分片就退回单文件 */ }
+    const b = blocksText === null
+      ? await grab("chain/blocks.jsonl", base, 2, 60000).then(
+          v => ({ status: "fulfilled", value: v }), r => ({ status: "rejected", reason: r }))
+      : { status: "fulfilled", value: blocksText };
+    const [m, g] = await Promise.allSettled([
+      grab("chain/mempool.jsonl", base), grab("chain/registry.json", base)]);
     if (b.status !== "fulfilled") throw new Error(b.reason.message);
     const blocks = b.value.trim().split("\n").filter(Boolean).map(JSON.parse);
     if (!blocks.length) throw new Error("链是空的");

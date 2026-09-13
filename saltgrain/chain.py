@@ -24,10 +24,52 @@ from .consensus import (
     validate_block,
 )
 
-BLOCKS_FILE = os.path.join("chain", "blocks.jsonl")
+BLOCKS_FILE = os.path.join("chain", "blocks.jsonl")   # 旧布局：单个大文件
+BLOCK_DIR = os.path.join("chain", "blocks")           # 新布局：按高度分片
+INDEX_FILE = os.path.join("chain", "index.json")
+SHARD_SIZE = 50                                        # 每片 50 块 ≈ 750KB，压在 contents API 的 1MB 之下
+
+
+def shard_name(start: int) -> str:
+    return f"{start:06d}-{start + SHARD_SIZE - 1:06d}.jsonl"
+
+
+def load_shards():
+    """按顺序读出所有分片；目录不存在就返回 None，让调用方回退到单文件。"""
+    if not os.path.isdir(BLOCK_DIR):
+        return None
+    files = sorted(f for f in os.listdir(BLOCK_DIR) if f.endswith(".jsonl"))
+    blocks = []
+    for name in files:
+        with open(os.path.join(BLOCK_DIR, name), "r", encoding="utf-8") as fh:
+            for lineno, line in enumerate(fh, 1):
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    blocks.append(Block.from_dict(json.loads(line)))
+                except (ValueError, KeyError) as exc:
+                    raise ConsensusError(f"{name}:{lineno}: malformed block ({exc})")
+    return blocks
+
+
+def write_index(blocks) -> None:
+    """给浏览器和采盐机看的清单：有哪些分片、链尖在哪。"""
+    files = sorted(f for f in os.listdir(BLOCK_DIR) if f.endswith(".jsonl"))
+    index = {
+        "shard_size": SHARD_SIZE,
+        "shards": [f for f in files],
+        "height": len(blocks) - 1 if blocks else -1,
+        "tip": blocks[-1].block_hash() if blocks else "00" * 32,
+    }
+    with open(INDEX_FILE, "w", encoding="utf-8") as fh:
+        json.dump(index, fh, separators=(",", ":"), sort_keys=True)
 
 
 def load_blocks(path: str = BLOCKS_FILE):
+    shards = load_shards()
+    if shards is not None:
+        return shards
     if not os.path.exists(path):
         return []
     blocks = []
@@ -44,6 +86,14 @@ def load_blocks(path: str = BLOCKS_FILE):
 
 
 def append_block(block: Block, path: str = BLOCKS_FILE) -> None:
+    """把块写进它所属的分片。分片目录存在就只碰那一个文件，不再重写整条账本。"""
+    if os.path.isdir(BLOCK_DIR):
+        os.makedirs(BLOCK_DIR, exist_ok=True)
+        start = (block.height // SHARD_SIZE) * SHARD_SIZE
+        with open(os.path.join(BLOCK_DIR, shard_name(start)), "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(block.to_dict(), separators=(",", ":"), sort_keys=True) + "\n")
+        write_index(load_shards() or [])
+        return
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "a", encoding="utf-8") as fh:
         fh.write(json.dumps(block.to_dict(), separators=(",", ":"), sort_keys=True) + "\n")
