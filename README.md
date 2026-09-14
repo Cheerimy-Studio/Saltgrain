@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1384"><img src="assets/ledger-light.svg?v=1384" width="100%" alt="Saltgrain ledger, height 1384"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1385"><img src="assets/ledger-light.svg?v=1385" width="100%" alt="Saltgrain ledger, height 1385"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `1384` |
-| **链尖** | `c3e2883724d9fed8692222312fccf4ddf67381d7d12992b162d6ce85bd7cc328` |
+| **高度** | `1385` |
+| **链尖** | `f6ce565d555bb4738dec551aef75013f7cd9c6d4dd506a17a39c392b7bc0ced7` |
 | **难度** | `44,217,397,403,400,119,686,066,405,860,898,508,836,584,469,552,955,392.0`  (bits `0x0822a880`) |
-| **累计工作量** | `664,569,324,361,903,445,033,954,914,596,713,020,126,446,154,222,243,717,997,773` 次预期尝试 |
-| **已发行** | `69250.00000000 SALT`，分布在 `1385` 个未花费输出上 |
+| **累计工作量** | `710,934,626,061,571,127,240,099,705,137,058,597,643,145,889,830,903,087,621,058` 次预期尝试 |
+| **已发行** | `69300.00000000 SALT`，分布在 `1386` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `7` 块 |
-| **距离下次减半** | `208615` 块 |
-| **交易数** | `1385` |
+| **距离下次难度调整** | `6` 块 |
+| **距离下次减半** | `208614` 块 |
+| **交易数** | `1386` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `1385` | `f6ce565d555bb4738dec…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 10:45 UTC |
 | `1384` | `c3e2883724d9fed86922…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 10:44 UTC |
 | `1383` | `898564af4daeed5abb65…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 10:39 UTC |
 | `1382` | `db70c12a241cf2160afe…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 10:39 UTC |
@@ -41,13 +42,12 @@
 | `1378` | `4cdaaecda674f47ab658…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 10:30 UTC |
 | `1377` | `af7586e5452f13c0d871…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 10:25 UTC |
 | `1376` | `649f3be19bc0b5359b01…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 10:25 UTC |
-| `1375` | `067ac3422265ee8c1eea…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 10:20 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `507` | `36.6%` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `508` | `36.7%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `22.8%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `292` | `21.1%` |
 | [@sxxso](https://github.com/sxxso) | `205` | `14.8%` |
@@ -60,7 +60,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `25350.00000000 SALT` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `25400.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `14600.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `10250.00000000 SALT` |
@@ -68,7 +68,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `1450.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 1384 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 1385 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
