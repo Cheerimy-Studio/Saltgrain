@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1153"><img src="assets/ledger-light.svg?v=1153" width="100%" alt="Saltgrain ledger, height 1153"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1154"><img src="assets/ledger-light.svg?v=1154" width="100%" alt="Saltgrain ledger, height 1154"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `1153` |
-| **链尖** | `bd8142213d9bc6d498fce1e1e127e772d942b00fb6e4f4a548974e391d1cf67e` |
+| **高度** | `1154` |
+| **链尖** | `6ff44eb62ed866fe2351328ee9782695260fe2787ea79ec9b5da1a65e84fbeae` |
 | **难度** | `164,722,641,570,121,495,746,323,488,134,512,710,707,576,832.0`  (bits `0x0c022a88`) |
-| **累计工作量** | `1,266,644,196,451,565,882,824,750,425,505,646,055,834,960,821,101,840` 次预期尝试 |
-| **已发行** | `57700.00000000 SALT`，分布在 `1154` 个未花费输出上 |
+| **累计工作量** | `1,439,368,405,058,597,594,107,742,482,407,795,767,502,012,532,279,616` 次预期尝试 |
+| **已发行** | `57750.00000000 SALT`，分布在 `1155` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `14` 块 |
-| **距离下次减半** | `208846` 块 |
-| **交易数** | `1154` |
+| **距离下次难度调整** | `13` 块 |
+| **距离下次减半** | `208845` 块 |
+| **交易数** | `1155` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `1154` | `6ff44eb62ed866fe2351…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-14 02:17 UTC |
 | `1153` | `bd8142213d9bc6d498fc…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-14 02:16 UTC |
 | `1152` | `e371006914cf10dc6155…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-14 02:14 UTC |
 | `1151` | `a67041a1f10afb7c9249…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-14 02:12 UTC |
@@ -41,7 +42,6 @@
 | `1147` | `78435fcd8aa97414113c…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-14 02:11 UTC |
 | `1146` | `76a82611bc5fe5154c91…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-14 02:11 UTC |
 | `1145` | `c2cc2e4413bb4901947e…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-14 02:11 UTC |
-| `1144` | `bdccfa48319c9fdce6b9…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-14 02:11 UTC |
 
 ### 采盐者
 
@@ -50,7 +50,7 @@
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `27.4%` |
 | [@Heartcoolman](https://github.com/Heartcoolman) | `307` | `26.6%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `292` | `25.3%` |
-| [@sxxso](https://github.com/sxxso) | `174` | `15.1%` |
+| [@sxxso](https://github.com/sxxso) | `175` | `15.2%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `3.1%` |
 | [@szfzmzx](https://github.com/szfzmzx) | `29` | `2.5%` |
 
@@ -63,12 +63,12 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
 | [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `15350.00000000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `14600.00000000 SALT` |
-| [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `8700.00000000 SALT` |
+| [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `8750.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `1450.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 1153 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 1154 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
