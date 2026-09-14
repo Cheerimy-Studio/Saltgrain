@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1206"><img src="assets/ledger-light.svg?v=1206" width="100%" alt="Saltgrain ledger, height 1206"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1207"><img src="assets/ledger-light.svg?v=1207" width="100%" alt="Saltgrain ledger, height 1207"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `1206` |
-| **链尖** | `0734ad31688e7e8bc8f222de6241432ec0c7491c4095d88a1b07a8c8ac3d3edc` |
+| **高度** | `1207` |
+| **链尖** | `2f9eb66614475afd031dec36f9c7584db8034c1aa37b6ac5b123920e085a31aa` |
 | **难度** | `10,542,249,060,487,775,727,764,703,240,608,813,485,284,917,248.0`  (bits `0x0b08aa20`) |
-| **累计工作量** | `136,336,975,327,150,364,106,124,530,612,278,338,364,236,633,353,882,893` 次预期尝试 |
-| **已发行** | `60350.00000000 SALT`，分布在 `1207` 个未花费输出上 |
+| **累计工作量** | `147,391,324,678,000,393,628,236,021,215,177,372,134,023,847,168,230,568` 次预期尝试 |
+| **已发行** | `60400.00000000 SALT`，分布在 `1208` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `9` 块 |
-| **距离下次减半** | `208793` 块 |
-| **交易数** | `1207` |
+| **距离下次难度调整** | `8` 块 |
+| **距离下次减半** | `208792` 块 |
+| **交易数** | `1208` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `1207` | `2f9eb66614475afd031d…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 04:00 UTC |
 | `1206` | `0734ad31688e7e8bc8f2…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 04:00 UTC |
 | `1205` | `1f9fe4f941f72411be2e…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 03:56 UTC |
 | `1204` | `76d1b938c9291fff437c…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 03:56 UTC |
@@ -41,13 +42,12 @@
 | `1200` | `9b433bdefd508e80da99…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-14 03:48 UTC |
 | `1199` | `a8bb0636c4345684a953…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 03:47 UTC |
 | `1198` | `cadfe41bca2abe1abeb2…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 03:43 UTC |
-| `1197` | `e796547ff7fca07511cd…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 03:43 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `330` | `27.3%` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `331` | `27.4%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `26.2%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `292` | `24.2%` |
 | [@sxxso](https://github.com/sxxso) | `204` | `16.9%` |
@@ -60,7 +60,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `16500.00000000 SALT` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `16550.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `14600.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `10200.00000000 SALT` |
@@ -68,7 +68,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `1450.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 1206 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 1207 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
