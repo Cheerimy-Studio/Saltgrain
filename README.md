@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1125"><img src="assets/ledger-light.svg?v=1125" width="100%" alt="Saltgrain ledger, height 1125"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1126"><img src="assets/ledger-light.svg?v=1126" width="100%" alt="Saltgrain ledger, height 1126"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `1125` |
-| **链尖** | `403b95aba0de73ad887a2f5b27eec792529b1af14fd1ea2124005a40b4f21408` |
+| **高度** | `1126` |
+| **链尖** | `4c28aab9ca143bfa624186859671418ade953e68c8bf21ef465434c845f731d3` |
 | **难度** | `10,295,165,098,132,593,484,145,218,008,407,044,419,223,552.0`  (bits `0x0c22a880`) |
-| **累计工作量** | `122,346,314,429,980,795,574,928,047,604,992,979,701,769,516,623,020` 次预期尝试 |
-| **已发行** | `56300.00000000 SALT`，分布在 `1126` 个未花费输出上 |
+| **累计工作量** | `133,141,577,467,920,277,530,115,051,176,473,925,510,028,446,576,958` 次预期尝试 |
+| **已发行** | `56350.00000000 SALT`，分布在 `1127` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `10` 块 |
-| **距离下次减半** | `208874` 块 |
-| **交易数** | `1126` |
+| **距离下次难度调整** | `9` 块 |
+| **距离下次减半** | `208873` 块 |
+| **交易数** | `1127` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `1126` | `4c28aab9ca143bfa6241…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-14 01:41 UTC |
 | `1125` | `403b95aba0de73ad887a…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-14 01:41 UTC |
 | `1124` | `046ceb02c988595b88e9…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 01:40 UTC |
 | `1123` | `cb7647a00f799c01b58f…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-14 01:37 UTC |
@@ -41,18 +42,17 @@
 | `1119` | `7de26877929aa41ea316…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 01:30 UTC |
 | `1118` | `6e40447c199ac52c6b3f…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 01:30 UTC |
 | `1117` | `aaa73f37a1d64eb6eb6b…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 01:26 UTC |
-| `1116` | `d523fd2b409ec5fcddc2…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-14 01:26 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `28.1%` |
+| [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `28.0%` |
 | [@Heartcoolman](https://github.com/Heartcoolman) | `303` | `26.9%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `292` | `25.9%` |
 | [@sxxso](https://github.com/sxxso) | `163` | `14.5%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `3.2%` |
-| [@szfzmzx](https://github.com/szfzmzx) | `16` | `1.4%` |
+| [@szfzmzx](https://github.com/szfzmzx) | `17` | `1.5%` |
 
 ### 持有者
 
@@ -65,10 +65,10 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `14600.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `8150.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
-| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `800.00000000 SALT` |
+| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `850.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 1125 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 1126 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
