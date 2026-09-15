@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1734"><img src="assets/ledger-light.svg?v=1734" width="100%" alt="Saltgrain ledger, height 1734"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1735"><img src="assets/ledger-light.svg?v=1735" width="100%" alt="Saltgrain ledger, height 1735"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `1734` |
-| **链尖** | `7b138528428e6a6ebf8e1c6a9b89f4c861acac79beb37d287dc5f0ba783e4ae3` |
+| **高度** | `1735` |
+| **链尖** | `a220d6c9a5a8648b94d3586263c61122c29be42353f522db34d1bd11d2b15282` |
 | **难度** | `3,000.0`  (bits `0x1d015d86`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,446,774,897,660,786` 次预期尝试 |
-| **已发行** | `86750.00000000 SALT`，分布在 `1735` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,446,778,043,405,848` 次预期尝试 |
+| **已发行** | `86800.00000000 SALT`，分布在 `1736` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `9` 块 |
-| **距离下次减半** | `208265` 块 |
-| **交易数** | `1735` |
+| **距离下次难度调整** | `8` 块 |
+| **距离下次减半** | `208264` 块 |
+| **交易数** | `1736` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `1735` | `a220d6c9a5a8648b94d3…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-15 02:39 UTC |
 | `1734` | `7b138528428e6a6ebf8e…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-15 02:37 UTC |
 | `1733` | `a4e4e70d925b3604cabe…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-15 02:34 UTC |
 | `1732` | `645f0cd37e5f9dcad44a…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-15 02:33 UTC |
@@ -41,7 +42,6 @@
 | `1728` | `97f36365425e5db52b9d…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-15 02:19 UTC |
 | `1727` | `7cbdc1d7b8516dd8761b…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-15 02:18 UTC |
 | `1726` | `a6002bfed46da1683178…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-15 02:14 UTC |
-| `1725` | `f20dafc2d0c4f278bf25…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-15 02:09 UTC |
 
 ### 采盐者
 
@@ -50,8 +50,8 @@
 | [@Heartcoolman](https://github.com/Heartcoolman) | `744` | `42.9%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `320` | `18.4%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `18.2%` |
-| [@sxxso](https://github.com/sxxso) | `249` | `14.4%` |
-| [@szfzmzx](https://github.com/szfzmzx) | `70` | `4.0%` |
+| [@sxxso](https://github.com/sxxso) | `249` | `14.3%` |
+| [@szfzmzx](https://github.com/szfzmzx) | `71` | `4.1%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `2.1%` |
 
 ### 持有者
@@ -64,11 +64,11 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `16000.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `12450.00000000 SALT` |
-| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `3500.00000000 SALT` |
+| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `3550.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 1734 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 1735 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
