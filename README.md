@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1700"><img src="assets/ledger-light.svg?v=1700" width="100%" alt="Saltgrain ledger, height 1700"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1701"><img src="assets/ledger-light.svg?v=1701" width="100%" alt="Saltgrain ledger, height 1701"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `1700` |
-| **链尖** | `d0c67883372653fffadbde0c6bebf5fe50f16fbcf7e813774d6aa10336934d20` |
+| **高度** | `1701` |
+| **链尖** | `5f2987da7f2d291e4f8297e7881965061a0f848cb707c86bf6f2e2bf0d382924` |
 | **难度** | `3,000.0`  (bits `0x1d015d86`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,446,667,942,328,678` 次预期尝试 |
-| **已发行** | `85050.00000000 SALT`，分布在 `1701` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,446,671,088,073,740` 次预期尝试 |
+| **已发行** | `85100.00000000 SALT`，分布在 `1702` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `11` 块 |
-| **距离下次减半** | `208299` 块 |
-| **交易数** | `1701` |
+| **距离下次难度调整** | `10` 块 |
+| **距离下次减半** | `208298` 块 |
+| **交易数** | `1702` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `1701` | `5f2987da7f2d291e4f82…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-15 00:57 UTC |
 | `1700` | `d0c67883372653fffadb…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-15 00:56 UTC |
 | `1699` | `bc8d3839f8ca625e8616…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-15 00:52 UTC |
 | `1698` | `00c8467301cbee1cf952…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-15 00:49 UTC |
@@ -41,7 +42,6 @@
 | `1694` | `767d4c574bca61eb274e…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-15 00:38 UTC |
 | `1693` | `1aaab58cde2363e8b1f9…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-15 00:36 UTC |
 | `1692` | `98a564c1ad654ffb598a…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-15 00:34 UTC |
-| `1691` | `65ea83af67206ad056ac…` | [@szfzmzx](https://github.com/szfzmzx) | `身在风中梦中行` | `1` | `50.00000000` | 2026-09-15 00:31 UTC |
 
 ### 采盐者
 
@@ -50,8 +50,8 @@
 | [@Heartcoolman](https://github.com/Heartcoolman) | `744` | `43.7%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `320` | `18.8%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `18.6%` |
-| [@sxxso](https://github.com/sxxso) | `239` | `14.1%` |
-| [@szfzmzx](https://github.com/szfzmzx) | `46` | `2.7%` |
+| [@sxxso](https://github.com/sxxso) | `239` | `14.0%` |
+| [@szfzmzx](https://github.com/szfzmzx) | `47` | `2.8%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `2.1%` |
 
 ### 持有者
@@ -64,11 +64,11 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `16000.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `11950.00000000 SALT` |
-| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `2300.00000000 SALT` |
+| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `2350.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 1700 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 1701 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
