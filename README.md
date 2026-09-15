@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1765"><img src="assets/ledger-light.svg?v=1765" width="100%" alt="Saltgrain ledger, height 1765"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=1766"><img src="assets/ledger-light.svg?v=1766" width="100%" alt="Saltgrain ledger, height 1766"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `1765` |
-| **链尖** | `350822732007ec146a1c67c9a0c62a0acb6ee1099486b7aa5a595a24799205bd` |
+| **高度** | `1766` |
+| **链尖** | `0bee3ec5f439c466c422ecdd609a415cd3aebbae740f4a263f7425683cb5c59d` |
 | **难度** | `3,000.0`  (bits `0x1d015d86`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,446,872,415,757,708` 次预期尝试 |
-| **已发行** | `88300.00000000 SALT`，分布在 `1766` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,446,875,561,502,770` 次预期尝试 |
+| **已发行** | `88350.00000000 SALT`，分布在 `1767` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `10` 块 |
-| **距离下次减半** | `208234` 块 |
-| **交易数** | `1766` |
+| **距离下次难度调整** | `9` 块 |
+| **距离下次减半** | `208233` 块 |
+| **交易数** | `1767` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `1766` | `0bee3ec5f439c466c422…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-15 05:09 UTC |
 | `1765` | `350822732007ec146a1c…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-15 05:08 UTC |
 | `1764` | `cacdf7f31ba149a88843…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-15 05:04 UTC |
 | `1763` | `792011f840019f923b82…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-15 05:02 UTC |
@@ -41,7 +42,6 @@
 | `1759` | `17700cd8360c78cdbeee…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-15 04:49 UTC |
 | `1758` | `0b7a0e01d7f99f57eda2…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-15 04:46 UTC |
 | `1757` | `ce3ca989d69153f6d58a…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-15 04:43 UTC |
-| `1756` | `b9abdd3e99ea2f521735…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-15 04:36 UTC |
 
 ### 采盐者
 
@@ -51,7 +51,7 @@
 | [@yannicksong0106](https://github.com/yannicksong0106) | `328` | `18.6%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `17.9%` |
 | [@sxxso](https://github.com/sxxso) | `260` | `14.7%` |
-| [@szfzmzx](https://github.com/szfzmzx) | `82` | `4.6%` |
+| [@szfzmzx](https://github.com/szfzmzx) | `83` | `4.7%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `36` | `2.0%` |
 
 ### 持有者
@@ -64,11 +64,11 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `16400.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `13000.00000000 SALT` |
-| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `4100.00000000 SALT` |
+| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `4150.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `50.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 1765 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 1766 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
