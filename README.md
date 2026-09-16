@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2008"><img src="assets/ledger-light.svg?v=2008" width="100%" alt="Saltgrain ledger, height 2008"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2009"><img src="assets/ledger-light.svg?v=2009" width="100%" alt="Saltgrain ledger, height 2009"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `2008` |
-| **链尖** | `e59112da217a23eb45065979b351cb95549edfd1c5e07586b73e3d688c47ed78` |
+| **高度** | `2009` |
+| **链尖** | `bb7b989aec5eab17933dd6d2bdb130e7c95923814559b33e3da18ea4a148eb7a` |
 | **难度** | `3,000.0`  (bits `0x1d015d86`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,447,591,897,668,814` 次预期尝试 |
-| **已发行** | `100450.00000000 SALT`，分布在 `2009` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,447,595,043,413,876` 次预期尝试 |
+| **已发行** | `100500.00000000 SALT`，分布在 `2010` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `7` 块 |
-| **距离下次减半** | `207991` 块 |
-| **交易数** | `2009` |
+| **距离下次难度调整** | `6` 块 |
+| **距离下次减半** | `207990` 块 |
+| **交易数** | `2010` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `2009` | `bb7b989aec5eab17933d…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-16 01:59 UTC |
 | `2008` | `e59112da217a23eb4506…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-16 01:59 UTC |
 | `2007` | `e32d76590dba8b63d054…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-16 01:59 UTC |
 | `2006` | `67d1809dc28d2c20c228…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-09-16 01:58 UTC |
@@ -41,7 +42,6 @@
 | `2002` | `892f0dfa0d99ad95bde2…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-16 01:45 UTC |
 | `2001` | `d602620a2ac2fa6aa5af…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-16 01:41 UTC |
 | `2000` | `29c1b17fad3f9bae0553…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-16 01:38 UTC |
-| `1999` | `70bd1df0a3794a822142…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们快休息一下，让我来挖` | `1` | `50.00000000` | 2026-09-16 01:35 UTC |
 
 ### 采盐者
 
@@ -50,7 +50,7 @@
 | [@Heartcoolman](https://github.com/Heartcoolman) | `744` | `37.0%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `482` | `24.0%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `15.7%` |
-| [@sxxso](https://github.com/sxxso) | `311` | `15.5%` |
+| [@sxxso](https://github.com/sxxso) | `312` | `15.5%` |
 | [@szfzmzx](https://github.com/szfzmzx) | `118` | `5.9%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `38` | `1.9%` |
 
@@ -63,12 +63,12 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `37200.00000000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `24100.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
-| [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `15550.00000000 SALT` |
+| [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `15600.00000000 SALT` |
 | [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `5900.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `150.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 2008 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 2009 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
