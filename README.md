@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2524"><img src="assets/ledger-light.svg?v=2524" width="100%" alt="Saltgrain ledger, height 2524"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2525"><img src="assets/ledger-light.svg?v=2525" width="100%" alt="Saltgrain ledger, height 2525"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `2524` |
-| **链尖** | `4bcc6b4c0840842fc2933e3e497eba01b29722d67f3c30138de9d43a0ffd6446` |
+| **高度** | `2525` |
+| **链尖** | `05a3853001638ff987586d167797abcc3e5854f8741d04968b5e66da04210967` |
 | **难度** | `3,000.0`  (bits `0x1d015d86`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,143,733,937,718` 次预期尝试 |
-| **已发行** | `126250.00000000 SALT`，分布在 `2525` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,146,879,682,780` 次预期尝试 |
+| **已发行** | `126300.00000000 SALT`，分布在 `2526` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `3` 块 |
-| **距离下次减半** | `207475` 块 |
-| **交易数** | `2525` |
+| **距离下次难度调整** | `2` 块 |
+| **距离下次减半** | `207474` 块 |
+| **交易数** | `2526` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `2525` | `05a3853001638ff98758…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 03:16 UTC |
 | `2524` | `4bcc6b4c0840842fc293…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 03:06 UTC |
 | `2523` | `75592dd6436f6a2ea4e2…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 03:00 UTC |
 | `2522` | `72f1a474b07bab205094…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 02:56 UTC |
@@ -41,13 +42,12 @@
 | `2518` | `6de92f7533d417f2717b…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 02:37 UTC |
 | `2517` | `175ac661709fb6746524…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 02:31 UTC |
 | `2516` | `742e2af9d93c284e4e2c…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 02:26 UTC |
-| `2515` | `562c6f36e9f88f6fd73f…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 02:23 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `856` | `33.9%` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `857` | `33.9%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `698` | `27.6%` |
 | [@sxxso](https://github.com/sxxso) | `387` | `15.3%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `12.5%` |
@@ -61,7 +61,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `42800.00000000 SALT` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `42850.00000000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `34900.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `19350.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
@@ -70,7 +70,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `200.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 2524 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 2525 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
