@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2678"><img src="assets/ledger-light.svg?v=2678" width="100%" alt="Saltgrain ledger, height 2678"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2679"><img src="assets/ledger-light.svg?v=2679" width="100%" alt="Saltgrain ledger, height 2679"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `2678` |
-| **链尖** | `826852252dc3188e9cc2adada0b8e4e813a3717ca301cff66351aa29750f45ac` |
+| **高度** | `2679` |
+| **链尖** | `a6da34db0b95f395de2d9f9d008dd50fda14781ac57e8857904bf055ef0f6090` |
 | **难度** | `3,000.0`  (bits `0x1d015d86`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,628,178,677,266` 次预期尝试 |
-| **已发行** | `133950.00000000 SALT`，分布在 `2679` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,631,324,422,328` 次预期尝试 |
+| **已发行** | `134000.00000000 SALT`，分布在 `2680` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `9` 块 |
-| **距离下次减半** | `207321` 块 |
-| **交易数** | `2679` |
+| **距离下次难度调整** | `8` 块 |
+| **距离下次减半** | `207320` 块 |
+| **交易数** | `2680` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `2679` | `a6da34db0b95f395de2d…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 16:52 UTC |
 | `2678` | `826852252dc3188e9cc2…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 16:52 UTC |
 | `2677` | `044eb3d26f3703664fe4…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 16:40 UTC |
 | `2676` | `d803cf32dcddbb430308…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 16:40 UTC |
@@ -41,13 +42,12 @@
 | `2672` | `92ebf1e70eba999eb1d9…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 16:12 UTC |
 | `2671` | `c0fd8a67418e600f9ef2…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 15:57 UTC |
 | `2670` | `f5dcc32255163285e3e3…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 15:57 UTC |
-| `2669` | `76678e2faa0f00a78d93…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 15:43 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `916` | `34.2%` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `917` | `34.2%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `719` | `26.8%` |
 | [@sxxso](https://github.com/sxxso) | `387` | `14.4%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `11.8%` |
@@ -61,7 +61,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `45800.00000000 SALT` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `45850.00000000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `35950.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `19350.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
@@ -70,7 +70,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `200.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 2678 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 2679 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
