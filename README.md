@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2552"><img src="assets/ledger-light.svg?v=2552" width="100%" alt="Saltgrain ledger, height 2552"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2553"><img src="assets/ledger-light.svg?v=2553" width="100%" alt="Saltgrain ledger, height 2553"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `2552` |
-| **链尖** | `051a822ae99b4740a8bf20ff34379ea4f9e8177ac7b5832cf91ca2898f2134e0` |
+| **高度** | `2553` |
+| **链尖** | `4a7e35c6fb0a34f3ffe751d2c65298074717178853445f63739ca799189b77cf` |
 | **难度** | `3,000.0`  (bits `0x1d015d86`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,231,814,799,454` 次预期尝试 |
-| **已发行** | `127650.00000000 SALT`，分布在 `2553` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,234,960,544,516` 次预期尝试 |
+| **已发行** | `127700.00000000 SALT`，分布在 `2554` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `7` 块 |
-| **距离下次减半** | `207447` 块 |
-| **交易数** | `2553` |
+| **距离下次难度调整** | `6` 块 |
+| **距离下次减半** | `207446` 块 |
+| **交易数** | `2554` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `2553` | `4a7e35c6fb0a34f3ffe7…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 05:30 UTC |
 | `2552` | `051a822ae99b4740a8bf…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-18 05:30 UTC |
 | `2551` | `051754f57c4f797cfa1a…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 05:19 UTC |
 | `2550` | `2030c2a058bee011a6f7…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 05:15 UTC |
@@ -41,13 +42,12 @@
 | `2546` | `5a23299c89edf7247250…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 04:55 UTC |
 | `2545` | `66dddbc79c950a2abd64…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 04:51 UTC |
 | `2544` | `7004f24469b47353f845…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 04:48 UTC |
-| `2543` | `6ae32da283e19e9f11a7…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 04:44 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `863` | `33.8%` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `864` | `33.8%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `699` | `27.4%` |
 | [@sxxso](https://github.com/sxxso) | `387` | `15.2%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `12.4%` |
@@ -61,7 +61,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `43150.00000000 SALT` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `43200.00000000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `34950.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `19350.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
@@ -70,7 +70,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `200.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 2552 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 2553 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
