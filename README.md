@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2635"><img src="assets/ledger-light.svg?v=2635" width="100%" alt="Saltgrain ledger, height 2635"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2636"><img src="assets/ledger-light.svg?v=2636" width="100%" alt="Saltgrain ledger, height 2636"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `2635` |
-| **链尖** | `437bb2e9c6a8a03acd708e828f00349ad0c10427f49be8bbd034b7e396653a2a` |
+| **高度** | `2636` |
+| **链尖** | `652441e2847cb3548dcb01884b05ac139da58d311591f9b42362e1faf808765a` |
 | **难度** | `3,000.0`  (bits `0x1d015d86`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,492,911,639,600` 次预期尝试 |
-| **已发行** | `131800.00000000 SALT`，分布在 `2636` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,496,057,384,662` 次预期尝试 |
+| **已发行** | `131850.00000000 SALT`，分布在 `2637` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `4` 块 |
-| **距离下次减半** | `207364` 块 |
-| **交易数** | `2636` |
+| **距离下次难度调整** | `3` 块 |
+| **距离下次减半** | `207363` 块 |
+| **交易数** | `2637` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `2636` | `652441e2847cb3548dcb…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 12:28 UTC |
 | `2635` | `437bb2e9c6a8a03acd70…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 12:24 UTC |
 | `2634` | `ab53a87d5592f41d5cf4…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 12:20 UTC |
 | `2633` | `68e13ffc000251b5d963…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 12:16 UTC |
@@ -41,7 +42,6 @@
 | `2629` | `f9d609c7da63fd6d0236…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 12:00 UTC |
 | `2628` | `6dae4f2db947deed263c…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 11:55 UTC |
 | `2627` | `7fa9104f8caec2d5fcd6…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 11:51 UTC |
-| `2626` | `99c9fff0ff88660b3a6f…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-18 11:45 UTC |
 
 ### 采盐者
 
@@ -51,7 +51,7 @@
 | [@yannicksong0106](https://github.com/yannicksong0106) | `714` | `27.1%` |
 | [@sxxso](https://github.com/sxxso) | `387` | `14.7%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `316` | `12.0%` |
-| [@ptcy03](https://github.com/ptcy03) | `161` | `6.1%` |
+| [@ptcy03](https://github.com/ptcy03) | `162` | `6.1%` |
 | [@szfzmzx](https://github.com/szfzmzx) | `133` | `5.0%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `39` | `1.5%` |
 
@@ -65,12 +65,12 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `35700.00000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `19350.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `15800.00000000 SALT` |
-| _未认领_ | `salt1q728yr9vqc7vcjd9kpfelgsphuz56fyxkvp2jf5` | `8050.00000000 SALT` |
+| _未认领_ | `salt1q728yr9vqc7vcjd9kpfelgsphuz56fyxkvp2jf5` | `8100.00000000 SALT` |
 | [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `6650.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `1750.00000000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `200.00000000 SALT` |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 2635 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 2636 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
