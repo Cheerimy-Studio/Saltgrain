@@ -11,6 +11,10 @@
     "address": "salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew",
     "pubkey": "02a670fa8d7c4419ce0524146be9da3c535894366b4255a4a9489d21d2166469d7"
   },
+  "ptcy03": {
+    "address": "salt1q728yr9vqc7vcjd9kpfelgsphuz56fyxkvp2jf5",
+    "pubkey": "0379272c3230a75f8cec3238ae2d30fd4f089d5b1889fc79ce366c6272d607fd4f"
+  },
   "sxxso": {
     "address": "salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq",
     "pubkey": "035f8a0dfa82839581e7d56d5de6d2decb74c7e83d2fdfb8d45bb0fbc676b8a704"
