@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2798"><img src="assets/ledger-light.svg?v=2798" width="100%" alt="Saltgrain ledger, height 2798"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=2799"><img src="assets/ledger-light.svg?v=2799" width="100%" alt="Saltgrain ledger, height 2799"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `2798` |
-| **链尖** | `703a6f1a712fc022e53b0880279602b1db6d9e18cda6816066561264c27ff13c` |
+| **高度** | `2799` |
+| **链尖** | `61355d7fd1c4a3d97abc7021dc9866458ab8d4cab17c1dfd7acd8137c1cf6fd8` |
 | **难度** | `2,446.3`  (bits `0x1d01aca3`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,996,958,953,996` 次预期尝试 |
-| **已发行** | `139950.00000000 SALT`，分布在 `2758` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,449,999,524,090,344` 次预期尝试 |
+| **已发行** | `140000.00000000 SALT`，分布在 `2745` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `1` 块 |
-| **距离下次减半** | `207201` 块 |
-| **交易数** | `2805` |
+| **距离下次难度调整** | `16` 块 |
+| **距离下次减半** | `207200` 块 |
+| **交易数** | `2808` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `2799` | `61355d7fd1c4a3d97abc…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `3` | `50.00200000` | 2026-09-19 08:22 UTC |
 | `2798` | `703a6f1a712fc022e53b…` | [@ptcy03](https://github.com/ptcy03) | `一粒盐,撒进锅里有味道` | `1` | `50.00000000` | 2026-09-19 08:16 UTC |
 | `2797` | `5e8ff909adb015777306…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-19 08:01 UTC |
 | `2796` | `b09342866a6539a38c3a…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-19 07:51 UTC |
@@ -41,13 +42,12 @@
 | `2792` | `0f7d636c7c992e7df604…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-19 07:26 UTC |
 | `2791` | `ac336ee74703659fab1d…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-19 07:19 UTC |
 | `2790` | `03e9c2564b0bf51150f2…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-19 07:14 UTC |
-| `2789` | `21d3386468d6e8f0929f…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-19 07:10 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `996` | `35.6%` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `997` | `35.6%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `731` | `26.1%` |
 | [@sxxso](https://github.com/sxxso) | `390` | `13.9%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `330` | `11.8%` |
@@ -61,19 +61,21 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `49800.06000000 SALT` |
+| [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `49850.06200000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `34249.87000000 SALT` |
-| [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `19500.00000000 SALT` |
+| [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `18700.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `16500.00000000 SALT` |
 | _未认领_ | `salt1q728yr9vqc7vcjd9kpfelgsphuz56fyxkvp2jf5` | `9000.00000000 SALT` |
 | [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `6650.00000000 SALT` |
-| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `4050.07000000 SALT` |
+| [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `4850.06800000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `200.00000000 SALT` |
 
 ### 最近的寄送
 
 | 盐块 | 从 | 到 | 数量 | 备注 |
 |--:|---|---|--:|---|
+| `2799` | [@sxxso](https://github.com/sxxso) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99900000` | 兑换余额给cjmarklll |
+| `2799` | [@sxxso](https://github.com/sxxso) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99900000` | 兑换余额给cjmarklll |
 | `2785` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99000000` | exch acct x1 + bal x100 (batch2) |
 | `2785` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `300.12000000` | exch acct x1 + bal x100 (batch2) |
 | `2779` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99000000` | exch acct x1 + bal x100 |
@@ -81,7 +83,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | `2779` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99000000` | exch acct x1 + bal x100 |
 | `2779` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99000000` | exch acct x1 + bal x100 |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 2798 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 2799 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
