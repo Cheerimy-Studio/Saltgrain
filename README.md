@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://cheerimy-studio.github.io/Saltgrain/"><b>盐仓</b></a> ·
-  <a href="../../issues/185"><b>采盐提交处</b></a> ·
+  <a href="../../issues/186"><b>采盐提交处</b></a> ·
   <a href="../../issues/170"><b>寄送提交处</b></a>
 </p>
 
@@ -149,7 +149,7 @@ python3 miner.py --miner 你的GitHub用户名 --message "想留在盐粒上的�
 
 ### 第 5 步：交上去
 
-采完之后，终端会打印一行以 `salt-block-v1:` 开头的内容。把它整行复制，贴到这个仓库的 **[采盐提交处](../../issues/185)** 里，发一条评论。
+采完之后，终端会打印一行以 `salt-block-v1:` 开头的内容。把它整行复制，贴到这个仓库的 **[采盐提交处](../../issues/186)** 里，发一条评论。
 
 ### 第 6 步：等着
 
