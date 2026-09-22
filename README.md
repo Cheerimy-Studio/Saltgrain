@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=3317"><img src="assets/ledger-light.svg?v=3317" width="100%" alt="Saltgrain ledger, height 3317"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=3318"><img src="assets/ledger-light.svg?v=3318" width="100%" alt="Saltgrain ledger, height 3318"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `3317` |
-| **链尖** | `765c6bbbdefd148906e382b7d0a3b7d55b974d178981229bdd4d49797ae12886` |
+| **高度** | `3318` |
+| **链尖** | `519b0be2d969cbcbf4fa2d6d19a66d3534539d1bcf201e04e3e4ec3020c490e1` |
 | **难度** | `3,000.0`  (bits `0x1d015d86`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,451,621,100,079,292` 次预期尝试 |
-| **已发行** | `165900.00000000 SALT`，分布在 `3242` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,451,624,245,824,354` 次预期尝试 |
+| **已发行** | `165950.00000000 SALT`，分布在 `3243` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `10` 块 |
-| **距离下次减半** | `206682` 块 |
-| **交易数** | `3329` |
+| **距离下次难度调整** | `9` 块 |
+| **距离下次减半** | `206681` 块 |
+| **交易数** | `3330` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `3318` | `519b0be2d969cbcbf4fa…` | [@yannicksong0106](https://github.com/yannicksong0106) | `something for nothing 1000%融合` | `1` | `50.00000000` | 2026-09-22 05:24 UTC |
 | `3317` | `765c6bbbdefd148906e3…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-22 05:18 UTC |
 | `3316` | `cc51e94d636622d01dfc…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-22 05:04 UTC |
 | `3315` | `6ef859d2d26136cfb62d…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-22 05:04 UTC |
@@ -41,14 +42,13 @@
 | `3311` | `33f317101b37ffb7e499…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-22 04:19 UTC |
 | `3310` | `b90ad978a6643c28e048…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-22 04:19 UTC |
 | `3309` | `9dd396b55e6f43570166…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-22 04:09 UTC |
-| `3308` | `e37474ddc8977c3fbca2…` | [@Heartcoolman](https://github.com/Heartcoolman) | `常驻筛盐 · 流水线` | `1` | `50.00000000` | 2026-09-22 04:01 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
 | [@Heartcoolman](https://github.com/Heartcoolman) | `1410` | `42.5%` |
-| [@yannicksong0106](https://github.com/yannicksong0106) | `792` | `23.9%` |
+| [@yannicksong0106](https://github.com/yannicksong0106) | `793` | `23.9%` |
 | [@sxxso](https://github.com/sxxso) | `403` | `12.1%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `330` | `9.9%` |
 | [@ptcy03](https://github.com/ptcy03) | `185` | `5.6%` |
@@ -63,7 +63,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
 | [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `70500.07400000 SALT` |
-| [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `36899.87000000 SALT` |
+| [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `36949.87000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `18550.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `16500.00000000 SALT` |
 | [@ptcy03](https://github.com/ptcy03) | `salt1q728yr9vqc7vcjd9kpfelgsphuz56fyxkvp2jf5` | `9250.00000000 SALT` |
@@ -85,7 +85,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | `2785` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `300.12000000` | exch acct x1 + bal x100 (batch2) |
 | `2779` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99000000` | exch acct x1 + bal x100 |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 3317 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 3318 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
