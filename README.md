@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=6186"><img src="assets/ledger-light.svg?v=6186" width="100%" alt="Saltgrain ledger, height 6186"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=6187"><img src="assets/ledger-light.svg?v=6187" width="100%" alt="Saltgrain ledger, height 6187"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `6186` |
-| **链尖** | `229f5bb7770edd9d92678276ef9ce7b65209866379c2880b7025fd9d5cf74b9a` |
+| **高度** | `6187` |
+| **链尖** | `56c469b639a5afee6979068225468353f154654e09dbebeb58073a4a7d5f6cdb` |
 | **难度** | `579.1`  (bits `0x1d0712c0`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,455,796,822,841,689` 次预期尝试 |
-| **已发行** | `309350.00000000 SALT`，分布在 `6111` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,455,797,430,055,068` 次预期尝试 |
+| **已发行** | `309400.00000000 SALT`，分布在 `6112` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `5` 块 |
-| **距离下次减半** | `203813` 块 |
-| **交易数** | `6199` |
+| **距离下次难度调整** | `4` 块 |
+| **距离下次减半** | `203812` 块 |
+| **交易数** | `6200` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `6187` | `56c469b639a5afee6979…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-12 00:48 UTC |
 | `6186` | `229f5bb7770edd9d9267…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-12 00:40 UTC |
 | `6185` | `8258ef7378dcfbd7f36d…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-12 00:32 UTC |
 | `6184` | `c4ba03c20a91a3a39b8a…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-10-12 00:20 UTC |
@@ -41,14 +42,13 @@
 | `6180` | `b900c2a0aa309012794d…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-11 23:39 UTC |
 | `6179` | `660d9a4b264d418c3f68…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-11 23:24 UTC |
 | `6178` | `16098d3915b8f820c2e9…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-11 23:16 UTC |
-| `6177` | `7d03b4e4d40b5a7f64bd…` | [@sxxso](https://github.com/sxxso) | `何须再借他人骨` | `1` | `50.00000000` | 2026-10-11 23:04 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
 | [@Heartcoolman](https://github.com/Heartcoolman) | `2159` | `34.9%` |
-| [@szfzmzx](https://github.com/szfzmzx) | `1992` | `32.2%` |
+| [@szfzmzx](https://github.com/szfzmzx) | `1993` | `32.2%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `816` | `13.2%` |
 | [@sxxso](https://github.com/sxxso) | `663` | `10.7%` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `330` | `5.3%` |
@@ -63,7 +63,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
 | [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `107950.07500000 SALT` |
-| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `99549.99900000 SALT` |
+| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `99599.99900000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `38099.87000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `31550.00000000 SALT` |
 | [@StevenQinDev](https://github.com/StevenQinDev) | `salt1q5umsmm2dcf3dhgvpw6n6xd2zu7xtnfswmgypew` | `16500.00000000 SALT` |
@@ -85,7 +85,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | `2785` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99000000` | exch acct x1 + bal x100 (batch2) |
 | `2785` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `300.12000000` | exch acct x1 + bal x100 (batch2) |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 6186 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 6187 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
