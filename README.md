@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=6386"><img src="assets/ledger-light.svg?v=6386" width="100%" alt="Saltgrain ledger, height 6386"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=6387"><img src="assets/ledger-light.svg?v=6387" width="100%" alt="Saltgrain ledger, height 6387"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `6386` |
-| **链尖** | `c2006b665303180e17cd1fc44d1a3fe22d5cd9aa788145ffab8892cccbb87b34` |
+| **高度** | `6387` |
+| **链尖** | `3a6af904639cce3287bdcc1457f11a30a5d92f78395a279abbbd514248385e1f` |
 | **难度** | `695.0`  (bits `0x1d05e4c9`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,455,922,207,194,278` 次预期尝试 |
-| **已发行** | `319350.00000000 SALT`，分布在 `6311` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,455,922,935,933,968` 次预期尝试 |
+| **已发行** | `319400.00000000 SALT`，分布在 `6312` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `13` 块 |
-| **距离下次减半** | `203613` 块 |
-| **交易数** | `6399` |
+| **距离下次难度调整** | `12` 块 |
+| **距离下次减半** | `203612` 块 |
+| **交易数** | `6400` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `6387` | `3a6af904639cce3287bd…` | [@dsyoierDSY](https://github.com/dsyoierDSY) | `dsyoierDSY · 筛！！` | `1` | `50.00000000` | 2026-10-13 09:41 UTC |
 | `6386` | `c2006b665303180e17cd…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-13 09:32 UTC |
 | `6385` | `987b7fa5457825061795…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-13 09:21 UTC |
 | `6384` | `8d366c9ae70f6ce80693…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-13 09:07 UTC |
@@ -41,7 +42,6 @@
 | `6380` | `ad020782e9df039402ee…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-13 08:25 UTC |
 | `6379` | `de4d337c16bae2a1d16a…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-13 08:17 UTC |
 | `6378` | `309808117f01b79149fc…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-13 08:08 UTC |
-| `6377` | `359c6906f31de906a24d…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-13 07:59 UTC |
 
 ### 采盐者
 
@@ -54,7 +54,7 @@
 | [@StevenQinDev](https://github.com/StevenQinDev) | `330` | `5.2%` |
 | [@ptcy03](https://github.com/ptcy03) | `185` | `2.9%` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `39` | `0.6%` |
-| [@dsyoierDSY](https://github.com/dsyoierDSY) | `3` | `0.0%` |
+| [@dsyoierDSY](https://github.com/dsyoierDSY) | `4` | `0.1%` |
 
 ### 持有者
 
@@ -70,7 +70,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | [@ptcy03](https://github.com/ptcy03) | `salt1q728yr9vqc7vcjd9kpfelgsphuz56fyxkvp2jf5` | `9250.00000000 SALT` |
 | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `salt1q5lzywhrm8rlrrrpgez7ptsvctwf7svytkdzzex` | `6100.05600000 SALT` |
 | _未认领_ | `salt1qzcegwtpphkd3cee8jq5hvwnc36cjtmxlvhejd8` | `200.00000000 SALT` |
-| _未认领_ | `salt1qf0nwg9yj39f4qhjmtts64lpvpd25z7qzazs83z` | `150.00000000 SALT` |
+| _未认领_ | `salt1qf0nwg9yj39f4qhjmtts64lpvpd25z7qzazs83z` | `200.00000000 SALT` |
 
 ### 最近的寄送
 
@@ -85,7 +85,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | `2785` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99000000` | exch acct x1 + bal x100 (batch2) |
 | `2785` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `300.12000000` | exch acct x1 + bal x100 (batch2) |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 6386 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 6387 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
