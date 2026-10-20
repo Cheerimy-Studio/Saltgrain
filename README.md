@@ -14,24 +14,25 @@
 
 <!-- SALT:BEGIN -->
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=7344"><img src="assets/ledger-light.svg?v=7344" width="100%" alt="Saltgrain ledger, height 7344"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/ledger-dark.svg?v=7345"><img src="assets/ledger-light.svg?v=7345" width="100%" alt="Saltgrain ledger, height 7345"></picture>
 
 | 项目 | 数值 |
 |---|---|
-| **高度** | `7344` |
-| **链尖** | `00b73008a65e00034a203b2e73ada65c868250e1bfb746c799c833f28dca088a` |
+| **高度** | `7345` |
+| **链尖** | `73f3b2a5c6f0c09772600e7d16d3d4deaf9a4327234ca2f2e296cf4581d5553e` |
 | **难度** | `1.3`  (bits `0x1e0c67ec`) |
-| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,456,097,713,365,112` 次预期尝试 |
-| **已发行** | `367250.00000000 SALT`，分布在 `7269` 个未花费输出上 |
+| **累计工作量** | `13,167,251,119,487,426,843,568,816,863,240,066,240,727,289,815,584,456,097,714,717,464` 次预期尝试 |
+| **已发行** | `367300.00000000 SALT`，分布在 `7270` 个未花费输出上 |
 | **下一块奖励** | `50.00000000 SALT` |
-| **距离下次难度调整** | `15` 块 |
-| **距离下次减半** | `202655` 块 |
-| **交易数** | `7357` |
+| **距离下次难度调整** | `14` 块 |
+| **距离下次减半** | `202654` 块 |
+| **交易数** | `7358` |
 
 ### 最近的盐块
 
 | # | 哈希 | 采盐者 | 留言 | 交易 | 奖励 | 时间 |
 |--:|---|---|---|--:|--:|---|
+| `7345` | `73f3b2a5c6f0c0977260…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-20 21:24 UTC |
 | `7344` | `00b73008a65e00034a20…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-20 21:15 UTC |
 | `7343` | `e610a5014f887fb0ab95…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-20 21:05 UTC |
 | `7342` | `5c9406503819bbedb777…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-20 20:53 UTC |
@@ -41,13 +42,12 @@
 | `7338` | `66a1ebd495460d92ffcf…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-20 20:04 UTC |
 | `7337` | `7908e89aca0107086097…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-20 19:55 UTC |
 | `7336` | `a05fb27ed8a3f89cfba5…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-20 19:40 UTC |
-| `7335` | `190e07cc1624eacd2103…` | [@szfzmzx](https://github.com/szfzmzx) | `大佬们别挖了，快休息，让我来挖` | `1` | `50.00000000` | 2026-10-20 19:31 UTC |
 
 ### 采盐者
 
 | 采盐者 | 盐块数 | 占比 |
 |---|--:|--:|
-| [@szfzmzx](https://github.com/szfzmzx) | `3026` | `41.2%` |
+| [@szfzmzx](https://github.com/szfzmzx) | `3027` | `41.2%` |
 | [@Heartcoolman](https://github.com/Heartcoolman) | `2245` | `30.6%` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `816` | `11.1%` |
 | [@sxxso](https://github.com/sxxso) | `697` | `9.5%` |
@@ -62,7 +62,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 
 | 持有者 | 地址 | 余额 |
 |---|---|--:|
-| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `151249.99900000 SALT` |
+| [@szfzmzx](https://github.com/szfzmzx) | `salt1q0epfdhc82cnw77h68g8w8us4tmylexkq6s9fsd` | `151299.99900000 SALT` |
 | [@Heartcoolman](https://github.com/Heartcoolman) | `salt1qvhmjvm7mrczey63h7yxcpfdr3dj93w638t77p2` | `112250.07500000 SALT` |
 | [@yannicksong0106](https://github.com/yannicksong0106) | `salt1q0rvj5waf6esv8rktd9m7kw2qfncv2d0h4u8002` | `38099.87000000 SALT` |
 | [@sxxso](https://github.com/sxxso) | `salt1qf9e3eu3qeekvm7kgwyc7d8ylfk8llq7juwx5sq` | `33250.00000000 SALT` |
@@ -85,7 +85,7 @@ _运行 `python3 saltbox.py identity --handle 你的GitHub用户名` 并把它�
 | `2785` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `399.99000000` | exch acct x1 + bal x100 (batch2) |
 | `2785` | [@yannicksong0106](https://github.com/yannicksong0106) | [@Cheerimy-Studio](https://github.com/Cheerimy-Studio) | `300.12000000` | exch acct x1 + bal x100 (batch2) |
 
-<sub>以上内容由 `chain/blocks.jsonl` 在高度 7344 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
+<sub>以上内容由 `chain/blocks.jsonl` 在高度 7345 自动生成，任何人可用 <code>python3 verify.py</code> 自行核验。</sub>
 
 <!-- SALT:END -->
 
